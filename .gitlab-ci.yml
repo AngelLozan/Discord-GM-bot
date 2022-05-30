@@ -9,6 +9,9 @@ include:
     file: base.yml
   - project: infrastructure/gitlab-ci-templates
     ref: master
+    file: docker-build-multi-arch.yml
+  - project: infrastructure/gitlab-ci-templates
+    ref: master
     file: dev-branches-manual.yml
 # Master will only deploy from master and branches deploy automatically
 #  - project: infrastructure/gitlab-ci-templates
@@ -20,6 +23,6 @@ include:
 
 variables:
 #  # We don't need to create ECR every time (after the first time)
-  DISABLE_CREATE_ECR: "true"
+  DISABLE_CREATE_ECR: "false"
   K8S_NAMESPACE: developers
   HELM_V3: "true"
