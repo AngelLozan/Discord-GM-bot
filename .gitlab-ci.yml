@@ -23,6 +23,7 @@ include:
 
 variables:
 #  # We don't need to create ECR every time (after the first time)
-  DISABLE_CREATE_ECR: "true"
   K8S_NAMESPACE: developers
+  DISABLE_CREATE_ECR: "true"
   HELM_V3: "true"
+  DOCKER_BUILD_ARCH: "multi-arch"
