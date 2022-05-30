@@ -12,9 +12,6 @@ include:
     file: docker-build-multi-arch.yml
   - project: infrastructure/gitlab-ci-templates
     ref: master
-    file: prod-branches-manual.yml
-  - project: infrastructure/gitlab-ci-templates
-    ref: master
     file: prod-master-auto.yml
 
 variables:
