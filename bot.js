@@ -8,6 +8,8 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
+//initialize bot connect to servers
+
 client.login(process.env.DISCORD_TOKEN);
 
 client.on('message', msg => {
@@ -24,7 +26,6 @@ client.on('message', msg => {
   }
 });
 
-//initialize bot connect to servers
 
 //client.login(process.env.DISCORD_TOKEN);
 
