@@ -14,7 +14,10 @@ deployment:
   # Environment variables
   globalEnvs:
     - name: DISCORD_TOKEN
-      value: "OTgwNDU3MDIyOTcxNjAwOTM2.GmTM_s.QFFZoT6k_WaW5EfqKPFxbQ18LRHor1vMJIPZY0"
+      valueFrom:
+        secretKeyRef:
+          name: discord-gm-secret
+          key: DISCORD_TOKEN
 
   # livenessProbes are used to determine when to restart a container
   # Only specify the values you need to override from the defaults
@@ -46,3 +49,13 @@ deployment:
     requests:
       cpu: 50m
       memory: 200M
+
+  nodeSelector:
+    kubernetes.io/arch: arm64
+
+  tolerations:
+    # because we want it to run on arm64 nodes as well
+    - key: "kubernetes.io/arch"
+      operator: "Equal"
+      value: "arm64"
+      effect: "NoExecute"
