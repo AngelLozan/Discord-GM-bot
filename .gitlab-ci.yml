@@ -7,9 +7,9 @@ include:
   - project: infrastructure/gitlab-ci-templates
     ref: master
     file: base.yml
-  # - project: infrastructure/gitlab-ci-templates
-  #   ref: master
-  #   file: dev-branches-auto.yml
+  - project: infrastructure/gitlab-ci-templates
+    ref: master
+    file: dev-branches-manual.yml
 # Master will only deploy from master and branches deploy automatically
 #  - project: infrastructure/gitlab-ci-templates
 #    ref: master
