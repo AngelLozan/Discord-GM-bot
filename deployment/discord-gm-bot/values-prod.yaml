@@ -5,9 +5,3 @@ deployment:
       - host: discord-gm-bot.exodus-prod.io
         paths:
           - /(/+)?(.*)
-      - host: discord-gm-bot-p.a.exodus.io
-        paths:
-          - /(/+)?(.*)
-      - host: discord-gm-bot.a.exodus.io
-        paths:
-          - /(/+)?(.*)

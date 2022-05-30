@@ -47,8 +47,8 @@ deployment:
   #       Requests are "soft" limits and are what affects HPA (autoscaling) aggressiveness if HPA is enabled
   resources:
     requests:
-      cpu: 50m
-      memory: 200M
+      cpu: 5m
+      memory: 40M
 
   nodeSelector:
     kubernetes.io/arch: arm64
