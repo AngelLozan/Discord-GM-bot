@@ -23,7 +23,13 @@ client.on('message', msg => {
     msg.reply('GM 😁');
   } else if(msg.content == 'Gm') {
     msg.reply('GM 😎');
-  }
+  } else if(msg.content == 'Gm!') {
+    msg.reply('GM 😌');
+  } else if(msg.content == 'gM!') {
+    msg.reply('GM ✌🏼');
+  } else if(msg.content == 'gm!') {
+    msg.reply('GM 🦾');
+  } 
 });
 
 
