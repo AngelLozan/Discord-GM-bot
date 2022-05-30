@@ -1,0 +1,25 @@
+# Include our gitlabci templates that provide all kinds of helpers
+
+include:
+  - project: infrastructure/gitlab-ci-templates
+    ref: master
+    file: templates.yml
+  - project: infrastructure/gitlab-ci-templates
+    ref: master
+    file: base.yml
+  # - project: infrastructure/gitlab-ci-templates
+  #   ref: master
+  #   file: dev-branches-auto.yml
+# Master will only deploy from master and branches deploy automatically
+#  - project: infrastructure/gitlab-ci-templates
+#    ref: master
+#    file: dev-master-auto.yml
+  - project: infrastructure/gitlab-ci-templates
+    ref: master
+    file: prod-master-auto.yml
+
+variables:
+#  # We don't need to create ECR every time (after the first time)
+  DISABLE_CREATE_ECR: "true"
+  K8S_NAMESPACE: developers
+  HELM_V3: "true"

@@ -1,0 +1,48 @@
+# Default values for deployment, this is necessary because we're using a unified helm subchart
+deployment:
+  replicas: 1
+
+  image:
+    repository: 534042329084.dkr.ecr.us-east-1.amazonaws.com/developers/discord-gm-bot
+
+  # This is the name of the deployment, this is used in a _lot_ of places in the helm charts so lets just specify it
+  name: discord-gm-bot
+
+  deploymentStrategy:
+    type: Recreate
+
+  # Environment variables
+  globalEnvs:
+    - name: DISCORD_TOKEN
+      value: "OTgwNDU3MDIyOTcxNjAwOTM2.GmTM_s.QFFZoT6k_WaW5EfqKPFxbQ18LRHor1vMJIPZY0"
+
+  # livenessProbes are used to determine when to restart a container
+  # Only specify the values you need to override from the defaults
+  livenessProbe:
+    enabled: false
+
+  # readinessProbes are used to determine when a container is ready to start accepting traffic
+  # Only specify the values you need to override from the defaults
+  readinessProbe:
+    enabled: false
+
+  service:
+    targetPort: 3000
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: "developers"
+    # hosts:
+    #   - host: discord-gm-bot.exodus-local.io
+    #     paths:
+    #       - /
+
+  # deployment container resource requests/limits
+  # this is set VERY low by default, to be aggressive above resource limiting, please override this if necessary
+  # Note: Limits are HARD Limits
+  #       Requests are "soft" limits and are what affects HPA (autoscaling) aggressiveness if HPA is enabled
+  resources:
+    requests:
+      cpu: 50m
+      memory: 200M
