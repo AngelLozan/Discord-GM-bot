@@ -55,9 +55,7 @@ client.on('message', msg => {
     msg.reply('GN 🫶🏻');
   } else if(msg.content.toLowerCase() == 'gn') {
     msg.reply('GN 🥱');
-  } 
-
-  if(message.author.bot) {
+  } else if (message.author.bot) {
     return;
   }
 });
