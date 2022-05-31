@@ -23,11 +23,13 @@ client.on('message', msg => {
     msg.reply('GM 👾');
   } else if(msg.content.toLowerCase() == 'good morning !') {
     msg.reply('GM 👆🏼');
+  } else if(msg.content.toLowerCase() == 'good morning!') {
+     msg.reply('GM 🤗');
   } else if(msg.content == 'gn !') {
     msg.reply('GM ✌🏼');
   } else if(msg.content == 'gn!') {
-    msg.reply('GM 🦾');
-  }else if(msg.content.toLowerCase() == 'gn') {
+    msg.reply('GM 😴');
+  } else if(msg.content.toLowerCase() == 'gn') {
     msg.reply('GN 🥱');
   } 
 
@@ -45,9 +47,7 @@ client.on('message', msg => {
   //   msg.reply('GM 🖖🏽');
   // } else if(msg.content == 'Good morning!') {
   //   msg.reply('GM 💯');
-  // } else if(msg.content == 'Good Morning!') {
-  //   msg.reply('GM 🤗');
-  // } else if(msg.content == 'good morning!') {
+  // }  else if(msg.content == 'good morning!') {
   //   msg.reply('GM 🫵🏻');
   // } 
 
