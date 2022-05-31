@@ -13,41 +13,43 @@ client.on('ready', () => {
 client.login(process.env.DISCORD_TOKEN);
 
 client.on('message', msg => {
-  if (msg.content == 'gm') {
+  if (msg.content.toLowerCase() == 'gm') {
     msg.reply('gm ☀️');
-  } else if(msg.content == 'GM') {
+  } else if(msg.content.toLowerCase() == 'gm !' || 'gm!') {
     msg.reply('GM 👋🏼');
-  } else if(msg.content == 'GM!') {
-    msg.reply('GM! 🫡');
-  } else if(msg.content == 'gM') {
-    msg.reply('GM 😁');
-  } else if(msg.content == 'Gm') {
-    msg.reply('GM 😎');
-  } else if(msg.content == 'Gm!') {
-    msg.reply('GM 😌');
-  } else if(msg.content == 'gM!') {
-    msg.reply('GM ✌🏼');
-  } else if(msg.content == 'gm!') {
-    msg.reply('GM 🦾');
-  } else if(msg.content == 'good morning') {
-    msg.reply('GM 🤩');
-  } else if(msg.content == 'Good Morning') {
-    msg.reply('GM 💙');
-  } else if(msg.content == 'good morning!') {
-    msg.reply('GM 🖖🏽');
-  } else if(msg.content == 'Good morning!') {
-    msg.reply('GM 💯');
-  } else if(msg.content == 'Good Morning!') {
-    msg.reply('GM 🤗');
-  } else if(msg.content == 'good Morning!') {
-    msg.reply('GM 👆🏼');
-  } else if(msg.content == 'good Morning') {
-    msg.reply('GM 🫵🏻');
-  } else if(msg.content == 'Good morning') {
+  } else if(msg.content.toLowerCase() == 'good morning' || 'good morning!') {
     msg.reply('GM 👾');
   } else if(msg.content.toLowerCase() == 'gn') {
     msg.reply('GN 🥱');
   } 
+  
+  // else if(msg.content == 'GM!') {
+  //   msg.reply('GM! 🫡');
+  // } else if(msg.content == 'gM') {
+  //   msg.reply('GM 😁');
+  // } else if(msg.content == 'Gm') {
+  //   msg.reply('GM 😎');
+  // } else if(msg.content == 'Gm!') {
+  //   msg.reply('GM 😌');
+  // } else if(msg.content == 'gM!') {
+  //   msg.reply('GM ✌🏼');
+  // } else if(msg.content == 'gm!') {
+  //   msg.reply('GM 🦾');
+  // } else if(msg.content == 'good morning') {
+  //   msg.reply('GM 🤩');
+  // } else if(msg.content == 'Good Morning') {
+  //   msg.reply('GM 💙');
+  // } else if(msg.content == 'good morning!') {
+  //   msg.reply('GM 🖖🏽');
+  // } else if(msg.content == 'Good morning!') {
+  //   msg.reply('GM 💯');
+  // } else if(msg.content == 'Good Morning!') {
+  //   msg.reply('GM 🤗');
+  // } else if(msg.content == 'good Morning!') {
+  //   msg.reply('GM 👆🏼');
+  // } else if(msg.content == 'good Morning') {
+  //   msg.reply('GM 🫵🏻');
+  // } 
 
   // else if(msg.content == 'GN') {
   //   msg.reply('GN 😪');
