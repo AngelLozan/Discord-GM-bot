@@ -15,7 +15,7 @@ client.login(process.env.DISCORD_TOKEN);
 client.on('message', msg => {
   if (msg.content.toLowerCase() == 'gm') {
     msg.reply('gm ☀️');
-  } else if(msg.content.toLowerCase() == 'gm !' || 'gm!') {
+  } else if(msg.content.toLowerCase() == 'gm'+''+ '!' || 'gm!') {
     msg.reply('GM 👋🏼');
   } else if(msg.content.toLowerCase() == 'good morning' || 'good morning!') {
     msg.reply('GM 👾');
