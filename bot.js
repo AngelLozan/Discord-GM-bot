@@ -45,7 +45,7 @@ client.on('message', msg => {
     msg.reply('GM 🫵🏻');
   } else if(msg.content == 'Good morning') {
     msg.reply('GM 👾');
-  } else if(msg.content == 'GN') {
+  } else if(msg.content == 'GN' || 'GN ') {
     msg.reply('GN 😪');
   } else if(msg.content == 'GM !') {
     msg.reply('GM 🤙🏽');
@@ -53,8 +53,12 @@ client.on('message', msg => {
     msg.reply('GN 😴');
   } else if(msg.content == 'Gn') {
     msg.reply('GN 🫶🏻');
-  } else if(msg.content == 'gN') {
+  } else if(msg.content.toLowerCase() == 'gn') {
     msg.reply('GN 🥱');
+  } 
+
+  if(message.author.bot) {
+    return;
   }
 });
 
