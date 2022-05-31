@@ -25,9 +25,9 @@ client.on('message', msg => {
     msg.reply('GM 👆🏼');
   } else if(msg.content.toLowerCase() == 'good morning!') {
      msg.reply('GM 🤗');
-  } else if(msg.content == 'gn !') {
+  } else if(msg.content.toLowerCase() == 'gn !') {
     msg.reply('GM ✌🏼');
-  } else if(msg.content == 'gn!') {
+  } else if(msg.content.toLowerCase() == 'gn!') {
     msg.reply('GM 😴');
   } else if(msg.content.toLowerCase() == 'gn') {
     msg.reply('GN 🥱');
