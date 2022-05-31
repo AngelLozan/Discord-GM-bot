@@ -55,9 +55,9 @@ client.on('message', msg => {
      msg.reply('GM' + getRandomEmojiGM());
   } else if(msg.content.toLowerCase() == 'mornin!') {
      msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'mornin\x27') {
+  } else if(msg.content.toLowerCase() == 'mornin') {
      msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'mornin\x27 !') {
+  } else if(msg.content.toLowerCase() == 'mornin !') {
      msg.reply('GM' + getRandomEmojiGM());
   } else if(msg.content.toLowerCase() == 'gn !') {
     msg.reply('GN' + getRandomEmojiGN());
