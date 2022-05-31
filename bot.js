@@ -37,6 +37,14 @@ client.on('message', msg => {
     msg.reply('GM 🖖🏽');
   } else if(msg.content == 'Good morning!') {
     msg.reply('GM 💯');
+  } else if(msg.content == 'Good Morning!') {
+    msg.reply('GM 💯');
+  } else if(msg.content == 'good Morning!') {
+    msg.reply('GM 💯');
+  } else if(msg.content == 'good Morning') {
+    msg.reply('GM 💯');
+  } else if(msg.content == 'Good morning') {
+    msg.reply('GM 💯');
   } 
 });
 
