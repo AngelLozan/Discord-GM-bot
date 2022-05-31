@@ -45,17 +45,19 @@ client.on('message', msg => {
     msg.reply('GM 🫵🏻');
   } else if(msg.content == 'Good morning') {
     msg.reply('GM 👾');
-  } else if(msg.content == 'GN') {
-    msg.reply('GN 😪');
-  } else if(msg.content == 'GM !') {
-    msg.reply('GM 🤙🏽');
-  } else if(msg.content == 'gn') {
-    msg.reply('GN 😴');
-  } else if(msg.content == 'Gn') {
-    msg.reply('GN 🫶🏻');
   } else if(msg.content.toLowerCase() == 'gn') {
     msg.reply('GN 🥱');
   } 
+
+  // else if(msg.content == 'GN') {
+  //   msg.reply('GN 😪');
+  // } else if(msg.content == 'GM !') {
+  //   msg.reply('GM 🤙🏽');
+  // } else if(msg.content == 'gn') {
+  //   msg.reply('GN 😴');
+  // } else if(msg.content == 'Gn') {
+  //   msg.reply('GN 🫶🏻');
+  // } 
 });
 
 
