@@ -38,13 +38,13 @@ client.on('message', msg => {
   } else if(msg.content == 'Good morning!') {
     msg.reply('GM 💯');
   } else if(msg.content == 'Good Morning!') {
-    msg.reply('GM 💯');
+    msg.reply('GM 🤗');
   } else if(msg.content == 'good Morning!') {
-    msg.reply('GM 💯');
+    msg.reply('GM 👆🏼');
   } else if(msg.content == 'good Morning') {
-    msg.reply('GM 💯');
+    msg.reply('GM 🫵🏻');
   } else if(msg.content == 'Good morning') {
-    msg.reply('GM 💯');
+    msg.reply('GM 👾');
   } 
 });
 
