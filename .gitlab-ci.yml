@@ -1,0 +1,22 @@
+# Include our gitlabci templates that provide all kinds of helpers
+
+include:
+  - project: infrastructure/gitlab-ci-templates
+    ref: master
+    file: templates.yml
+  - project: infrastructure/gitlab-ci-templates
+    ref: master
+    file: base.yml
+  - project: infrastructure/gitlab-ci-templates
+    ref: master
+    file: docker-build-multi-arch.yml
+  - project: infrastructure/gitlab-ci-templates
+    ref: master
+    file: prod-master-auto.yml
+
+variables:
+#  # We don't need to create ECR every time (after the first time)
+  K8S_NAMESPACE: developers
+  DISABLE_CREATE_ECR: "true"
+  HELM_V3: "true"
+  DOCKER_BUILD_ARCH: "multi-arch"

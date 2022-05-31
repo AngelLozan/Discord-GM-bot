@@ -1,0 +1,7 @@
+deployment:
+  replicaCount: 1
+  ingress:
+    hosts:
+      - host: discord-gm-bot.exodus-prod.io
+        paths:
+          - /(/+)?(.*)
