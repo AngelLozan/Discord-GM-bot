@@ -39,7 +39,7 @@ client.on('message', msg => {
     msg.reply('gm' + getRandomEmojiGM());
   } else if(msg.content.toLowerCase() == 'gm!') {
     msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase == 'gm !') {
+  } else if(msg.content.toLowerCase() == 'gm !') {
     msg.reply('GM!' + getRandomEmojiGM());
   } else if(msg.content.toLowerCase() == 'good morning') {
     msg.reply('GM' + getRandomEmojiGM());
