@@ -51,6 +51,10 @@ client.on('message', msg => {
     msg.reply('GM 🤙🏽');
   } else if(msg.content == 'gn') {
     msg.reply('GN 😴');
+  } else if(msg.content == 'Gn') {
+    msg.reply('GN 🫶🏻');
+  } else if(msg.content == 'gN') {
+    msg.reply('GN 🥱');
   }
 });
 
