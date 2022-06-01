@@ -1,5 +1,5 @@
 
-#GM BOT
+# GM BOT
 
 A bot that you can use for Discord to say "GM"!
 
