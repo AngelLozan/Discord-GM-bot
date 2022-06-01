@@ -37,13 +37,12 @@ const getRandomEmojiGN = () => {
 client.on('message', msg => {
 
 
-   // let morningRegex = /good morning|gm|mornin|morning/i;
-   // let message = morningRegex.test(msg.content);
-
    if (msg.author.bot){ 
       return; 
    } else if(/good morning|gm|mornin|morning/i.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
+   } else if(/good night|gn|nite|night/i.test(msg.content)){
+      msg.reply('GN' + getRandomEmojiGN());
    }
 
    // if (message.author.bot) {
