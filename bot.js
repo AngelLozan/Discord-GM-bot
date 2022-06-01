@@ -40,9 +40,9 @@ client.on('message', msg => {
    // let morningRegex = /good morning|gm|mornin|morning/i;
    // let message = morningRegex.test(msg.content);
 
-   if(message.author.id === client.user.id) return;
-
-   if(/good morning|gm|mornin|morning/i.test(msg.content)){
+   if (msg.author.bot){ 
+      return; 
+   } else if(/good morning|gm|mornin|morning/i.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
    }
 
