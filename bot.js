@@ -45,9 +45,7 @@ client.on('message', msg => {
       msg.reply('GN' + getRandomEmojiGN());
    }
 
-   // if (message.author.bot) {
-   //    return;
-   // }
+ //keeping the below as an easy limiter for bot activity. Limits scope of replies. 
 
   // if (msg.content.toLowerCase() == 'gm') {
   //   msg.reply('gm' + getRandomEmojiGM());
