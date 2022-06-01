@@ -41,10 +41,12 @@ client.on('message', msg => {
       return; 
    } else if(/good morning|gm|mornin|morning/i.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
-   } else if(/good night|gn|nite|night/i.test(msg.content)){
+   } else if(/good night|nite|night/i.test(msg.content)){
+      msg.reply('GN' + getRandomEmojiGN());
+   } else if(/gn/i.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
    }
-
+   
  //keeping the below as an easy limiter for bot activity. Limits scope of replies. 
 
   // if (msg.content.toLowerCase() == 'gm') {
