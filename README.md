@@ -12,12 +12,6 @@ A bot that serves up pure Alpha in your Discord. We only have Good Mornings here
 
 `Some notes`
 
-- Hosted in Heroku. For steps on how to host in Heroku, see this guide: https://devcenter.heroku.com/articles/getting-started-with-nodejs
-
-- On the "Resources" tab in Heroku, make sure the worker dyno toggle is on for the worker defined in the Procfile. 
-
-- See Procfile for details as to what to set your worker dyno to.
-
 - Current .env is for personal test server. You can create your own. You will need a .env file to hold the DISCORD_TOKEN= `your token`
 
 - Dependency discord.js is lower version to ensure full functionality of bot.js file. Threw errors related to intents on higher versions. Intents listed on Developer API portal. 
