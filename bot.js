@@ -37,62 +37,64 @@ const getRandomEmojiGN = () => {
 client.on('message', msg => {
 
 
-   // let morningRegex = /good morning|gm|mornin|morning/i;
-   // let message = morningRegex.test(msg.content);
+   let morningRegex = /good morning|gm|mornin|morning/i;
+   let message = morningRegex.test(msg.content);
 
-   // if(message === true){
-   //    msg.reply('GM' + getRandomEmojiGM());
-   // }
+   if(message === true){
+      msg.reply('GM' + getRandomEmojiGM());
+   }
 
-  if (msg.content.toLowerCase() == 'gm') {
-    msg.reply('gm' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'gm!') {
-    msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'gm !') {
-    msg.reply('GM!' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'good morning') {
-    msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'good morning !') {
-    msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'good morning!') {
-     msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'morning!') {
-     msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'morning !') {
-     msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'morning') {
-     msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'mornin!') {
-     msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'mornin') {
-     msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'mornin !') {
-     msg.reply('GM' + getRandomEmojiGM());
-  } else if(msg.content.toLowerCase() == 'gn !') {
-    msg.reply('GN' + getRandomEmojiGN());
-  } else if(msg.content.toLowerCase() == 'gn!') {
-    msg.reply('GN' + getRandomEmojiGN());
-  } else if(msg.content.toLowerCase() == 'gn') {
-    msg.reply('GN' + getRandomEmojiGN());
-  } else if(msg.content.toLowerCase() == 'good night') {
-    msg.reply('GN' + getRandomEmojiGN());
-  } else if(msg.content.toLowerCase() == 'good night !') {
-    msg.reply('GN' + getRandomEmojiGN());
-  } else if(msg.content.toLowerCase() == 'good night!') {
-     msg.reply('GN' + getRandomEmojiGN());
-  } else if(msg.content.toLowerCase() == 'good nite!') {
-     msg.reply('GN' + getRandomEmojiGN());
-  } else if(msg.content.toLowerCase() == 'good nite !') {
-     msg.reply('GN' + getRandomEmojiGN());
-  } else if(msg.content.toLowerCase() == 'good nite') {
-     msg.reply('GN' + getRandomEmojiGN());
-  } else if(msg.content.toLowerCase() == 'nite!') {
-     msg.reply('GN' + getRandomEmojiGN());
-  } else if(msg.content.toLowerCase() == 'nite !') {
-     msg.reply('GN' + getRandomEmojiGN()); 
-  } else if(msg.content.toLowerCase() == 'nite') {
-     msg.reply('GN' + getRandomEmojiGN());
-  } 
+   if (message.author.bot) return;
+
+  // if (msg.content.toLowerCase() == 'gm') {
+  //   msg.reply('gm' + getRandomEmojiGM());
+  // } else if(msg.content.toLowerCase() == 'gm!') {
+  //   msg.reply('GM' + getRandomEmojiGM());
+  // } else if(msg.content.toLowerCase() == 'gm !') {
+  //   msg.reply('GM!' + getRandomEmojiGM());
+  // } else if(msg.content.toLowerCase() == 'good morning') {
+  //   msg.reply('GM' + getRandomEmojiGM());
+  // } else if(msg.content.toLowerCase() == 'good morning !') {
+  //   msg.reply('GM' + getRandomEmojiGM());
+  // } else if(msg.content.toLowerCase() == 'good morning!') {
+  //    msg.reply('GM' + getRandomEmojiGM());
+  // } else if(msg.content.toLowerCase() == 'morning!') {
+  //    msg.reply('GM' + getRandomEmojiGM());
+  // } else if(msg.content.toLowerCase() == 'morning !') {
+  //    msg.reply('GM' + getRandomEmojiGM());
+  // } else if(msg.content.toLowerCase() == 'morning') {
+  //    msg.reply('GM' + getRandomEmojiGM());
+  // } else if(msg.content.toLowerCase() == 'mornin!') {
+  //    msg.reply('GM' + getRandomEmojiGM());
+  // } else if(msg.content.toLowerCase() == 'mornin') {
+  //    msg.reply('GM' + getRandomEmojiGM());
+  // } else if(msg.content.toLowerCase() == 'mornin !') {
+  //    msg.reply('GM' + getRandomEmojiGM());
+  // } else if(msg.content.toLowerCase() == 'gn !') {
+  //   msg.reply('GN' + getRandomEmojiGN());
+  // } else if(msg.content.toLowerCase() == 'gn!') {
+  //   msg.reply('GN' + getRandomEmojiGN());
+  // } else if(msg.content.toLowerCase() == 'gn') {
+  //   msg.reply('GN' + getRandomEmojiGN());
+  // } else if(msg.content.toLowerCase() == 'good night') {
+  //   msg.reply('GN' + getRandomEmojiGN());
+  // } else if(msg.content.toLowerCase() == 'good night !') {
+  //   msg.reply('GN' + getRandomEmojiGN());
+  // } else if(msg.content.toLowerCase() == 'good night!') {
+  //    msg.reply('GN' + getRandomEmojiGN());
+  // } else if(msg.content.toLowerCase() == 'good nite!') {
+  //    msg.reply('GN' + getRandomEmojiGN());
+  // } else if(msg.content.toLowerCase() == 'good nite !') {
+  //    msg.reply('GN' + getRandomEmojiGN());
+  // } else if(msg.content.toLowerCase() == 'good nite') {
+  //    msg.reply('GN' + getRandomEmojiGN());
+  // } else if(msg.content.toLowerCase() == 'nite!') {
+  //    msg.reply('GN' + getRandomEmojiGN());
+  // } else if(msg.content.toLowerCase() == 'nite !') {
+  //    msg.reply('GN' + getRandomEmojiGN()); 
+  // } else if(msg.content.toLowerCase() == 'nite') {
+  //    msg.reply('GN' + getRandomEmojiGN());
+  // } 
 
 
 });
