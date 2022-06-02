@@ -25,7 +25,7 @@ client.on('ready', () => {
 
 client.login(process.env.DISCORD_TOKEN);
 
-
+let testGM = ':ExoWink:847519028688060436';
 //Random emoji functions! Cater the emoji list to your liking. Morning emojis on top list "getRandomEmojiGM"
 
 const getRandomEmojiGM = () => {
@@ -58,7 +58,7 @@ client.on('message', msg => {
    if (msg.author.bot){ 
       return; 
    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|mornin|morning/yi.test(msg.content)){
-      msg.reply('GM' + getRandomEmojiGM());
+      msg.reply('GM' + testGM);
    } else if(/\bgm\b/gi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
    } else if(/good afternoon|afternoon/yi.test(msg.content)){
