@@ -67,11 +67,19 @@ client.on('message', msg => {
       msg.channel.stopTyping(); 
    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|mornin|morning/yi.test(msg.content)){
       msg.channel.startTyping();
-      msg.reply('GM' + getRandomEmojiGM());
+      setTimeout(()=>{
+         msg.reply('GM' + getRandomEmojiGM()).then((msg)=>{
+            channel.stopTyping();
+         });
+      }, 5000);
       msg.channel.stopTyping(); 
    } else if(/\bgm\b/gi.test(msg.content)){
       msg.channel.startTyping();
-      msg.reply('GM' + getRandomEmojiGM());
+      setTimeout(()=>{
+         msg.reply('GM' + getRandomEmojiGM()).then((msg)=>{
+            channel.stopTyping();
+         });
+      }, 5000);
       msg.channel.stopTyping(); 
    } else if(/\bmorning\b/gi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
