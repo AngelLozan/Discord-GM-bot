@@ -47,7 +47,7 @@ client.on('message', msg => {
 
    if (msg.author.bot){ 
       return; 
-   } else if(/good morning|^gm$|^gm.*[^A-Za-z0-9_@]$|mornin|morning/yi.test(msg.content)){
+   } else if(/good mornin?g|^gm$|^gm.*[^A-Za-z0-9_@]$|mornin|morning/yi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
    } else if(/good night|nite|^gn$|^gn.*[^A-Za-z0-9_@]$|night/yi.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
