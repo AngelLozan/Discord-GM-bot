@@ -67,22 +67,31 @@ client.on('message', msg => {
       msg.channel.stopTyping(); 
    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|mornin|morning/yi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
+      msg.channel.stopTyping(); 
    } else if(/\bgm\b/gi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
+      msg.channel.stopTyping(); 
    } else if(/\bmorning\b/gi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
+      msg.channel.stopTyping(); 
    } else if(/\bmornin\b/gi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
+      msg.channel.stopTyping(); 
    } else if(/good afternoon|afternoon/yi.test(msg.content)){
       msg.reply('good afternoon' + getRandomEmojiGM());
+      msg.channel.stopTyping(); 
    } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9@].*$|night/yi.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
+      msg.channel.stopTyping(); 
    } else if(/\bgn\b/gi.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
+      msg.channel.stopTyping(); 
    } else if(/\bnight\b/gi.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
+      msg.channel.stopTyping(); 
    } else if(/\bnite\b/gi.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
+      msg.channel.stopTyping(); 
    }
    
 //stops the bot from always typing
