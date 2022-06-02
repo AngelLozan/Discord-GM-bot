@@ -49,16 +49,22 @@ const getRandomEmojiGN = () => {
 
 client.on('message', msg => {
    
-   let channel = client.channels.cache.get('CHANNEL ID');
+//needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
+
+  let channel = client.channels.cache.get('CHANNEL ID');
+
+//start typing using msg from parameter, channel id and method. 
+
+   msg.channel.startTyping();
 
 // Ensure the message issuer is not a bot. ie. The bot does not reply to itself.
 
 // Use a regex and .test method to find keywords in the message from users. Exclude leters and numbers behind gm/gn as stand alone phrases. Symbols except @ OK (may be an email). i = ignore case
 // Don't forget the "y" sticky flag on regex or different words trigger gn or gm.
-   msg.channel.startTyping();
 
    if (msg.author.bot){ 
-      return; 
+      return;
+      msg.channel.stopTyping(); 
    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|mornin|morning/yi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
    } else if(/\bgm\b/gi.test(msg.content)){
@@ -79,6 +85,8 @@ client.on('message', msg => {
       msg.reply('GN' + getRandomEmojiGN());
    }
    
+//stops the bot from always typing
+
    msg.channel.stopTyping();
 
 });
