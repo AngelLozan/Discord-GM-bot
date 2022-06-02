@@ -45,6 +45,7 @@ client.on('message', msg => {
 // Use a regex and .test method to find keywords in the message from users. Exclude leters and numbers behind gm/gn as stand alone phrases. Symbols except @ OK (may be an email). i = ignore case
 // Don't forget the "y" sticky flag on regex or different words trigger gn or gm.
 
+
    if (msg.author.bot){ 
       return; 
    } else if(/good mornin?g|^gm$|^gm.*[^A-Za-z0-9_@]$|mornin|morning/yi.test(msg.content)){
@@ -52,14 +53,6 @@ client.on('message', msg => {
    } else if(/good night|nite|^gn$|^gn.*[^A-Za-z0-9_@]$|night/yi.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
    } 
-
-   // else if(msg.content.toLowerCase() === 'gm'){
-   //    msg.reply('GM' + getRandomEmojiGM());
-   // }
-
-   // else if(msg.content.toLowerCase() === 'gn'){
-   //    msg.reply('GM' + getRandomEmojiGN());
-   // }
 
 
 });
