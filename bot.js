@@ -50,7 +50,7 @@ client.on('message', msg => {
       return; 
    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9_@].*$|mornin|morning/yi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
-   } else if(/good night|nite|g\'nite|^gn$|^gn[^A-Za-z0-9_@].*$|night/yi.test(msg.content)){
+   } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9_@].*$|night/yi.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
    } 
 
@@ -58,5 +58,5 @@ client.on('message', msg => {
 });
 
 
-//client.login(process.env.DISCORD_TOKEN);
+
 
