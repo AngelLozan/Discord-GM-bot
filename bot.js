@@ -57,15 +57,17 @@ client.on('message', msg => {
 
    if (msg.author.bot){ 
       return; 
-   } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9_@].*$|mornin|morning/yi.test(msg.content)){
+   } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|mornin|morning/yi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
-   } else if(/\bgm\b/gi.test(msg.content)){
+   } else if(/\bgm\b/yi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
    } else if(/good afternoon|afternoon/yi.test(msg.content)){
       msg.reply('good afternoon' + getRandomEmojiGM());
-   } else if(/good night|nite|^gn$|\bgn\b|^gn[^A-Za-z0-9_@].*$|night/yi.test(msg.content)){
+   } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9@].*$|night/yi.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
-   } 
+   } else if(/\bgn\b/yi.test(msg.content)){
+      msg.reply('GN' + getRandomEmojiGN());
+   }
 
 
 });
