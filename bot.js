@@ -47,7 +47,7 @@ const getRandomEmojiGN = () => {
 //Once connected, listen for messages
 
 client.on('message', msg => {
-
+   client.channels.cache.get('CHANNEL ID');
 // Ensure the message issuer is not a bot. ie. The bot does not reply to itself.
 
 // Use a regex and .test method to find keywords in the message from users. Exclude leters and numbers behind gm/gn as stand alone phrases. Symbols except @ OK (may be an email). i = ignore case
