@@ -38,10 +38,10 @@ const getRandomEmojiGN = () => {
 
 // Set bot status
 
-client.user.setActivity({'Spreading good vibes', {
+client.user.setActivity('Spreading good vibes', {
    type: 'STREAMING',
    url: 'https://www.exodus.com/'
- }
+ 
 }) 
 
 //Once connected, listen for messages
