@@ -10,6 +10,14 @@ const client = new Discord.Client();
 // Connect to server
 
 client.on('ready', () => {
+   client.user.setPresence({
+    status: 'online',
+    activity: {
+        name: 'with depression',
+        type: 'STREAMING',
+        url: 'https://www.twitch.tv/monstercat'
+    }
+})
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
@@ -38,11 +46,14 @@ const getRandomEmojiGN = () => {
 
 // Set bot status
 
-client.user.setActivity('Spreading good vibes', {
-   type: 'STREAMING',
-   url: 'https://www.exodus.com/'
+// client.user.setPresence({'Spreading good vibes', {
+//    type: 'STREAMING',
+//    url: 'https://www.exodus.com/'
  
-}) 
+// }) 
+
+
+
 
 //Once connected, listen for messages
 
