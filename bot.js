@@ -60,11 +60,17 @@ client.on('message', msg => {
       msg.reply('GM' + getRandomEmojiGM());
    } else if(/\bgm\b/gi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
+   } else if(/\bmorning\b/gi.test(msg.content)){
+      msg.reply('GM' + getRandomEmojiGM());
    } else if(/good afternoon|afternoon/yi.test(msg.content)){
       msg.reply('good afternoon' + getRandomEmojiGM());
    } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9@].*$|night/yi.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
    } else if(/\bgn\b/gi.test(msg.content)){
+      msg.reply('GN' + getRandomEmojiGN());
+   } else if(/\bnigt\b/gi.test(msg.content)){
+      msg.reply('GN' + getRandomEmojiGN());
+   } else if(/\bnite\b/gi.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
    }
 
