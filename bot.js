@@ -55,7 +55,7 @@ client.on('message', msg => {
 
 //start typing using msg from parameter, channel id and method. 
 
-   msg.channel.startTyping();
+   //msg.channel.startTyping();
 
 // Ensure the message issuer is not a bot. ie. The bot does not reply to itself.
 
@@ -66,9 +66,11 @@ client.on('message', msg => {
       return;
       msg.channel.stopTyping(); 
    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|mornin|morning/yi.test(msg.content)){
+      msg.channel.startTyping();
       msg.reply('GM' + getRandomEmojiGM());
       msg.channel.stopTyping(); 
    } else if(/\bgm\b/gi.test(msg.content)){
+      msg.channel.startTyping();
       msg.reply('GM' + getRandomEmojiGM());
       msg.channel.stopTyping(); 
    } else if(/\bmorning\b/gi.test(msg.content)){
@@ -96,7 +98,7 @@ client.on('message', msg => {
    
 //stops the bot from always typing
 
-   msg.channel.stopTyping();
+   //msg.channel.stopTyping();
 
 });
 
