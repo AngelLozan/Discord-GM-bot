@@ -37,7 +37,7 @@ const getRandomEmojiGN = () => {
 };
 
 //Once connected, listen for messages
-bot.user.setPresence({
+client.user.setPresence({
    status: 'online',
    activity: {
       name: 'Spreading good vibes',
