@@ -69,34 +69,55 @@ client.on('message', msg => {
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.reply('GM' + getRandomEmojiGM());
-      }, 2000);
+      }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bgm\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.reply('GM' + getRandomEmojiGM());
-      }, 2000);
+      }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bmorning\b/gi.test(msg.content)){
-      msg.reply('GM' + getRandomEmojiGM());
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.reply('GM' + getRandomEmojiGM());
+      }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bmornin\b/gi.test(msg.content)){
-      msg.reply('GM' + getRandomEmojiGM());
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.reply('GM' + getRandomEmojiGM());
+      }, 1000);
       msg.channel.stopTyping(); 
    } else if(/good afternoon|afternoon/yi.test(msg.content)){
-      msg.reply('good afternoon' + getRandomEmojiGM());
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.reply('Good Afternoon' + getRandomEmojiGM());
+      }, 1000);
       msg.channel.stopTyping(); 
    } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9@].*$|night/yi.test(msg.content)){
-      msg.reply('GN' + getRandomEmojiGN());
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.reply('GN' + getRandomEmojiGN());
+      }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bgn\b/gi.test(msg.content)){
-      msg.reply('GN' + getRandomEmojiGN());
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.reply('GN' + getRandomEmojiGN());
+      }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bnight\b/gi.test(msg.content)){
-      msg.reply('GN' + getRandomEmojiGN());
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.reply('GN' + getRandomEmojiGN());
+      }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bnite\b/gi.test(msg.content)){
-      msg.reply('GN' + getRandomEmojiGN());
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.reply('GN' + getRandomEmojiGN());
+      }, 1000);
       msg.channel.stopTyping(); 
    }
    
