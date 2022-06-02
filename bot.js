@@ -37,7 +37,7 @@ const getRandomEmojiGN = () => {
 };
 
 //Once connected, listen for messages
-client.user.setStatus('dnd', 'Made by KwinkyWolf') 
+client.bot.setStatus('dnd', 'Made by KwinkyWolf') 
 
 client.on('message', msg => {
 
