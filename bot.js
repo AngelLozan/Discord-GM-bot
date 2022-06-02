@@ -37,7 +37,14 @@ const getRandomEmojiGN = () => {
 };
 
 //Once connected, listen for messages
-client.bot.setStatus('dnd', 'Made by KwinkyWolf') 
+bot.user.setStatus('available')
+bot.user.setPresence({
+   game: {
+      name: 'Good vibes',
+      type: "STREAMING",
+      url: "https://www.exodus.com/"
+   }
+}) 
 
 client.on('message', msg => {
 
