@@ -15,7 +15,7 @@ client.on('ready', () => {
     activity: {
         name: 'with good vibes',
         type: 'WATCHING',
-        url: 'https://www.exodus.com/'
+        url: ''
     }
 })
     console.log(`Logged in as ${client.user.tag}!`);
@@ -25,7 +25,7 @@ client.on('ready', () => {
 
 client.login(process.env.DISCORD_TOKEN);
 
-let testGM = ':ExoWink:847519028688060436';
+let testGM = '<:ExoWink:847519028688060436>';
 //Random emoji functions! Cater the emoji list to your liking. Morning emojis on top list "getRandomEmojiGM"
 
 const getRandomEmojiGM = () => {
