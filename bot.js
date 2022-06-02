@@ -18,6 +18,8 @@ client.on('ready', () => {
 client.login(process.env.DISCORD_TOKEN);
 
 
+//Random emoji functions! Cater the emoji list to your liking. Morning emojis on top list "getRandomEmojiGM"
+
 const getRandomEmojiGM = () => {
     
     const emojis = ['😀','😃','😄','😁','✌🏼','💯','🦾','🫡','💙','😎','🚀','😉','☀️','😊','😇','🤙','🖖','👆','👋','👾','🌤','🌈','🌞','⛅️','✨','💫','🌅','🌇','🌄','💎']
@@ -34,14 +36,19 @@ const getRandomEmojiGN = () => {
 
 };
 
+//Once connected, listen for messages
+
 client.on('message', msg => {
 
+//ensure the message issuer is not a bot. ie. The bot does not reply to itself.
+
+//Use a regex and .test method to find keywords in the message from users. Exclude leters and numbers behind gm/gn as stand alone phrases. Symbols except @ OK (may be an email). i = ignore case
 
    if (msg.author.bot){ 
       return; 
-   } else if(/good morning|^gm$|^gm[^A-Za-z0-9@]|mornin|morning/i.test(msg.content)){
+   } else if(/good morning|^gm$|^gm[^A-Za-z0-9@]$|mornin|morning/i.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
-   } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9@]|night/i.test(msg.content)){
+   } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9@]$|night/i.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
    }
 
