@@ -37,12 +37,12 @@ const getRandomEmojiGN = () => {
 };
 
 //Once connected, listen for messages
-bot.user.setStatus('available')
 bot.user.setPresence({
-   game: {
-      name: 'Good vibes',
-      type: "STREAMING",
-      url: "https://www.exodus.com/"
+   status: 'online',
+   activity: {
+      name: 'Spreading good vibes',
+      type: 'STREAMING',
+      url: 'https://www.exodus.com/'
    }
 }) 
 
