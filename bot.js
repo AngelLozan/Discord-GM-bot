@@ -15,7 +15,7 @@ client.on('ready', () => {
     activity: {
         name: 'with good vibes',
         type: 'WATCHING',
-        url: ''
+        url: 'https://www.exodus.com/'
     }
 })
     console.log(`Logged in as ${client.user.tag}!`);
