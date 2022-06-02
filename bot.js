@@ -13,9 +13,9 @@ client.on('ready', () => {
    client.user.setPresence({
     status: 'online',
     activity: {
-        name: 'with depression',
-        type: 'STREAMING',
-        url: 'https://www.twitch.tv/monstercat'
+        name: 'with good vibes',
+        type: 'WATCHING',
+        url: 'https://www.exodus.com/'
     }
 })
     console.log(`Logged in as ${client.user.tag}!`);
@@ -46,7 +46,7 @@ const getRandomEmojiGN = () => {
 
 // Set bot status
 
-// client.user.setPresence({'Spreading good vibes', {
+// client.user.setPresence({'', {
 //    type: 'STREAMING',
 //    url: 'https://www.exodus.com/'
  
@@ -67,9 +67,9 @@ client.on('message', msg => {
 
    if (msg.author.bot){ 
       return; 
-   } else if(/good morning|good mornin|^gm$|^[A-Za-z0-9 ]+gm.*[^A-Za-z0-9_@]$|^gm[^A-Za-z0-9_@].*$|mornin|morning/yi.test(msg.content)){
+   } else if(/good morning|good mornin|^gm$|^.*[gm].*[^A-Za-z0-9_@]$|^gm[^A-Za-z0-9_@].*$|mornin|morning/yi.test(msg.content)){
       msg.reply('GM' + getRandomEmojiGM());
-   } else if(/good afternoon/yi.test(msg.content)){
+   } else if(/good afternoon|afternoon/yi.test(msg.content)){
       msg.reply('good afternoon' + getRandomEmojiGM());
    } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9_@].*$|night/yi.test(msg.content)){
       msg.reply('GN' + getRandomEmojiGN());
