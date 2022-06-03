@@ -46,26 +46,12 @@ const getRandomEmojiGN = () => {
 
 //Once connected, listen for messages
 
-client.on('message', msg => {
-   if(msg.author.bot){
-      return;
-   } 
+//check first is mention of user. Can do for each user
 
-   let args = msg.content.split(" ");
+//const cheez = await 
 
-   switch(args[0]){
-      case '<@980467385398079488>':
-         msg.react('👾');
-         break;
-      case '<@841402856497610772>':
-         msg.react('🦾');
-         break;
-      case '<@980467385398079488>': case '<@841402856497610772>':
-         msg.react('👾');
-         msg.react('🦾');
-   }
 
-});
+//
 
 
 client.on('message', msg => {
@@ -80,8 +66,9 @@ client.on('message', msg => {
 
 // Use a regex and .test method to find keywords in the message from users. Exclude leters and numbers behind gm/gn as stand alone phrases. Symbols except @ OK (may be an email). i = ignore case
 // Don't forget the "y" sticky flag on regex or different words trigger gn or gm.
-
-   if (msg.author.bot){ 
+return Promise.resolve()
+   .then(() => {
+      if (msg.author.bot){ 
       return;
       msg.channel.stopTyping(); 
    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|mornin|morning/yi.test(msg.content)){
@@ -139,19 +126,23 @@ client.on('message', msg => {
       }, 1000);
       msg.channel.stopTyping(); 
    } 
-   
 
-   // if(/<@980467385398079488>/i.test(msg.content)){
-   //    msg.react('👾');
-   // }
+   })
+   
+   .then(() => {
+      if(/<@841402856497610772>/i.test(msg.content)){
+         msg.react('🦾');
+   } 
+   })
+   
 
    // if(/<@841402856497610772>/i.test(msg.content)){
    //       msg.react('🦾');
    // } 
 
-   if(/\bCheez\b/gi.test(msg.content)){
-         msg.react('🧀');
-   } 
+   // if(/\bCheez\b/gi.test(msg.content)){
+   //       msg.react('🧀');
+   // } 
 
 
 });
