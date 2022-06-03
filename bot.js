@@ -143,31 +143,28 @@ return Promise.resolve()
    } 
 })
 
+// messages to the GM bot. You can add support messages for keywords too if the bot is directly mentioned with the keyword.
+
 .then(() => {
    if(msg.content.toLowerCase().includes('help') && msg.content.includes('<@980467385398079488>')) {
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Hi, I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
          msg.react('⛑');
-      }, 1000);
+      }, 3000);
       msg.channel.stopTyping();  
    } else if(msg.content.toLowerCase().includes('question') && msg.content.includes('<@980467385398079488>')) {
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Hi, I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
          msg.react('🤔');
-      }, 1000);
+      }, 3000);
       msg.channel.stopTyping();  
    } else if(/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)){
          msg.react('👾');
    }
 })
 
-
-
-
-
-// exodus mod <@&982009469418496022>
 
 
 });
