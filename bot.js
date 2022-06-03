@@ -148,7 +148,7 @@ return Promise.resolve()
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('The team is always available and will respond quickly at support@exodus.com if you don\'t hear from someone here' );
-         msg.react('🛟');
+         msg.react('👋🏼');
       }, 1000);
       msg.channel.stopTyping();  
    }
