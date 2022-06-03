@@ -118,17 +118,22 @@ client.on('message', msg => {
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\btoast\b/gi.test(msg.content)){
-     
-      
          msg.react('🍞');
-      
-      
    } else if(/<@980467385398079488>/i.test(msg.content)){
       msg.react('👾');
    }
    
 
+   client.on('interactionCreate', async interaction => {
+   if (!interaction.isCommand()) return;
 
+   const { commandName } = interaction;
+
+   if (commandName === 'react') {
+      const message = await interaction.reply({ content: '<@980467385398079488>', fetchReply: true });
+      msg.react('😄');
+   }
+});
 
 
 });
