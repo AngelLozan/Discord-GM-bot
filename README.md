@@ -15,6 +15,7 @@ Customize the expressions captured in each regex or emojis served.
 Toward the bottom you can customize the emoji reactions the bot will react with at mentions of specific users. 
 
 Example: 
+```
 
 //GM bot
 .then(() => {
@@ -27,6 +28,8 @@ Example:
       msg.channel.stopTyping();  
    } 
 })
+
+```
 
 At mention of the GM bot it will start typing, react with the space invader on the post where the mention was made and reply in the channel "hello there" and then stop typing. Typing lasts 1 second. 
 
