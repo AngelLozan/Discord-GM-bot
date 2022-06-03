@@ -118,11 +118,11 @@ client.on('message', msg => {
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/poop/gi.test(msg.content)){
-      msg.channel.startTyping();
+     
       
          msg.react('💩');
       
-      msg.channel.stopTyping(); 
+      
    }
    
 
