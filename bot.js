@@ -59,6 +59,7 @@ client.on('message', msg => {
 //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
 
   let channel = client.channels.cache.get('CHANNEL ID');
+  let user = msg.mentions.users.first();
 
 //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
 
@@ -122,7 +123,7 @@ return Promise.resolve()
    } else if(/\bnite\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel.send('GN ' + getRandomEmojiGN() + ' ${user}');
+         msg.channel.send('GN ' + getRandomEmojiGN() + ' <@user id>');
       }, 1000);
       msg.channel.stopTyping(); 
    } 
