@@ -152,7 +152,11 @@ return Promise.resolve()
          msg.react('👾');
       }, 1000);
       msg.channel.stopTyping();  
-   } else if(/\bhelp\b/gi.test(msg.content)){
+   } 
+})
+
+.then(() => {
+   if(/\bhelp\b && <@980467385398079488>/yi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('The team is always available and will respond quickly at support@exodus.com if you don\'t hear from someone here' );
