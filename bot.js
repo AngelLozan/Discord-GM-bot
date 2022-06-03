@@ -144,7 +144,7 @@ return Promise.resolve()
 })
 
 .then(() => {
-   if(msg.content.includes('help') && msg.content.includes('<@980467385398079488>')) {
+   if(msg.content.includes('help' | 'question') && msg.content.includes('<@980467385398079488>')) {
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('The team is always available and will respond quickly at support@exodus.com if you don\'t hear from someone here. Ping the @moderation team here too or find us on Twitter' );
