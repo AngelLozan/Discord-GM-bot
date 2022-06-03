@@ -155,16 +155,31 @@ return Promise.resolve()
    } 
 })
 
-//GM bot
+//GM bot and minor support messages
+
 .then(() => {
-      if(/<@980457022971600936>/i.test(msg.content)){
+   if(msg.content.toLowerCase().includes('help') && msg.content.includes('<@980457022971600936>')) {
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('Hi, I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
+         msg.react('⛑');
+      }, 1000);
+      msg.channel.stopTyping();  
+   } else if(msg.content.toLowerCase().includes('question') && msg.content.includes('<@980457022971600936>')) {
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('Hi, I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
+         msg.react('🤔');
+      }, 1000);
+      msg.channel.stopTyping();  
+   } else if(/(?!\bhelp\b)<@980457022971600936>/gi.test(msg.content)){
          msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Hello there');
-         msg.react('845024722559303720');
+         msg.react('👾');
       }, 1000);
       msg.channel.stopTyping();  
-   } 
+   }
 })
 
 
