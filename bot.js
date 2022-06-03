@@ -54,8 +54,6 @@ client.on('message', msg => {
 
   let channel = client.channels.cache.get('CHANNEL ID');
 
-  let help = '980467385398079488';
-
 //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
 
 // Ensure the message issuer is not a bot. ie. The bot does not reply to itself.
@@ -157,14 +155,14 @@ return Promise.resolve()
    } else if(/\bhelp\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel.send('Let me get someone who can help: ' + help);
+         msg.chanel.send('Let me get someone who can help: <@841402856497610772>' );
          msg.react('🛟');
       }, 1000);
       msg.channel.stopTyping();  
    }
 })
 
-
+// exodus mod <@&982009469418496022>
 
 
 });
