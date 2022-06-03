@@ -94,13 +94,6 @@ return Promise.resolve()
          msg.react(getRandomEmojiGM());
       }, 2000);
       msg.channel.stopTyping(); 
-   } else if(/good afternoon|afternoon/yi.test(msg.content)){
-      msg.channel.startTyping();
-      setTimeout(()=>{
-         msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
-         msg.react(getRandomEmojiGM());
-      }, 2000);
-      msg.channel.stopTyping(); 
    } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9@].*$|night/yi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
@@ -131,7 +124,18 @@ return Promise.resolve()
       msg.channel.stopTyping(); 
    } 
 
-   })
+})
+
+.then(() => {
+   if(/good afternoon|afternoon/yi.test(msg.content)){
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   }
+})
    
 //Add specific use mention emojis down here based on criteria (ie. They are level 20 or they are nft contributers, ect.)
 
