@@ -46,13 +46,7 @@ const getRandomEmojiGN = () => {
 
 //Once connected, listen for messages
 
-//check first is mention of user. Can do for each user
-
-//const cheez = await 
-
-
-//
-
+//Uses promise to ensure multiple mention/regex matches populate all possible scenarios with appropirate message and emoji reaction from bot. 
 
 client.on('message', msg => {
    
@@ -141,7 +135,8 @@ return Promise.resolve()
    
 //Add specific use mention emojis down here based on criteria (ie. They are level 20 or they are nft contributers, ect.)
 
-//User
+//User needs to be formatted as ID. so copy id and put between <@ > in regex test. 
+
    .then(() => {
       if(/<@841402856497610772>/i.test(msg.content)){
          msg.react('🚀');
