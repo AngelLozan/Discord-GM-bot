@@ -133,14 +133,12 @@ client.on('message', msg => {
       msg.channel.stopTyping(); 
    } else if(/\btoast\b/gi.test(msg.content)){
          msg.react('🍞');
-   } else if(getUserFromMention(msg.content) == '<@980467385398079488>'){
-      msg.react('👾')
    }
    
 
-   // else if(/<@980467385398079488>/i.test(msg.content)){
-   //    msg.react('👾');
-   // }
+   if(/<@980467385398079488>/i.test(msg.content)){
+      msg.react('👾');
+   }
 
 
 });
