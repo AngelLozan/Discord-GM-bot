@@ -148,6 +148,13 @@ return Promise.resolve()
    } 
 })
 
+//Hero
+ .then(() => {
+      if(/<@822555592795095051>/i.test(msg.content)){
+         msg.react('🙏');
+   } 
+})
+
 //GM bot
 .then(() => {
       if(/<@980457022971600936>/i.test(msg.content)){
