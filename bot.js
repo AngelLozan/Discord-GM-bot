@@ -94,7 +94,7 @@ return Promise.resolve()
          msg.react(getRandomEmojiGM());
       }, 2000);
       msg.channel.stopTyping(); 
-   } else if(/good afternoon|afternoon/yi.test(msg.content)){
+   } else if(/^.*\bgood afternoon\b.*$|\bafternoon\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
