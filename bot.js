@@ -148,6 +148,19 @@ return Promise.resolve()
    } 
 })
 
+//GM bot
+.then(() => {
+      if(/<@980457022971600936>/i.test(msg.content)){
+         msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('Hello there');
+         msg.react('845024722559303720');
+      }, 1000);
+      msg.channel.stopTyping();  
+   } 
+})
+
+
 //cheez #2592
    .then(() => {
       if(/<@676203286046572593>/i.test(msg.content)){
