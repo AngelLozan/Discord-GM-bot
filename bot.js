@@ -133,12 +133,14 @@ return Promise.resolve()
       if(/<@841402856497610772>/i.test(msg.content)){
          msg.react('🦾');
    } 
-   })
-   
+})
 
-   // if(/<@841402856497610772>/i.test(msg.content)){
-   //       msg.react('🦾');
-   // } 
+   .then(() => {
+      if(/<@980467385398079488>/i.test(msg.content)){
+         msg.react('👾');
+   } 
+});
+  
 
    // if(/\bCheez\b/gi.test(msg.content)){
    //       msg.react('🧀');
