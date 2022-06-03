@@ -117,10 +117,10 @@ client.on('message', msg => {
          msg.reply('GN' + getRandomEmojiGN());
       }, 1000);
       msg.channel.stopTyping(); 
-   } else if(/@bytebuilder/gi.test(msg.content)){
+   } else if(/toast|toast coin/yi.test(msg.content)){
      
       
-         msg.react('💩');
+         msg.react('🍞');
       
       
    }
