@@ -60,6 +60,15 @@ function getUserFromMention(mention) {
 
 //Once connected, listen for messages
 
+client.on('message', async msg => {
+   if(msg.author.bot){
+      return;
+   } else if(msg.content === '<@980467385398079488>') {
+      await msg.react('👾')
+   } catch (error){
+      console.error('failed to react', error);
+   }
+});
 
 client.on('message', msg => {
    
@@ -139,11 +148,11 @@ client.on('message', msg => {
    }
 
    if(/<@841402856497610772>/i.test(msg.content)){
-         msg.react('🍞');
+         msg.react('🦾');
    } 
 
    if(/\bCheez\b/gi.test(msg.content)){
-         msg.react('🍞');
+         msg.react('🧀');
    } 
 
 
