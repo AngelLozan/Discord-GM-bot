@@ -53,9 +53,7 @@ client.on('message', msg => {
 
   let channel = client.channels.cache.get('CHANNEL ID');
 
-//start typing using msg from parameter, channel id and method. 
-
-   //msg.channel.startTyping();
+//start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
 
 // Ensure the message issuer is not a bot. ie. The bot does not reply to itself.
 
@@ -119,11 +117,17 @@ client.on('message', msg => {
          msg.reply('GN' + getRandomEmojiGN());
       }, 1000);
       msg.channel.stopTyping(); 
+   } else if(/poop/gi.test(msg.content)){
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.react('💩');
+      }, 1000);
+      msg.channel.stopTyping(); 
    }
    
-//stops the bot from always typing
 
-   //msg.channel.stopTyping();
+
+
 
 });
 
