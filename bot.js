@@ -158,13 +158,8 @@ return Promise.resolve()
          msg.react('🤔');
       }, 1000);
       msg.channel.stopTyping();  
-   }else if(/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)){
-         msg.channel.startTyping();
-      setTimeout(()=>{
-         msg.channel.send('🤖');
+   } else if(/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)){
          msg.react('👾');
-      }, 1000);
-      msg.channel.stopTyping();  
    }
 })
 
