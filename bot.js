@@ -151,22 +151,29 @@ return Promise.resolve()
          msg.react('👋🏼');
       }, 1000);
       msg.channel.stopTyping();  
-   }
-})
-
-//GM bot
-.then(() => {
-      if(/\b(?!\bhelp\b)<@980467385398079488>\b/i.test(msg.content)){
+   } else if(/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)){
          msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Hello there');
          msg.react('👾');
       }, 1000);
       msg.channel.stopTyping();  
-   } else {
-      return;
    }
 })
+
+// //GM bot
+// .then(() => {
+//       if(/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)){
+//          msg.channel.startTyping();
+//       setTimeout(()=>{
+//          msg.channel.send('Hello there');
+//          msg.react('👾');
+//       }, 1000);
+//       msg.channel.stopTyping();  
+//    } else {
+//       return;
+//    }
+// })
 
 
 
