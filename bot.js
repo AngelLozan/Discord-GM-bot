@@ -117,13 +117,13 @@ client.on('message', msg => {
          msg.reply('GN' + getRandomEmojiGN());
       }, 1000);
       msg.channel.stopTyping(); 
-   } else if(/toast|toast coin/yi.test(msg.content)){
+   } else if(/\btoast\b/gi.test(msg.content)){
      
       
          msg.react('🍞');
       
       
-   } else if("<@980467385398079488>".test(msg.content)){
+   } else if(/<@980467385398079488>/i.test(msg.content)){
       msg.react('👾');
    }
    
