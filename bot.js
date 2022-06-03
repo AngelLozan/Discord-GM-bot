@@ -76,30 +76,35 @@ return Promise.resolve()
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GM ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bgm\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GM ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bmorning\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GM ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bmornin\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GM ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/good afternoon|afternoon/yi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9@].*$|night/yi.test(msg.content)){
