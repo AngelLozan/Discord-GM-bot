@@ -156,7 +156,7 @@ return Promise.resolve()
 
 //GM bot
 .then(() => {
-      if(/(?!help)<@980467385398079488>/i.test(msg.content)){
+      if(/\b(?!\bhelp\b)<@980467385398079488>\b/i.test(msg.content)){
          msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Hello there');
