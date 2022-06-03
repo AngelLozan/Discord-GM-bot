@@ -123,6 +123,8 @@ client.on('message', msg => {
          msg.react('🍞');
       
       
+   } else if("<@980467385398079488>".test(msg.content)){
+      msg.react('👾');
    }
    
 
