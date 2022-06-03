@@ -155,7 +155,7 @@ return Promise.resolve()
    } else if(/\bhelp\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.chanel.send('Let me get someone who can help: <@841402856497610772>' );
+         msg.channel.send('Let me get someone who can help: <@841402856497610772>' );
          msg.react('🛟');
       }, 1000);
       msg.channel.stopTyping();  
