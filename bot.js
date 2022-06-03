@@ -143,6 +143,17 @@ return Promise.resolve()
    } 
 })
 
+.then(() => {
+   if(/\bhelp\b && <@980467385398079488>/gi.test(msg.content)){
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('The team is always available and will respond quickly at support@exodus.com if you don\'t hear from someone here' );
+         msg.react('🛟');
+      }, 1000);
+      msg.channel.stopTyping();  
+   }
+})
+
 //GM bot
 .then(() => {
       if(/<@980467385398079488>/yi.test(msg.content)){
@@ -155,16 +166,7 @@ return Promise.resolve()
    } 
 })
 
-.then(() => {
-   if(/\bhelp\b && <@980467385398079488>/yi.test(msg.content)){
-       msg.channel.startTyping();
-      setTimeout(()=>{
-         msg.channel.send('The team is always available and will respond quickly at support@exodus.com if you don\'t hear from someone here' );
-         msg.react('🛟');
-      }, 1000);
-      msg.channel.stopTyping();  
-   }
-})
+
 
 // exodus mod <@&982009469418496022>
 
