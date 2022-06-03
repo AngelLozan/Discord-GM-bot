@@ -152,7 +152,7 @@ return Promise.resolve()
          msg.react('👾');
       }, 1000);
       msg.channel.stopTyping();  
-   } else if((/\b<@980467385398079488>\b)(\bhelp\b)/gi.test(msg.content)){
+   } else if(/<@980467385398079488>\bhelp\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Let me get someone who can help: <@841402856497610772>');
