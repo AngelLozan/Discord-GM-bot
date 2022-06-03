@@ -59,7 +59,6 @@ client.on('message', msg => {
 //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
 
   let channel = client.channels.cache.get('CHANNEL ID');
-  let user = msg.mentions.users.first();
 
 //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
 
@@ -67,6 +66,7 @@ client.on('message', msg => {
 
 // Use a regex and .test method to find keywords in the message from users. Exclude leters and numbers behind gm/gn as stand alone phrases. Symbols except @ OK (may be an email). i = ignore case
 // Don't forget the "y" sticky flag on regex or different words trigger gn or gm.
+
 return Promise.resolve()
    .then(() => {
       if (msg.author.bot){ 
@@ -134,22 +134,92 @@ return Promise.resolve()
 
    })
    
+//Add specific use mention emojis down here based on criteria (ie. They are level 20 or they are nft contributers, ect.)
+
+//cheez #2592
    .then(() => {
-      if(/<@841402856497610772>/i.test(msg.content)){
+      if(/<@676203286046572593>/i.test(msg.content)){
+         msg.react('🧀');
+   } 
+})
+
+//toast #0001
+   .then(() => {
+      if(/<@431241025856602116>/i.test(msg.content)){
+         msg.react('🍞');
+   } 
+})
+  
+//Llama @LlamaBoi#1000
+.then(() => {
+      if(/<@696087673198215259>/i.test(msg.content)){
+         msg.react('🦙');
+   } 
+})
+
+//tsunami#1354
+.then(() => {
+      if(/<@696087673198215259>/i.test(msg.content)){
+         msg.react('🌊');
+   } 
+})
+
+//AnotherLordHere | Kuruk #2882
+.then(() => {
+      if(/<@626108863472730161>/i.test(msg.content)){
+         msg.react('🐺');
+   } 
+})
+
+//Darkness#8489
+.then(() => {
+      if(/<@496780002902147072>/i.test(msg.content)){
+         msg.react('845004333846102036');
+   } 
+})
+
+//Mega#4666
+.then(() => {
+      if(/<@496780002902147072>/i.test(msg.content)){
+         msg.react('🎸');
+   } 
+})
+
+//#3373 (100% real exodus employee)
+.then(() => {
+      if(/<@496780002902147072>/i.test(msg.content)){
+         msg.react('🦊');
+   } 
+})
+
+//@Tiny Fire#2511
+.then(() => {
+      if(/<@496780002902147072>/i.test(msg.content)){
+         msg.react('🔥');
+   } 
+})
+
+//@{BB}#2022
+.then(() => {
+      if(/<@496780002902147072>/i.test(msg.content)){
          msg.react('🦾');
    } 
 })
 
-   .then(() => {
-      if(/<@980467385398079488>/i.test(msg.content)){
-         msg.react('👾');
+//@Shadowhawk#1896
+.then(() => {
+      if(/<@496780002902147072>/i.test(msg.content)){
+         msg.react('🦅');
    } 
-});
-  
+})
 
-   // if(/\bCheez\b/gi.test(msg.content)){
-   //       msg.react('🧀');
-   // } 
+//@ericaltm#4662
+.then(() => {
+      if(/<@496780002902147072>/i.test(msg.content)){
+         msg.react('💎');
+   } 
+})
+
 
 
 });
