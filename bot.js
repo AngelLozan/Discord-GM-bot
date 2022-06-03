@@ -141,6 +141,13 @@ return Promise.resolve()
    
 //Add specific use mention emojis down here based on criteria (ie. They are level 20 or they are nft contributers, ect.)
 
+//Exodus | SL
+   .then(() => {
+      if(/<@971435234061090876>/i.test(msg.content)){
+         msg.react('🚀');
+   } 
+})
+
 //cheez #2592
    .then(() => {
       if(/<@676203286046572593>/i.test(msg.content)){
