@@ -138,38 +138,41 @@ return Promise.resolve()
 //User needs to be formatted as ID. so copy id and put between <@ > in regex test. 
 
    .then(() => {
-      if(/<@userID>/i.test(msg.content)){
+      if(/<@841402856497610772>/i.test(msg.content)){
          msg.react('🚀');
    } 
 })
 
-// You can format the bot to respond to different queries if neccessary. Help and Question for instance. 
-
 .then(() => {
-   if(msg.content.toLowerCase().includes('help') && msg.content.includes('<@bot ID>')) {
+   if(msg.content.toLowerCase().includes('help') && msg.content.includes('<@980467385398079488>')) {
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Hi, I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
          msg.react('⛑');
       }, 1000);
       msg.channel.stopTyping();  
-   } else if(msg.content.toLowerCase().includes('question') && msg.content.includes('<@bot ID>')) {
+   } else if(msg.content.toLowerCase().includes('question') && msg.content.includes('<@980467385398079488>')) {
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Hi, I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
          msg.react('🤔');
       }, 1000);
       msg.channel.stopTyping();  
-   }else if(/(?!\bhelp\b)<@bot ID>/gi.test(msg.content)){
+   }else if(/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)){
          msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel.send('Hello there');
+         msg.channel.send('🤖');
          msg.react('👾');
       }, 1000);
       msg.channel.stopTyping();  
    }
 })
 
+
+
+
+
+// exodus mod <@&982009469418496022>
 
 
 });
