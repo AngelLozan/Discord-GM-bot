@@ -122,7 +122,7 @@ return Promise.resolve()
    } else if(/\bnite\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel.send('GN' + getRandomEmojiGN());
+         msg.channel.send('GN ' + getRandomEmojiGN() + ' ${user}');
       }, 1000);
       msg.channel.stopTyping(); 
    } 
