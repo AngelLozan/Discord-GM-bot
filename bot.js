@@ -74,55 +74,55 @@ return Promise.resolve()
    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|mornin|morning/yi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel('GM' + getRandomEmojiGM());
+         msg.channel.send('GM' + getRandomEmojiGM());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bgm\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel('GM' + getRandomEmojiGM());
+         msg.channel.send('GM' + getRandomEmojiGM());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bmorning\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel('GM' + getRandomEmojiGM());
+         msg.channel.send('GM' + getRandomEmojiGM());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bmornin\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel('GM' + getRandomEmojiGM());
+         msg.channel.send('GM' + getRandomEmojiGM());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/good afternoon|afternoon/yi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel('Good Afternoon' + getRandomEmojiGM());
+         msg.channel.send('Good Afternoon' + getRandomEmojiGM());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9@].*$|night/yi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel('GN' + getRandomEmojiGN());
+         msg.channel.send('GN' + getRandomEmojiGN());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bgn\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel('GN' + getRandomEmojiGN());
+         msg.channel.send('GN' + getRandomEmojiGN());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bnight\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel('GN' + getRandomEmojiGN());
+         msg.channel.send('GN' + getRandomEmojiGN());
       }, 1000);
       msg.channel.stopTyping(); 
    } else if(/\bnite\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel('GN' + getRandomEmojiGN());
+         msg.channel.send('GN' + getRandomEmojiGN());
       }, 1000);
       msg.channel.stopTyping(); 
    } 
