@@ -127,7 +127,10 @@ return Promise.resolve()
 })
 
 .then(() => {
-   if(/good afternoon|afternoon/yi.test(msg.content)){
+   if (msg.author.bot){ 
+      return;
+      msg.channel.stopTyping(); 
+   } else if(/good afternoon|afternoon/yi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
