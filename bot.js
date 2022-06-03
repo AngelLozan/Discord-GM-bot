@@ -43,16 +43,20 @@ const getRandomEmojiGN = () => {
 
 };
 
-client.on('interactionCreate', async interaction => {
-   if (!interaction.isCommand()) return;
 
-   const { commandName } = interaction;
+function getUserFromMention(mention) {
+   if (!mention) return;
 
-   if (commandName === 'react') {
-      const message = await interaction.reply({ content: '<@980467385398079488>', fetchReply: true });
-      msg.react('😄');
+   if (mention.startsWith('<@') && mention.endsWith('>')) {
+      mention = mention.slice(2, -1);
+
+      if (mention.startsWith('!')) {
+         mention = mention.slice(1);
+      }
+
+      return client.users.cache.get(mention);
    }
-});
+}
 
 //Once connected, listen for messages
 
@@ -129,12 +133,14 @@ client.on('message', msg => {
       msg.channel.stopTyping(); 
    } else if(/\btoast\b/gi.test(msg.content)){
          msg.react('🍞');
-   } else if(/<@980467385398079488>/i.test(msg.content)){
-      msg.react('👾');
+   } else if(getUserFromMention(msg.content) == '<@980467385398079488>'){
+      msg.react('👾')
    }
    
 
-   
+   // else if(/<@980467385398079488>/i.test(msg.content)){
+   //    msg.react('👾');
+   // }
 
 
 });
