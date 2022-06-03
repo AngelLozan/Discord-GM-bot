@@ -117,7 +117,7 @@ client.on('message', msg => {
          msg.reply('GN' + getRandomEmojiGN());
       }, 1000);
       msg.channel.stopTyping(); 
-   } else if(/poop/gi.test(msg.content)){
+   } else if(/@bytebuilder/gi.test(msg.content)){
      
       
          msg.react('💩');
