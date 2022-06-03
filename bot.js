@@ -147,14 +147,14 @@ return Promise.resolve()
    if(msg.content.includes('help') && msg.content.includes('<@980467385398079488>')) {
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel.send('Hi, I\'m not programmed to assist here, but the Exodus team is always available and will respond quickly. You can email them at support@exodus.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
+         msg.channel.send('Hi, I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
          msg.react('⛑');
       }, 1000);
       msg.channel.stopTyping();  
    } else if(msg.content.includes('question') && msg.content.includes('<@980467385398079488>')) {
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel.send('Hi, I\'m not programmed to assist here, but the Exodus team is always available and will respond quickly. You can email them at support@exodus.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
+         msg.channel.send('Hi, I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
          msg.react('🤔');
       }, 1000);
       msg.channel.stopTyping();  
