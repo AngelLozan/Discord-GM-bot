@@ -144,7 +144,7 @@ return Promise.resolve()
 })
 
 .then(() => {
-   if(/\bhelp\b && <@980467385398079488>/gi.test(msg.content)){
+   if(msg.content.includes('help' && '<@980467385398079488>')) {
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('The team is always available and will respond quickly at support@exodus.com if you don\'t hear from someone here' );
