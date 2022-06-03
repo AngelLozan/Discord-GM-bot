@@ -144,7 +144,7 @@ return Promise.resolve()
 })
 
 .then(() => {
-   if(msg.content.includes('help' && '<@980467385398079488>')) {
+   if(msg.content.includes('help') && msg.content.includes('<@980467385398079488>')) {
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('The team is always available and will respond quickly at support@exodus.com if you don\'t hear from someone here' );
@@ -156,14 +156,16 @@ return Promise.resolve()
 
 //GM bot
 .then(() => {
-      if(/^(?!.*help).*<@980467385398079488>.*$/yi.test(msg.content)){
+      if(/^[^A-Za-z0-9@].*<@980467385398079488>.*$/yi.test(msg.content)){
          msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Hello there');
          msg.react('👾');
       }, 1000);
       msg.channel.stopTyping();  
-   } 
+   } else {
+      return;
+   }
 })
 
 
