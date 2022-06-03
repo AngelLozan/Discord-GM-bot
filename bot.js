@@ -77,6 +77,8 @@ client.on('message', msg => {
    if (msg.author.bot){ 
       return;
       msg.channel.stopTyping(); 
+   } else if(/<@980467385398079488>/i.test(msg.content)){
+      msg.react('👾');
    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|mornin|morning/yi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
@@ -135,10 +137,6 @@ client.on('message', msg => {
          msg.react('🍞');
    }
    
-
-   if(/<@980467385398079488>/i.test(msg.content)){
-      msg.react('👾');
-   }
 
 
 });
