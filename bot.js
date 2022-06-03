@@ -119,9 +119,9 @@ client.on('message', msg => {
       msg.channel.stopTyping(); 
    } else if(/poop/gi.test(msg.content)){
       msg.channel.startTyping();
-      setTimeout(()=>{
+      
          msg.react('💩');
-      }, 1000);
+      
       msg.channel.stopTyping(); 
    }
    
