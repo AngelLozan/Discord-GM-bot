@@ -77,63 +77,63 @@ return Promise.resolve()
       setTimeout(()=>{
          msg.channel.send('GM ' + getRandomEmojiGM());
          msg.react(getRandomEmojiGM());
-      }, 1000);
+      }, 2000);
       msg.channel.stopTyping(); 
    } else if(/\bgm\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GM ' + getRandomEmojiGM());
          msg.react(getRandomEmojiGM());
-      }, 1000);
+      }, 2000);
       msg.channel.stopTyping(); 
    } else if(/\bmorning\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GM ' + getRandomEmojiGM());
          msg.react(getRandomEmojiGM());
-      }, 1000);
+      }, 2000);
       msg.channel.stopTyping(); 
    } else if(/\bmornin\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GM ' + getRandomEmojiGM());
          msg.react(getRandomEmojiGM());
-      }, 1000);
+      }, 2000);
       msg.channel.stopTyping(); 
    } else if(/good afternoon|afternoon/yi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
          msg.react(getRandomEmojiGM());
-      }, 1000);
+      }, 2000);
       msg.channel.stopTyping(); 
    } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9@].*$|night/yi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GN ' + getRandomEmojiGN());
          msg.react(getRandomEmojiGN());
-      }, 1000);
+      }, 2000);
       msg.channel.stopTyping(); 
    } else if(/\bgn\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GN ' + getRandomEmojiGN());
          msg.react(getRandomEmojiGN());
-      }, 1000);
+      }, 2000);
       msg.channel.stopTyping(); 
    } else if(/\bnight\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GN ' + getRandomEmojiGN());
          msg.react(getRandomEmojiGN());
-      }, 1000);
+      }, 2000);
       msg.channel.stopTyping(); 
    } else if(/\bnite\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GN ' + getRandomEmojiGN());
          msg.react(getRandomEmojiGN());
-      }, 1000);
+      }, 2000);
       msg.channel.stopTyping(); 
    } 
 
@@ -159,18 +159,18 @@ return Promise.resolve()
 
 .then(() => {
    if(msg.content.toLowerCase().includes('help') && msg.content.includes('<@980457022971600936>')) {
+       msg.react('⛑');
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel.send('Hi, I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
-         msg.react('⛑');
-      }, 1000);
+         msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
+      }, 2000);
       msg.channel.stopTyping();  
    } else if(msg.content.toLowerCase().includes('question') && msg.content.includes('<@980457022971600936>')) {
+       msg.react('🤔');
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel.send('Hi, I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
-         msg.react('🤔');
-      }, 1000);
+         msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
+      }, 2000);
       msg.channel.stopTyping();  
    } else if(/(?!\bhelp\b)<@980457022971600936>/gi.test(msg.content)){
          msg.react('845024722559303720');
