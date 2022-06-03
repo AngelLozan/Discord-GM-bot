@@ -56,9 +56,13 @@ client.on('message', msg => {
    switch(args[0]){
       case '<@980467385398079488>':
          msg.react('👾');
+         break;
       case '<@841402856497610772>':
          msg.react('🦾');
          break;
+      case '<@980467385398079488>': case '<@841402856497610772>':
+         msg.react('👾');
+         msg.react('🦾');
    }
 
 });
