@@ -44,31 +44,17 @@ const getRandomEmojiGN = () => {
 };
 
 
-function getUserFromMention(mention) {
-   if (!mention) return;
-
-   if (mention.startsWith('<@') && mention.endsWith('>')) {
-      mention = mention.slice(2, -1);
-
-      if (mention.startsWith('!')) {
-         mention = mention.slice(1);
-      }
-
-      return client.users.cache.get(mention);
-   }
-}
-
 //Once connected, listen for messages
 
-client.on('message', async msg => {
+client.on('message', msg => {
    if(msg.author.bot){
       return;
    } else if(msg.content === '<@980467385398079488>') {
-      await msg.react('👾')
-   } catch (error){
-      console.error('failed to react', error);
-   }
+      msg.react('👾')
+         .catch(error => console.error('One of the emojis failed to react:', error));
+   } 
 });
+
 
 client.on('message', msg => {
    
@@ -143,9 +129,9 @@ client.on('message', msg => {
    } 
    
 
-   if(/<@980467385398079488>/i.test(msg.content)){
-      msg.react('👾');
-   }
+   // if(/<@980467385398079488>/i.test(msg.content)){
+   //    msg.react('👾');
+   // }
 
    if(/<@841402856497610772>/i.test(msg.content)){
          msg.react('🦾');
