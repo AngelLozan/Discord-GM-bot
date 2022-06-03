@@ -43,6 +43,16 @@ const getRandomEmojiGN = () => {
 
 };
 
+client.on('interactionCreate', async interaction => {
+   if (!interaction.isCommand()) return;
+
+   const { commandName } = interaction;
+
+   if (commandName === 'react') {
+      const message = await interaction.reply({ content: '<@980467385398079488>', fetchReply: true });
+      msg.react('😄');
+   }
+});
 
 //Once connected, listen for messages
 
@@ -124,16 +134,7 @@ client.on('message', msg => {
    }
    
 
-   client.on('interactionCreate', async interaction => {
-   if (!interaction.isCommand()) return;
-
-   const { commandName } = interaction;
-
-   if (commandName === 'react') {
-      const message = await interaction.reply({ content: '<@980467385398079488>', fetchReply: true });
-      msg.react('😄');
-   }
-});
+   
 
 
 });
