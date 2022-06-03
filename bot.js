@@ -162,14 +162,14 @@ return Promise.resolve()
        msg.react('⛑');
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
+         msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. Check out our knowledge base at https://support.exodus.com/ for helpful guides.' );
       }, 2000);
       msg.channel.stopTyping();  
    } else if(msg.content.toLowerCase().includes('question') && msg.content.includes('<@980457022971600936>')) {
        msg.react('🤔');
        msg.channel.startTyping();
       setTimeout(()=>{
-         msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter.' );
+         msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. Check out our knowledge base at https://support.exodus.com/ for helpful guides' );
       }, 2000);
       msg.channel.stopTyping();  
    } else if(/(?!\bhelp\b)<@980457022971600936>/gi.test(msg.content)){
