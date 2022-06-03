@@ -49,10 +49,18 @@ const getRandomEmojiGN = () => {
 client.on('message', msg => {
    if(msg.author.bot){
       return;
-   } else if(msg.content === '<@980467385398079488>') {
-      msg.react('👾')
-         .catch(error => console.error('One of the emojis failed to react:', error));
    } 
+
+   let args = msg.content.split(" ");
+
+   switch(args[0]){
+      case '<@980467385398079488>':
+         msg.react('👾');
+      case '<@841402856497610772>':
+         msg.react('🦾');
+         break;
+   }
+
 });
 
 
@@ -133,9 +141,9 @@ client.on('message', msg => {
    //    msg.react('👾');
    // }
 
-   if(/<@841402856497610772>/i.test(msg.content)){
-         msg.react('🦾');
-   } 
+   // if(/<@841402856497610772>/i.test(msg.content)){
+   //       msg.react('🦾');
+   // } 
 
    if(/\bCheez\b/gi.test(msg.content)){
          msg.react('🧀');
