@@ -171,7 +171,7 @@ return Promise.resolve()
 
 //tsunami#1354
 .then(() => {
-      if(/<@696087673198215259>/i.test(msg.content)){
+      if(/<@723543656899936347>/i.test(msg.content)){
          msg.react('🌊');
    } 
 })
@@ -192,42 +192,42 @@ return Promise.resolve()
 
 //Mega#4666
 .then(() => {
-      if(/<@496780002902147072>/i.test(msg.content)){
+      if(/<@345306921596747778>/i.test(msg.content)){
          msg.react('🎸');
    } 
 })
 
 //#3373 (100% real exodus employee)
 .then(() => {
-      if(/<@496780002902147072>/i.test(msg.content)){
+      if(/<@399447908237180939>/i.test(msg.content)){
          msg.react('🦊');
    } 
 })
 
 //@Tiny Fire#2511
 .then(() => {
-      if(/<@496780002902147072>/i.test(msg.content)){
+      if(/<@766583495857799179>/i.test(msg.content)){
          msg.react('🔥');
    } 
 })
 
 //@{BB}#2022
 .then(() => {
-      if(/<@496780002902147072>/i.test(msg.content)){
+      if(/<@216068201698557962>/i.test(msg.content)){
          msg.react('🦾');
    } 
 })
 
 //@Shadowhawk#1896
 .then(() => {
-      if(/<@496780002902147072>/i.test(msg.content)){
+      if(/<@441315201581580319>/i.test(msg.content)){
          msg.react('🦅');
    } 
 })
 
 //@ericaltm#4662
 .then(() => {
-      if(/<@496780002902147072>/i.test(msg.content)){
+      if(/<@135096550773751808>/i.test(msg.content)){
          msg.react('💎');
    } 
 })
