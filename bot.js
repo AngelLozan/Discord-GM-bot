@@ -173,13 +173,8 @@ return Promise.resolve()
       }, 1000);
       msg.channel.stopTyping();  
    } else if(/(?!\bhelp\b)<@980457022971600936>/gi.test(msg.content)){
-         msg.channel.startTyping();
-      setTimeout(()=>{
-         msg.channel.send('Hello there');
-         msg.react('👾');
-      }, 1000);
-      msg.channel.stopTyping();  
-   }
+         msg.react('845024722559303720');
+      }
 })
 
 
