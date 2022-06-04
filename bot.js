@@ -262,7 +262,11 @@ return Promise.resolve()
    } 
 })
 
-
+.catch(error => {
+  alert( "Bummer, got an error" );
+  alert( err.name );
+  alert( err.message );
+})
 
 });
 
