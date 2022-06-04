@@ -176,8 +176,8 @@ return Promise.resolve()
 
 .catch(error => {
   alert( "Bummer, got an error" );
-  alert( err.name );
-  alert( err.message );
+  alert( error.name );
+  alert( error.message );
 })
 
 });
