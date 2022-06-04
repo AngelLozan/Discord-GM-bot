@@ -107,7 +107,14 @@ return Promise.resolve()
          msg.react(getRandomEmojiGM());
       }, 2000);
       msg.channel.stopTyping(); 
-   } else if(/good night|nite|^gn$|^gn[^A-Za-z0-9@].*$|night/yi.test(msg.content)){
+   } else if(/^\bga\b$/yi.test(msg.content)){
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   } else if(/good night|goodnight|nite|^gn$|^gn[^A-Za-z0-9@].*$|night/yi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GN ' + getRandomEmojiGN());
@@ -264,8 +271,8 @@ return Promise.resolve()
 
 .catch(error => {
   alert( "Bummer, got an error" );
-  alert( err.name );
-  alert( err.message );
+  alert( error.name );
+  alert( error.message );
 })
 
 });
