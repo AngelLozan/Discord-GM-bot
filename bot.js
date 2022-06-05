@@ -175,7 +175,7 @@ return Promise.resolve()
       msg.channel.stopTyping();  
    } else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
       return;
-   } else if(msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980467385398079488>')) {
+   } else if(msg.content.toLowerCase().includes('thanks'|'thank you'|'thx') && msg.content.includes('<@980467385398079488>')) {
          msg.react('💙');
          msg.channel.startTyping();
          setTimeout(() => {
