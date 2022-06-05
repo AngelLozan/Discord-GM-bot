@@ -175,7 +175,9 @@ return Promise.resolve()
       msg.channel.stopTyping();  
    } else if(/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)){
          msg.react('👾');
-   }
+   } else if(/(?!\bthanks\b)<@980467385398079488>/gi.test(msg.content)){
+         msg.react('You\'re welcome 💙');
+   } 
 })
 
 .catch(error => {
