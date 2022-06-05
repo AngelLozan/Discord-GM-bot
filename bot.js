@@ -173,10 +173,10 @@ return Promise.resolve()
          msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.' );
       }, 2000);
       msg.channel.stopTyping();  
+   } else if(msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980467385398079488>')) {
+         msg.react('You\'re welcome 💙');
    } else if(/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)){
          msg.react('👾');
-   } else if(/(?!\bthanks\b)<@980467385398079488>/gi.test(msg.content)){
-         msg.react('You\'re welcome 💙');
    } 
 })
 
