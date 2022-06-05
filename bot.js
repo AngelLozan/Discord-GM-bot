@@ -110,7 +110,7 @@ return Promise.resolve()
          msg.react(getRandomEmojiGM());
       }, 2000);
       msg.channel.stopTyping(); 
-   } else if(/good night|goodnight|*nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)){
+   } else if(/good night|goodnight|nite nite|night night|*nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GN ' + getRandomEmojiGN());
@@ -124,21 +124,23 @@ return Promise.resolve()
          msg.react(getRandomEmojiGN());
       }, 2000);
       msg.channel.stopTyping(); 
-   } else if(/^\bnight\b.*$/gi.test(msg.content)){
-       msg.channel.startTyping();
-      setTimeout(()=>{
-         msg.channel.send('GN ' + getRandomEmojiGN());
-         msg.react(getRandomEmojiGN());
-      }, 2000);
-      msg.channel.stopTyping(); 
-   } else if(/^\bnite\b.*$/gi.test(msg.content)){
-       msg.channel.startTyping();
-      setTimeout(()=>{
-         msg.channel.send('GN ' + getRandomEmojiGN());
-         msg.react(getRandomEmojiGN());
-      }, 2000);
-      msg.channel.stopTyping(); 
    } 
+
+   // else if(/^\bnight\b.*$/gi.test(msg.content)){
+   //     msg.channel.startTyping();
+   //    setTimeout(()=>{
+   //       msg.channel.send('GN ' + getRandomEmojiGN());
+   //       msg.react(getRandomEmojiGN());
+   //    }, 2000);
+   //    msg.channel.stopTyping(); 
+   // } else if(/^\bnite\b.*$/gi.test(msg.content)){
+   //     msg.channel.startTyping();
+   //    setTimeout(()=>{
+   //       msg.channel.send('GN ' + getRandomEmojiGN());
+   //       msg.react(getRandomEmojiGN());
+   //    }, 2000);
+   //    msg.channel.stopTyping(); 
+   // } 
 
 })
 
