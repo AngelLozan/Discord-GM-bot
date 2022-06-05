@@ -14,7 +14,7 @@ client.on('ready', () => {
     status: 'online',
     activity: {
         name: 'at www.exodus.com',
-        type: 'STREAMING',
+        type: 'WATCHING',
         url: 'https://www.exodus.com/'
     }
 })
