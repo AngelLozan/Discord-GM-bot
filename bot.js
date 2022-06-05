@@ -1,6 +1,7 @@
 // Run dotenv
 
 require('dotenv').config();
+const fetch = require("node-fetch");
 
 //Method for connecting using discord.js api
 
@@ -138,7 +139,21 @@ return Promise.resolve()
          msg.react(getRandomEmojiGN());
       }, 2000);
       msg.channel.stopTyping(); 
-   } 
+   } else if (message.channel.name == "chatbot") {
+      if (message.author.bot) return;
+      message.content = message.content.replace(/@(everyone)/gi, "everyone").replace(/@(here)/gi, "here");
+      if (message.content.includes(`@`)) {
+      return message.channel.send(`**:x: Please dont mention anyone**`);
+       }
+        message.channel.startTyping();
+      if (!message.content) return message.channel.send("Please say something.");
+      fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${encodeURIComponent(message.content)}&botname=${client.user.username}&ownername=DEVELOPER_NAME`)
+          .then(res => res.json())
+          .then(data => {
+              message.channel.send(`> ${message.content} \n <@${message.author.id}> ${data.message}`);
+          });
+            message.channel.stopTyping();
+      }
 
 })
 
