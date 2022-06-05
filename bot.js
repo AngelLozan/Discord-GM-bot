@@ -1,7 +1,7 @@
 // Run dotenv
 
 require('dotenv').config();
-require("node-fetch").config();
+const fetch = import("node-fetch");
 
 //Method for connecting using discord.js api
 
