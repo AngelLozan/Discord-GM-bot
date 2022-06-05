@@ -174,7 +174,12 @@ return Promise.resolve()
       }, 2000);
       msg.channel.stopTyping();  
    } else if(msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980467385398079488>')) {
-         msg.react('You\'re welcome' + '💙');
+         msg.react('💙');
+         msg.channel.startTyping();
+         setTimeout(() => {
+            msg.channel.send('You\'re welcome');
+         }, 2000);
+         msg.channel.stopTyping();
    } else if(/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)){
          msg.react('👾');
    } 
