@@ -179,9 +179,9 @@ return Promise.resolve()
 })
 
 .catch(error => {
-  alert( "Bummer, got an error" );
-  alert( error.name );
-  alert( error.message );
+  console.log( "Bummer, got an error" );
+  console.log( error.name );
+  console.log( error.message );
 })
 
 });
