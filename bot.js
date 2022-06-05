@@ -49,11 +49,11 @@ const getRandomEmojiGN = () => {
 
 //Uses promise to ensure multiple mention/regex matches populate all possible scenarios with appropirate message and emoji reaction from bot. 
 
-// client.on('message', msg => {
+client.on('message', msg => {
    
 // //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
 
-//   let channel = client.channels.cache.get('CHANNEL ID');
+  let channel = client.channels.cache.get('CHANNEL ID');
 
 //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
 
@@ -62,104 +62,87 @@ const getRandomEmojiGN = () => {
 // Use a regex and .test method to find keywords in the message from users. Exclude leters and numbers behind gm/gn as stand alone phrases. Symbols except @ OK (may be an email). i = ignore case
 // Don't forget the "y" sticky flag on regex or different words trigger gn or gm.
 
-// return Promise.resolve()
-//    .then(() => {
-//       if (msg.author.bot){ 
-//       return;
-//       msg.channel.stopTyping(); 
-//    } else if(/gm bot|bad|didn\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
-//       return;
-//    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)){
-//       msg.channel.startTyping();
-//       setTimeout(()=>{
-//          msg.channel.send('GM ' + getRandomEmojiGM());
-//          msg.react(getRandomEmojiGM());
-//       }, 2000);
-//       msg.channel.stopTyping(); 
-//    } else if(/\bgm\b/gi.test(msg.content)){
-//       msg.channel.startTyping();
-//       setTimeout(()=>{
-//          msg.channel.send('GM ' + getRandomEmojiGM());
-//          msg.react(getRandomEmojiGM());
-//       }, 2000);
-//       msg.channel.stopTyping(); 
-//    } else if(/^\bmorning\b.*$/gi.test(msg.content)){
-//       msg.channel.startTyping();
-//       setTimeout(()=>{
-//          msg.channel.send('GM ' + getRandomEmojiGM());
-//          msg.react(getRandomEmojiGM());
-//       }, 2000);
-//       msg.channel.stopTyping(); 
-//    } else if(/^\bmornin\b.*$/gi.test(msg.content)){
-//       msg.channel.startTyping();
-//       setTimeout(()=>{
-//          msg.channel.send('GM ' + getRandomEmojiGM());
-//          msg.react(getRandomEmojiGM());
-//       }, 2000);
-//       msg.channel.stopTyping(); 
-//    } else if(/^.*\bgood afternoon\b.*$/gi.test(msg.content)){
-//       msg.channel.startTyping();
-//       setTimeout(()=>{
-//          msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
-//          msg.react(getRandomEmojiGM());
-//       }, 2000);
-//       msg.channel.stopTyping(); 
-//    } else if(/^ga$/gi.test(msg.content)){
-//       msg.channel.startTyping();
-//       setTimeout(()=>{
-//          msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
-//          msg.react(getRandomEmojiGM());
-//       }, 2000);
-//       msg.channel.stopTyping(); 
-//    } else if(/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/yi.test(msg.content)){
-//       msg.channel.startTyping();
-//       setTimeout(()=>{
-//          msg.channel.send('GN ' + getRandomEmojiGN());
-//          msg.react(getRandomEmojiGN());
-//       }, 2000);
-//       msg.channel.stopTyping(); 
-//    } else if(/\bgn\b/gi.test(msg.content)){
-//        msg.channel.startTyping();
-//       setTimeout(()=>{
-//          msg.channel.send('GN ' + getRandomEmojiGN());
-//          msg.react(getRandomEmojiGN());
-//       }, 2000);
-//       msg.channel.stopTyping(); 
-//    } else if(/^\bnight\b.*$/gi.test(msg.content)){
-//        msg.channel.startTyping();
-//       setTimeout(()=>{
-//          msg.channel.send('GN ' + getRandomEmojiGN());
-//          msg.react(getRandomEmojiGN());
-//       }, 2000);
-//       msg.channel.stopTyping(); 
-//    } else if(/^\bnite\b.*$/gi.test(msg.content)){
-//        msg.channel.startTyping();
-//       setTimeout(()=>{
-//          msg.channel.send('GN ' + getRandomEmojiGN());
-//          msg.react(getRandomEmojiGN());
-//       }, 2000);
-//       msg.channel.stopTyping(); 
-//    } 
+return Promise.resolve()
+   .then(() => {
+      if (msg.author.bot){ 
+      return;
+      msg.channel.stopTyping(); 
+   } else if(/gm bot|bad|didn\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
+      return;
+   } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)){
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('GM ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   } else if(/\bgm\b/gi.test(msg.content)){
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('GM ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   } else if(/^\bmorning\b.*$/gi.test(msg.content)){
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('GM ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   } else if(/^\bmornin\b.*$/gi.test(msg.content)){
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('GM ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   } else if(/^.*\bgood afternoon\b.*$/gi.test(msg.content)){
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   } else if(/^ga$/gi.test(msg.content)){
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
+         msg.react(getRandomEmojiGM());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   } else if(/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/yi.test(msg.content)){
+      msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('GN ' + getRandomEmojiGN());
+         msg.react(getRandomEmojiGN());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   } else if(/\bgn\b/gi.test(msg.content)){
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('GN ' + getRandomEmojiGN());
+         msg.react(getRandomEmojiGN());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   } else if(/^\bnight\b.*$/gi.test(msg.content)){
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('GN ' + getRandomEmojiGN());
+         msg.react(getRandomEmojiGN());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   } else if(/^\bnite\b.*$/gi.test(msg.content)){
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('GN ' + getRandomEmojiGN());
+         msg.react(getRandomEmojiGN());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   } 
 
 
-client.on("message", async message => {
-if (msg.channel.name == "chatbot") {
-if (message.author.bot) return;
-message.content = message.content.replace(/@(everyone)/gi, "everyone").replace(/@(here)/gi, "here");
-if (message.content.includes(`@`)) {
-return message.channel.send(`**:x: Please dont mention anyone**`);
- }
-  message.channel.startTyping();
-if (!message.content) return message.channel.send("Please say something.");
-fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${encodeURIComponent(message.content)}&botname=${client.user.username}&ownername=DEVELOPER_NAME`)
-    .then(res => res.json())
-    .then(data => {
-        message.channel.send(`> ${message.content} \n <@${message.author.id}> ${data.message}`);
-    });
-      message.channel.stopTyping();
-}
-
-// })
+})
 
 
    
