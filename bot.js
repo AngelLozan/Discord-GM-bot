@@ -159,7 +159,7 @@ fetch(`https://api.affiliateplus.xyz/api/chatbot?message=${encodeURIComponent(me
       message.channel.stopTyping();
 }
 
-})
+// })
 
 
    
