@@ -124,23 +124,21 @@ return Promise.resolve()
          msg.react(getRandomEmojiGN());
       }, 2000);
       msg.channel.stopTyping(); 
+   } else if(/^\bnight\b.*$/gi.test(msg.content)){
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('GN ' + getRandomEmojiGN());
+         msg.react(getRandomEmojiGN());
+      }, 2000);
+      msg.channel.stopTyping(); 
+   } else if(/^\bnite\b.*$/gi.test(msg.content)){
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('GN ' + getRandomEmojiGN());
+         msg.react(getRandomEmojiGN());
+      }, 2000);
+      msg.channel.stopTyping(); 
    } 
-
-   // else if(/^\bnight\b.*$/gi.test(msg.content)){
-   //     msg.channel.startTyping();
-   //    setTimeout(()=>{
-   //       msg.channel.send('GN ' + getRandomEmojiGN());
-   //       msg.react(getRandomEmojiGN());
-   //    }, 2000);
-   //    msg.channel.stopTyping(); 
-   // } else if(/^\bnite\b.*$/gi.test(msg.content)){
-   //     msg.channel.startTyping();
-   //    setTimeout(()=>{
-   //       msg.channel.send('GN ' + getRandomEmojiGN());
-   //       msg.react(getRandomEmojiGN());
-   //    }, 2000);
-   //    msg.channel.stopTyping(); 
-   // } 
 
 })
 
