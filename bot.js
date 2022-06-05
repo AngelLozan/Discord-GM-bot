@@ -13,8 +13,8 @@ client.on('ready', () => {
    client.user.setPresence({
     status: 'online',
     activity: {
-        name: 'with good vibes',
-        type: 'WATCHING',
+        name: 'at www.exodus.com',
+        type: 'STREAMING',
         url: 'https://www.exodus.com/'
     }
 })
