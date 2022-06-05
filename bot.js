@@ -66,7 +66,7 @@ return Promise.resolve()
       if (msg.author.bot){ 
       return;
       msg.channel.stopTyping(); 
-   } else if(/gm bot|bad|didn\'t|not|couldn\'t|wouldn\'t/gi.test(msg.content)){
+   } else if(/gm bot|bad|didn\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
       return;
    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)){
       msg.channel.startTyping();
