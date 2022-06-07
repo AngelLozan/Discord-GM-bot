@@ -49,7 +49,6 @@ const getRandomEmojiGN = () => {
 
 const talkedRecentlyGM = new Set();
 
-
 //Once connected, listen for messages
 
 //Uses promise to ensure multiple mention/regex matches populate all possible scenarios with appropirate message and emoji reaction from bot. 
@@ -68,74 +67,20 @@ client.on('message', msg => {
 // Don't forget the "y" sticky flag on regex or different words trigger gn or gm.
 
 return Promise.resolve()
-
-//Add specific use mention emojis down here based on criteria (ie. They are level 20 or they are nft contributers, ect.)
-
-//User needs to be formatted as ID. so copy id and put between <@ > in regex test. 
-
-.then(() => {
-      if(/<@841402856497610772>/i.test(msg.content)){
-         msg.react('🚀');
-   } 
-})
-
-// messages to the GM bot. You can add support messages for keywords too if the bot is directly mentioned with the keyword.
-
-.then(() => {
-   if(msg.content.toLowerCase().includes('help') && msg.content.includes('<@980467385398079488>')) {
-       msg.react('⛑');
-       msg.channel.startTyping();
-      setTimeout(()=>{
-         msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.' );
-      }, 2000);
-      msg.channel.stopTyping();  
-   } else if(msg.content.toLowerCase().includes('question') && msg.content.includes('<@980467385398079488>')) {
-       msg.react('🤔');
-       msg.channel.startTyping();
-      setTimeout(()=>{
-         msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.' );
-      }, 2000);
-      msg.channel.stopTyping();  
-   } else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
-      return;
-   } else if(msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980467385398079488>')) {
-         msg.react('💙');
-         msg.channel.startTyping();
-         setTimeout(() => {
-            msg.channel.send('You\'re welcome');
-         }, 2000);
-         msg.channel.stopTyping();
-   } else if(msg.content.toLowerCase().includes('thank you') && msg.content.includes('<@980467385398079488>')) {
-         msg.react('💙');
-         msg.channel.startTyping();
-         setTimeout(() => {
-            msg.channel.send('You\'re welcome');
-         }, 2000);
-         msg.channel.stopTyping();
-   } else if(msg.content.toLowerCase().includes('i love you') && msg.content.includes('<@980467385398079488>')) {
-         msg.react('😉');
-         msg.channel.startTyping();
-         setTimeout(() => {
-            msg.channel.send('I see us as just friends tbh.');
-         }, 2000);
-         msg.channel.stopTyping();
-   } else if(/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)){
-         msg.react('👾');
-   } 
-})
   
    .then(() => {
       if (msg.author.bot){ 
       return;
    } else if(/^gm bot$|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
       return;
-   } else if (talkedRecentlyGM.has(msg.author.id)) {
+   }  else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)){
+      if (talkedRecentlyGM.has(msg.author.id)) {
             msg.channel.startTyping();
             setTimeout(()=>{
             msg.channel.send('Wait ~30 seconds before switching timezones or trying again, ok'+'<@'+ msg.author +'>'+'?');
             }, 2000);
-      msg.channel.stopTyping(); 
-    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)){
+      msg.channel.stopTyping();
+     } else {
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GM ' + getRandomEmojiGM());
@@ -147,6 +92,8 @@ return Promise.resolve()
           // Removes the user from the set after a minute
           talkedRecentlyGM.delete(msg.author.id);
         }, 30000); 
+
+     }
    } else if(/\bgm\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
@@ -258,6 +205,61 @@ return Promise.resolve()
    } 
 })
    
+
+//Add specific use mention emojis down here based on criteria (ie. They are level 20 or they are nft contributers, ect.)
+
+//User needs to be formatted as ID. so copy id and put between <@ > in regex test. 
+
+.then(() => {
+      if(/<@841402856497610772>/i.test(msg.content)){
+         msg.react('🚀');
+   } 
+})
+
+// messages to the GM bot. You can add support messages for keywords too if the bot is directly mentioned with the keyword.
+
+.then(() => {
+   if(msg.content.toLowerCase().includes('help') && msg.content.includes('<@980467385398079488>')) {
+       msg.react('⛑');
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.' );
+      }, 2000);
+      msg.channel.stopTyping();  
+   } else if(msg.content.toLowerCase().includes('question') && msg.content.includes('<@980467385398079488>')) {
+       msg.react('🤔');
+       msg.channel.startTyping();
+      setTimeout(()=>{
+         msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.' );
+      }, 2000);
+      msg.channel.stopTyping();  
+   } else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
+      return;
+   } else if(msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980467385398079488>')) {
+         msg.react('💙');
+         msg.channel.startTyping();
+         setTimeout(() => {
+            msg.channel.send('You\'re welcome');
+         }, 2000);
+         msg.channel.stopTyping();
+   } else if(msg.content.toLowerCase().includes('thank you') && msg.content.includes('<@980467385398079488>')) {
+         msg.react('💙');
+         msg.channel.startTyping();
+         setTimeout(() => {
+            msg.channel.send('You\'re welcome');
+         }, 2000);
+         msg.channel.stopTyping();
+   } else if(msg.content.toLowerCase().includes('i love you') && msg.content.includes('<@980467385398079488>')) {
+         msg.react('😉');
+         msg.channel.startTyping();
+         setTimeout(() => {
+            msg.channel.send('I see us as just friends tbh.');
+         }, 2000);
+         msg.channel.stopTyping();
+   } else if(/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)){
+         msg.react('👾');
+   } 
+})
 
 .catch(error => {
   console.log( "Bummer, got an error" );
