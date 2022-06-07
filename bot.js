@@ -140,7 +140,7 @@ if (msg.author.bot){
    } else if (talkedRecentlyGA.has(msg.author.id)) {
             msg.channel.startTyping();
             setTimeout(()=>{
-            msg.channel.send("Wait a little bit before getting typing this again. - " + <@msg.author>);
+            msg.channel.send("Wait a little bit before getting typing this again. - " + '<@msg.author>');
             }, 2000);
       msg.channel.stopTyping(); 
     } else if(/^.*\bgood afternoon\b.*$/gi.test(msg.content)){
