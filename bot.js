@@ -78,8 +78,8 @@ return Promise.resolve()
    } else if (talkedRecentlyGM.has(msg.author.id)) {
             msg.channel.startTyping();
             setTimeout(()=>{
-            msg.channel.send("Wait a little bit before getting typing this again. - " + msg.author);
-            }, 2000);
+            msg.channel.send("Wait a little bit before getting typing this again. - " + "<@"msg.author">");
+            }, 15000);
       msg.channel.stopTyping(); 
     } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)){
       msg.channel.startTyping();
@@ -92,7 +92,7 @@ return Promise.resolve()
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecentlyGM.delete(msg.author.id);
-        }, 2000); 
+        }, 15000); 
    } else if(/\bgm\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
@@ -104,7 +104,7 @@ return Promise.resolve()
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecentlyGM.delete(msg.author.id);
-        }, 2000);
+        }, 15000);
    } else if(/^\bmorning\b.*$/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
@@ -116,7 +116,7 @@ return Promise.resolve()
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecentlyGM.delete(msg.author.id);
-        }, 2000); 
+        }, 15000); 
    } else if(/^\bmornin\b.*$/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
@@ -128,7 +128,7 @@ return Promise.resolve()
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecentlyGM.delete(msg.author.id);
-        }, 2000);  
+        }, 15000);  
    } 
 })
 
@@ -140,7 +140,7 @@ if (msg.author.bot){
    } else if (talkedRecentlyGA.has(msg.author.id)) {
             msg.channel.startTyping();
             setTimeout(()=>{
-            msg.channel.send("Wait a little bit before getting typing this again. - " + msg.author);
+            msg.channel.send("Wait a little bit before getting typing this again. - " + '<${msg.author}>');
             }, 2000);
       msg.channel.stopTyping(); 
     } else if(/^.*\bgood afternoon\b.*$/gi.test(msg.content)){
@@ -154,7 +154,7 @@ if (msg.author.bot){
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecentlyGA.delete(msg.author.id);
-        }, 2000);  
+        }, 15000);  
    } else if(/^ga$/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
@@ -166,7 +166,7 @@ if (msg.author.bot){
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecentlyGA.delete(msg.author.id);
-        }, 2000);  
+        }, 15000);  
    } 
 })
 
@@ -179,7 +179,7 @@ if (msg.author.bot){
    } else if (talkedRecentlyGN.has(msg.author.id)) {
             msg.channel.startTyping();
             setTimeout(()=>{
-            msg.channel.send("Wait a little bit before getting typing this again. - " + msg.author);
+            msg.channel.send("Wait a little bit before getting typing this again. - " + '<@msg.author>');
             }, 2000);
       msg.channel.stopTyping(); 
     } else if(/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)){
@@ -193,7 +193,7 @@ if (msg.author.bot){
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecentlyGN.delete(msg.author.id);
-        }, 2000); 
+        }, 15000); 
    } else if(/\bgn\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
@@ -205,7 +205,7 @@ if (msg.author.bot){
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecentlyGN.delete(msg.author.id);
-        }, 2000); 
+        }, 15000); 
    } else if(/^\bnight\b.*$/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
@@ -217,7 +217,7 @@ if (msg.author.bot){
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecentlyGN.delete(msg.author.id);
-        }, 2000);
+        }, 15000);
    } else if(/^\bnite\b.*$/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
@@ -229,13 +229,13 @@ if (msg.author.bot){
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecentlyGN.delete(msg.author.id);
-        }, 2000); 
+        }, 15000); 
    } 
 
 })
    
 
-/// Think I can delete this. })
+
    
 //Add specific use mention emojis down here based on criteria (ie. They are level 20 or they are nft contributers, ect.)
 
