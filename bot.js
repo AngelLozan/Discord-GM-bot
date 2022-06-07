@@ -77,8 +77,10 @@ return Promise.resolve()
       if (talkedRecentlyGM.has(msg.author.id)) {
             msg.channel.startTyping();
             setTimeout(()=>{
-            msg.channel.send('Wait ~30 seconds before switching timezones or trying again, ok'+'<@'+ msg.author +'>'+'?');
-            msg.delete(2500);
+            msg.channel.send('Wait ~30 seconds before switching timezones or trying again, ok'+'<@'+ msg.author +'>'+'?')
+            .then(msg => {
+                msg.delete({ timeout: 10000 })
+              })
             }, 2000)
       msg.channel.stopTyping();
      } else {
