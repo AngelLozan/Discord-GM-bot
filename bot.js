@@ -47,7 +47,9 @@ const getRandomEmojiGN = () => {
 
 };
 
-const talkedRecently = new Set();
+const talkedRecentlyGM = new Set();
+const talkedRecentlyGN = new Set();
+const talkedRecentlyGA = new Set();
 
 //Once connected, listen for messages
 
@@ -67,30 +69,30 @@ client.on('message', msg => {
 // Don't forget the "y" sticky flag on regex or different words trigger gn or gm.
 
 return Promise.resolve()
+  
    .then(() => {
       if (msg.author.bot){ 
       return;
-      msg.channel.stopTyping(); 
-   } else if (talkedRecently.has(msg.author.id)) {
+   } else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
+      return;
+   } else if (talkedRecentlyGM.has(msg.author.id)) {
             msg.channel.startTyping();
             setTimeout(()=>{
-            msg.channel.send("Wait 1 minute before getting typing this again. - " + msg.author);
+            msg.channel.send("Wait a little bit before getting typing this again. - " + msg.author);
             }, 2000);
       msg.channel.stopTyping(); 
-    } else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
-      return;
-   } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)){
+    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GM ' + getRandomEmojiGM());
          msg.react(getRandomEmojiGM());
       }, 2000);
       msg.channel.stopTyping();
-      talkedRecently.add(msg.author.id);
+      talkedRecentlyGM.add(msg.author.id);
         setTimeout(() => {
           // Removes the user from the set after a minute
-          talkedRecently.delete(msg.author.id);
-        }, 60000); 
+          talkedRecentlyGM.delete(msg.author.id);
+        }, 2000); 
    } else if(/\bgm\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
@@ -101,8 +103,8 @@ return Promise.resolve()
       talkedRecently.add(msg.author.id);
         setTimeout(() => {
           // Removes the user from the set after a minute
-          talkedRecently.delete(msg.author.id);
-        }, 60000);
+          talkedRecentlyGM.delete(msg.author.id);
+        }, 2000);
    } else if(/^\bmorning\b.*$/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
@@ -110,46 +112,100 @@ return Promise.resolve()
          msg.react(getRandomEmojiGM());
       }, 2000);
       msg.channel.stopTyping();
-      talkedRecently.add(msg.author.id);
+      talkedRecentlyGM.add(msg.author.id);
         setTimeout(() => {
           // Removes the user from the set after a minute
-          talkedRecently.delete(msg.author.id);
-        }, 60000); 
+          talkedRecentlyGM.delete(msg.author.id);
+        }, 2000); 
    } else if(/^\bmornin\b.*$/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GM ' + getRandomEmojiGM());
          msg.react(getRandomEmojiGM());
       }, 2000);
+      msg.channel.stopTyping();
+      talkedRecentlyGM.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecentlyGM.delete(msg.author.id);
+        }, 2000);  
+   } 
+})
+
+.then(() => {
+if (msg.author.bot){ 
+      return;
+   } else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
+      return;
+   } else if (talkedRecentlyGA.has(msg.author.id)) {
+            msg.channel.startTyping();
+            setTimeout(()=>{
+            msg.channel.send("Wait a little bit before getting typing this again. - " + msg.author);
+            }, 2000);
       msg.channel.stopTyping(); 
-   } else if(/^.*\bgood afternoon\b.*$/gi.test(msg.content)){
+    } else if(/^.*\bgood afternoon\b.*$/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
          msg.react(getRandomEmojiGM());
       }, 2000);
-      msg.channel.stopTyping(); 
+      msg.channel.stopTyping();
+      talkedRecentlyGA.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecentlyGa.delete(msg.author.id);
+        }, 2000);  
    } else if(/^ga$/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('Good Afternoon ' + getRandomEmojiGM());
          msg.react(getRandomEmojiGM());
       }, 2000);
+      msg.channel.stopTyping();
+      talkedRecentlyGA.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecentlyGA.delete(msg.author.id);
+        }, 2000);  
+   } 
+})
+
+
+.then(() => {
+if (msg.author.bot){ 
+      return;
+   } else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
+      return;
+   } else if (talkedRecentlyGN.has(msg.author.id)) {
+            msg.channel.startTyping();
+            setTimeout(()=>{
+            msg.channel.send("Wait a little bit before getting typing this again. - " + msg.author);
+            }, 2000);
       msg.channel.stopTyping(); 
-   } else if(/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)){
+    } else if(/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GN ' + getRandomEmojiGN());
          msg.react(getRandomEmojiGN());
       }, 2000);
-      msg.channel.stopTyping(); 
+      msg.channel.stopTyping();
+      talkedRecentlyGN.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecentlyGN.delete(msg.author.id);
+        }, 2000); 
    } else if(/\bgn\b/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GN ' + getRandomEmojiGN());
          msg.react(getRandomEmojiGN());
       }, 2000);
-      msg.channel.stopTyping(); 
+      msg.channel.stopTyping();
+      talkedRecentlyGN.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecentlyGN.delete(msg.author.id);
+        }, 2000); 
    } else if(/^\bnight\b.*$/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
@@ -157,19 +213,29 @@ return Promise.resolve()
          msg.react(getRandomEmojiGN());
       }, 2000);
       msg.channel.stopTyping(); 
+      talkedRecentlyGN.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecentlyGN.delete(msg.author.id);
+        }, 2000);
    } else if(/^\bnite\b.*$/gi.test(msg.content)){
        msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GN ' + getRandomEmojiGN());
          msg.react(getRandomEmojiGN());
       }, 2000);
-      msg.channel.stopTyping(); 
+      msg.channel.stopTyping();
+      talkedRecentlyGN.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecentlyGN.delete(msg.author.id);
+        }, 2000); 
    } 
 
-
 })
+   
 
-
+/// Think I can delete this. })
    
 //Add specific use mention emojis down here based on criteria (ie. They are level 20 or they are nft contributers, ect.)
 
@@ -215,7 +281,7 @@ return Promise.resolve()
          }, 2000);
          msg.channel.stopTyping();
    } else if(msg.content.toLowerCase().includes('i love you') && msg.content.includes('<@980467385398079488>')) {
-         msg.react('💙');
+         msg.react('😉');
          msg.channel.startTyping();
          setTimeout(() => {
             msg.channel.send('I see us as just friends tbh.');
