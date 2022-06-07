@@ -45,8 +45,8 @@ const getRandomEmojiGN = () => {
 };
 
 
-const date = false;
-const commandsTimers = {
+let date = false;
+let commandsTimers = {
     "gm":{
        waitTime: 5 * 60000, // 5 minutes wait for this particular command.
        lastUsed: false,
@@ -55,8 +55,9 @@ const commandsTimers = {
        waitTime: 5 * 60000, // 5 minutes wait for this particular command.
        lastUsed: false,
     }
-}
-const defaultWaitTime = 60000 * 2; //User needs to wait 2 minutes for each command unless specified
+};
+
+let defaultWaitTime = 60000 * 2; //User needs to wait 2 minutes for each command unless specified
 
 //Once connected, listen for messages
 
@@ -70,8 +71,9 @@ client.on('message', msg => {
     if((commandWaitTimer.lastUsed !== false ? msgSentDate - commandWaitTimer.lastUsed < commandWaitTimer.waitTime : false)){
         console.log('User needs to wait: ' + (commandWaitTimer.waitTime - (msgSentDate - commandWaitTimer .lastUsed)) / 1000 + ' seconds');
         return
-    }
-    commandsTimers[msg.content.split(" ")[0]].lastUsed = msgSentDate;
+    };
+
+    commandsTimers[msg.content.includes("gm")[0]].lastUsed = msgSentDate;
 
    
 // //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
