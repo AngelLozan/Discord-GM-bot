@@ -303,10 +303,10 @@ client.on('message', msg => {
                 }, 2000);
                 msg.channel.stopTyping();
             } else if (msg.content.toLowerCase().includes('ban') && msg.content.includes('<@980467385398079488>')) {
-                msg.react('⛔️');
+                msg.react('⛑');
                 msg.channel.startTyping();
                 setTimeout(() => {
-                    msg.reply('I can\'t ban users but I\'ll ping the <@&983729960323805304> to make sure the human mods take a care of this. Got you\'re back fam 🦾' );
+                    msg.reply('I can\'t ban users but I\'ll ping the @Moderation to make sure the human mods take a care of this. Got you\'re back fam 🦾' );
                 }, 2000); 
                 msg.channel.stopTyping();
             } else if (/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)) {
