@@ -2,6 +2,9 @@
 
 require('dotenv').config();
 const fetch = import("node-fetch");
+const humanizeDuration = require('humanize-duration');
+
+
 
 //Method for connecting using discord.js api
 
@@ -44,20 +47,7 @@ const getRandomEmojiGN = () => {
 
 };
 
-
-let date = false;
-let commandsTimers = {
-    "gm":{
-       waitTime: 5 * 60000, // 5 minutes wait for this particular command.
-       lastUsed: false,
-    },
-    "gn":{
-       waitTime: 5 * 60000, // 5 minutes wait for this particular command.
-       lastUsed: false,
-    }
-};
-
-let defaultWaitTime = 60000 * 2; //User needs to wait 2 minutes for each command unless specified
+const talkedRecently = new Set();
 
 //Once connected, listen for messages
 
@@ -65,36 +55,9 @@ let defaultWaitTime = 60000 * 2; //User needs to wait 2 minutes for each command
 
 client.on('message', msg => {
 
-   let channel = client.channels.cache.get('CHANNEL ID');
-
-   let commandsTimers = {
-    "gm":{
-       waitTime: 5 * 60000, // 5 minutes wait for this particular command.
-       lastUsed: false,
-    },
-    "gn":{
-       waitTime: 5 * 60000, // 5 minutes wait for this particular command.
-       lastUsed: false,
-    }
-};
-
-   let defaultWaitTime = 60000 * 2; //User needs to wait 2 minutes for each command unless specified
-
-   let msgSentDate = Date.now();
-
-   let commandWaitTimer = commandsTimers[msg.content.split(" ")[0]] || {waitTime:defaultWaitTime, lastUsed:false}; 
-
-    if((commandWaitTimer.lastUsed !== false ? msgSentDate - commandWaitTimer.lastUsed < commandWaitTimer.waitTime : false)){
-        console.log('User needs to wait: ' + (commandWaitTimer.waitTime - (msgSentDate - commandWaitTimer .lastUsed)) / 1000 + ' seconds');
-        return
-    };
-
-    commandsTimers.(msg.content.includes("gm")).lastUsed = msgSentDate;
-
    
-// //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
-
-  
+//needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
+ let channel = client.channels.cache.get('CHANNEL ID');
 
 //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
 
@@ -108,12 +71,13 @@ return Promise.resolve()
       if (msg.author.bot){ 
       return;
       msg.channel.stopTyping(); 
-   } 
-
-
-//To DO: If Gm'd more than twice in last 30 seconds, cannot Gm for 30 seconds. 
-
-   else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
+   } else if (talkedRecently.has(msg.author.id)) {
+            msg.channel.startTyping();
+            setTimeout(()=>{
+            msg.channel.send("Wait 1 minute before getting typing this again. - " + msg.author);
+            }, 2000);
+      msg.channel.stopTyping(); 
+    } else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
       return;
    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)){
       msg.channel.startTyping();
@@ -121,7 +85,12 @@ return Promise.resolve()
          msg.channel.send('GM ' + getRandomEmojiGM());
          msg.react(getRandomEmojiGM());
       }, 2000);
-      msg.channel.stopTyping(); 
+      msg.channel.stopTyping();
+      talkedRecently.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecently.delete(msg.author.id);
+        }, 60000); 
    } else if(/\bgm\b/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
@@ -129,13 +98,23 @@ return Promise.resolve()
          msg.react(getRandomEmojiGM());
       }, 2000);
       msg.channel.stopTyping(); 
+      talkedRecently.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecently.delete(msg.author.id);
+        }, 60000);
    } else if(/^\bmorning\b.*$/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
          msg.channel.send('GM ' + getRandomEmojiGM());
          msg.react(getRandomEmojiGM());
       }, 2000);
-      msg.channel.stopTyping(); 
+      msg.channel.stopTyping();
+      talkedRecently.add(msg.author.id);
+        setTimeout(() => {
+          // Removes the user from the set after a minute
+          talkedRecently.delete(msg.author.id);
+        }, 60000); 
    } else if(/^\bmornin\b.*$/gi.test(msg.content)){
       msg.channel.startTyping();
       setTimeout(()=>{
