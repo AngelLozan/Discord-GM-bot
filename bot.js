@@ -73,7 +73,7 @@ return Promise.resolve()
    .then(() => {
       if (msg.author.bot){ 
       return;
-   } else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
+   } else if(/^gm bot$|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
       return;
    } else if (talkedRecentlyGM.has(msg.author.id)) {
             msg.channel.startTyping();
@@ -135,7 +135,7 @@ return Promise.resolve()
 .then(() => {
 if (msg.author.bot){ 
       return;
-   } else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
+   } else if(/^gm bot$|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
       return;
    } else if (talkedRecentlyGA.has(msg.author.id)) {
             msg.channel.startTyping();
@@ -153,7 +153,7 @@ if (msg.author.bot){
       talkedRecentlyGA.add(msg.author.id);
         setTimeout(() => {
           // Removes the user from the set after a minute
-          talkedRecentlyGa.delete(msg.author.id);
+          talkedRecentlyGA.delete(msg.author.id);
         }, 2000);  
    } else if(/^ga$/gi.test(msg.content)){
       msg.channel.startTyping();
@@ -174,7 +174,7 @@ if (msg.author.bot){
 .then(() => {
 if (msg.author.bot){ 
       return;
-   } else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
+   } else if(/^gm bot$|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
       return;
    } else if (talkedRecentlyGN.has(msg.author.id)) {
             msg.channel.startTyping();
