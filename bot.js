@@ -145,7 +145,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('GM ' + getRandomEmojiGM());
+                        msg.channel.send('GA ' + getRandomEmojiGM());
                         msg.react(getRandomEmojiGM());
                     }, 2000);
                     msg.channel.stopTyping();
@@ -168,7 +168,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('GM ' + getRandomEmojiGM());
+                        msg.channel.send('GA ' + getRandomEmojiGM());
                         msg.react(getRandomEmojiGM());
                     }, 2000);
                     msg.channel.stopTyping();
@@ -191,7 +191,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('GM ' + getRandomEmojiGN());
+                        msg.channel.send('GN ' + getRandomEmojiGN());
                         msg.react(getRandomEmojiGN());
                     }, 2000);
                     msg.channel.stopTyping();
@@ -214,7 +214,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('GM ' + getRandomEmojiGN());
+                        msg.channel.send('GN ' + getRandomEmojiGN());
                         msg.react(getRandomEmojiGN());
                     }, 2000);
                     msg.channel.stopTyping();
