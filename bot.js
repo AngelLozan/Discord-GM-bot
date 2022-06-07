@@ -65,9 +65,25 @@ let defaultWaitTime = 60000 * 2; //User needs to wait 2 minutes for each command
 
 client.on('message', msg => {
 
+   let channel = client.channels.cache.get('CHANNEL ID');
+
+   let commandsTimers = {
+    "gm":{
+       waitTime: 5 * 60000, // 5 minutes wait for this particular command.
+       lastUsed: false,
+    },
+    "gn":{
+       waitTime: 5 * 60000, // 5 minutes wait for this particular command.
+       lastUsed: false,
+    }
+};
+
+   let defaultWaitTime = 60000 * 2; //User needs to wait 2 minutes for each command unless specified
+
    let msgSentDate = Date.now();
 
-    let commandWaitTimer = commandsTimers[msg.content.split(" ")[0]] || {waitTime:defaultWaitTime, lastUsed:false}; 
+   let commandWaitTimer = commandsTimers[msg.content.split(" ")[0]] || {waitTime:defaultWaitTime, lastUsed:false}; 
+
     if((commandWaitTimer.lastUsed !== false ? msgSentDate - commandWaitTimer.lastUsed < commandWaitTimer.waitTime : false)){
         console.log('User needs to wait: ' + (commandWaitTimer.waitTime - (msgSentDate - commandWaitTimer .lastUsed)) / 1000 + ' seconds');
         return
@@ -78,7 +94,7 @@ client.on('message', msg => {
    
 // //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
 
-  let channel = client.channels.cache.get('CHANNEL ID');
+  
 
 //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
 
