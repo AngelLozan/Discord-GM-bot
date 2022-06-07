@@ -44,9 +44,9 @@ const getRandomEmojiGN = () => {
 
 };
 
-let lastUsed; 
-let date = false;
-let commandsTimers = {
+
+const date = false;
+const commandsTimers = {
     "gm":{
        waitTime: 5 * 60000, // 5 minutes wait for this particular command.
        lastUsed: false,
@@ -56,7 +56,7 @@ let commandsTimers = {
        lastUsed: false,
     }
 }
-let defaultWaitTime = 60000 * 2; //User needs to wait 2 minutes for each command unless specified
+const defaultWaitTime = 60000 * 2; //User needs to wait 2 minutes for each command unless specified
 
 //Once connected, listen for messages
 
