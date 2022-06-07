@@ -78,7 +78,7 @@ return Promise.resolve()
    } else if (talkedRecentlyGM.has(msg.author.id)) {
             msg.channel.startTyping();
             setTimeout(()=>{
-            msg.channel.send("Wait a little bit before getting typing this again. - " + "<@"msg.author">");
+            msg.channel.send("Wait a little bit before getting typing this again. - " + "<@msg.author>");
             }, 15000);
       msg.channel.stopTyping(); 
     } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)){
@@ -140,7 +140,7 @@ if (msg.author.bot){
    } else if (talkedRecentlyGA.has(msg.author.id)) {
             msg.channel.startTyping();
             setTimeout(()=>{
-            msg.channel.send("Wait a little bit before getting typing this again. - " + '<${msg.author}>');
+            msg.channel.send("Wait a little bit before getting typing this again. - " + <@msg.author>);
             }, 2000);
       msg.channel.stopTyping(); 
     } else if(/^.*\bgood afternoon\b.*$/gi.test(msg.content)){
