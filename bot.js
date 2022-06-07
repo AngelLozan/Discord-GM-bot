@@ -65,6 +65,7 @@ let defaultWaitTime = 60000 * 2; //User needs to wait 2 minutes for each command
 client.on('message', msg => {
 
    let msgSentDate = Date.now();
+   let lastUsed;
     let commandWaitTimer = commandsTimers[msg.content.split(" ")[0]] || {waitTime:defaultWaitTime, lastUsed:false}; 
     if((commandWaitTimer.lastUsed !== false ? msgSentDate - commandWaitTimer.lastUsed < commandWaitTimer.waitTime : false)){
         console.log('User needs to wait: ' + (commandWaitTimer.waitTime - (msgSentDate - commandWaitTimer .lastUsed)) / 1000 + ' seconds');
