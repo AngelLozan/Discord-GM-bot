@@ -78,12 +78,8 @@ return Promise.resolve()
             msg.channel.startTyping();
             setTimeout(()=>{
             msg.channel.send('Wait ~30 seconds before switching timezones or trying again, ok'+'<@'+ msg.author +'>'+'?');
+            msg.delete(2500);
             }, 2000)
-            .then((sent) => {
-          setTimeout(() => {
-            sent.delete();
-          }, 2500);
-        })
       msg.channel.stopTyping();
      } else {
       msg.channel.startTyping();
