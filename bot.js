@@ -45,11 +45,33 @@ const getRandomEmojiGN = () => {
 };
 
 
+let date = false;
+let commandsTimers = {
+    "gm":{
+       waitTime: 5 * 60000, // 5 minutes wait for this particular command.
+       lastUsed: false,
+    },
+    "gn":{
+       waitTime: 5 * 60000, // 5 minutes wait for this particular command.
+       lastUsed: false,
+    }
+}
+let defaultWaitTime = 60000 * 2; //User needs to wait 2 minutes for each command unless specified
+
 //Once connected, listen for messages
 
 //Uses promise to ensure multiple mention/regex matches populate all possible scenarios with appropirate message and emoji reaction from bot. 
 
 client.on('message', msg => {
+
+   let msgSentDate = Date.now();
+    let commandWaitTimer = commandsTimers[message.content.split(" ")[0]] || {waitTime:defaultWaitTime, lastUsed:false}; 
+    if((commandWaitTimer.lastUsed !== false ? msgSentDate - commandWaitTimer.lastUsed < commandWaitTimer.waitTime : false)){
+        console.log('User needs to wait: ' + (commandWaitTimer.waitTime - (msgSentDate - commandWaitTimer .lastUsed)) / 1000 + ' seconds');
+        return
+    }
+    commandsTimers[message.content.split(" ")[0]].lastUsed = msgSentDate;
+    
    
 // //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
 
@@ -67,7 +89,12 @@ return Promise.resolve()
       if (msg.author.bot){ 
       return;
       msg.channel.stopTyping(); 
-   } else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
+   } 
+
+
+//To DO: If Gm'd more than twice in last 30 seconds, cannot Gm for 30 seconds. 
+
+   else if(/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)){
       return;
    } else if(/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)){
       msg.channel.startTyping();
