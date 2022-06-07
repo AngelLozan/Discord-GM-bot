@@ -89,7 +89,7 @@ client.on('message', msg => {
         return
     };
 
-    commandsTimers[msg.content.includes("gm")[0]].lastUsed = msgSentDate;
+    commandsTimers.(msg.content.includes("gm")).lastUsed = msgSentDate;
 
    
 // //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
