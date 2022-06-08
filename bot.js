@@ -136,7 +136,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('Wait ~30 seconds before switching timezones or trying again, ok' + ' <@' + msg.author + '>' + '?')
+                        msg.channel.send('Just a sec\', wait 30 seconds until trying again, for.... reasons....' + ' <@' + msg.author + '>')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
