@@ -100,7 +100,6 @@ client.on('message', msg => {
                     }, 30000);
                 }
             } else if (/\bgm\b/gi.test(msg.content)) {
-                msg.channel.startTyping();
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
