@@ -71,7 +71,7 @@ client.on('message', msg => {
         .then(() => {
             if (msg.author.bot) {
                 return;
-            } else if (/^gm bot$|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
+            } else if (/^gm bot$|^no$|bad|didn\'t|don\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
                 return;
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                 if (talkedRecentlyGM.has(msg.author.id)) {
@@ -295,7 +295,7 @@ client.on('message', msg => {
                     msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. Check out our knowledge base at https://support.exodus.com/ for helpful guides');
                 }, 2000);
                 msg.channel.stopTyping();
-            } else if (/gm bot|^no$|bad|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
+            } else if (/gm bot|^no$|bad|didn\'t|don\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
                 return;
             } else if (msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980457022971600936>')) {
                 msg.react('💙');
