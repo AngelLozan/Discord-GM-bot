@@ -47,6 +47,8 @@ const getRandomEmojiGN = () => {
 
 };
 
+//Set below allows for a timed message that only permits users to use the particular phrase and receive a response from the bot after a set time period. 
+
 const talkedRecentlyGM = new Set();
 
 //Once connected, listen for messages
@@ -77,7 +79,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('Wait ~30 seconds before switching timezones or trying again, ok' + ' <@' + msg.author + '>' + '?')
+                        msg.channel.send('I respond every 30 seconds. brb')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -136,7 +138,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('Just a sec\', wait 30 seconds until trying again, for.... reasons....' + ' <@' + msg.author + '>')
+                        msg.channel.send('I respond every 30 seconds. brb')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -159,7 +161,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('Wait ~30 seconds before switching timezones or trying again, ok' + ' <@' + msg.author + '>' + '?')
+                        msg.channel.send('I respond every 30 seconds. brb')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -182,7 +184,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('Wait ~30 seconds before switching timezones or trying again, ok' + ' <@' + msg.author + '>' + '?')
+                        msg.channel.send('I respond every 30 seconds. brb')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -205,7 +207,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('Wait ~30 seconds before switching timezones or trying again, ok' + ' <@' + msg.author + '>' + '?')
+                        msg.channel.send('I respond every 30 seconds. brb')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
