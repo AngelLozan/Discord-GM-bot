@@ -100,16 +100,28 @@ client.on('message', msg => {
                 }
             } else if (/\bgm\b/gi.test(msg.content)) {
                 msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('GM ' + getRandomEmojiGM());
-                    msg.react(getRandomEmojiGM());
-                }, 2000);
-                msg.channel.stopTyping();
-                talkedRecentlyGM.add(msg.author.id);
-                setTimeout(() => {
-                    // Removes the user from the set after a minute
-                    talkedRecentlyGM.delete(msg.author.id);
-                }, 30000);
+                if (talkedRecentlyGM.has(msg.author.id)) {
+                    msg.channel.startTyping();
+                    setTimeout(() => {
+                        msg.channel.send('brb in 30 seconds for <@' + msg.author +'>')
+                            .then(msg => {
+                                msg.delete({ timeout: 3000 })
+                            })
+                    }, 2000)
+                    msg.channel.stopTyping();
+                } else {
+                    msg.channel.startTyping();
+                    setTimeout(() => {
+                        msg.channel.send('GM ' + getRandomEmojiGM());
+                        msg.react(getRandomEmojiGM());
+                    }, 2000);
+                    msg.channel.stopTyping();
+                    talkedRecentlyGM.add(msg.author.id);
+                    setTimeout(() => {
+                        // Removes the user from the set after a minute
+                        talkedRecentlyGM.delete(msg.author.id);
+                    }, 30000);
+                }
             } else if (/^\bmorning\b.*$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
