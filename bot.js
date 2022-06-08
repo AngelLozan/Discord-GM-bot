@@ -197,14 +197,14 @@ return Promise.resolve()
             msg.channel.send('You\'re welcome');
          }, 2000);
          msg.channel.stopTyping();
-   } else if (msg.content.toLowerCase().includes('ban') && msg.content.includes('<@980467385398079488>')) {
+   } else if (msg.content.toLowerCase().includes('ban') && msg.content.includes('<@980457022971600936>')) {
           msg.react('⛑');
           msg.channel.startTyping();
           setTimeout(() => {
               msg.reply('I can\'t ban users but you can ping @Moderation to make sure the human mods take a care of this. Got you\'re back fam 🦾' );
           }, 2000); 
           msg.channel.stopTyping();
-   } else if(msg.content.toLowerCase().includes('i love you') && msg.content.includes('<@980467385398079488>')) {
+   } else if(msg.content.toLowerCase().includes('i love you') && msg.content.includes('<@980457022971600936>')) {
          msg.react('😉');
          msg.channel.startTyping();
          setTimeout(() => {
