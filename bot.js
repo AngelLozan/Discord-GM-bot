@@ -58,7 +58,7 @@ client.on('message', msg => {
    
 //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
 
-  let channel = client.channels.cache.get('CHANNEL ID');
+let channel = client.channels.cache.get('CHANNEL ID');
 
 //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
 
@@ -195,6 +195,20 @@ return Promise.resolve()
          msg.channel.startTyping();
          setTimeout(() => {
             msg.channel.send('You\'re welcome');
+         }, 2000);
+         msg.channel.stopTyping();
+   } else if (msg.content.toLowerCase().includes('ban') && msg.content.includes('<@980467385398079488>')) {
+          msg.react('⛑');
+          msg.channel.startTyping();
+          setTimeout(() => {
+              msg.reply('I can\'t ban users but you can ping @Moderation to make sure the human mods take a care of this. Got you\'re back fam 🦾' );
+          }, 2000); 
+          msg.channel.stopTyping();
+   } else if(msg.content.toLowerCase().includes('i love you') && msg.content.includes('<@980467385398079488>')) {
+         msg.react('😉');
+         msg.channel.startTyping();
+         setTimeout(() => {
+            msg.channel.send('I see us as just friends tbh.');
          }, 2000);
          msg.channel.stopTyping();
    } else if(/(?!\bhelp\b)<@980457022971600936>/gi.test(msg.content)){
