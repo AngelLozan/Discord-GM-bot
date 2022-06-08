@@ -281,9 +281,14 @@ client.on('message', msg => {
 
         .then(() => {
 
-         let mod = "983780951043756042";
+         // let mod = "983780951043756042";
 
-            if (msg.content.toLowerCase().includes('help') && msg.content.includes('<@980467385398079488>')) {
+            if (msg.author.bot) {
+                return;
+                msg.channel.stopTyping();
+            } else if (/gm bot|^no$|bad|don\'t|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
+                return;
+            } else if (msg.content.toLowerCase().includes('help') && msg.content.includes('<@980467385398079488>')) {
                 msg.react('⛑');
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -297,9 +302,7 @@ client.on('message', msg => {
                     msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.');
                 }, 2000);
                 msg.channel.stopTyping();
-            } else if (/gm bot|^no$|bad|didn\'t|don't|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
-                return;
-            } else if (msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980467385398079488>')) {
+            }  else if (msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980467385398079488>')) {
                 msg.react('💙');
                 msg.channel.startTyping();
                 setTimeout(() => {
