@@ -71,7 +71,7 @@ client.on('message', msg => {
         .then(() => {
             if (msg.author.bot) {
                 return;
-            } else if (/gm bot|no|bad|bot|didn\'t|don\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
+            } else if (/gm bot|\bno\b|bad|bot|didn\'t|don\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
                 return;
                 msg.channel.stopTyping();
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
@@ -284,7 +284,7 @@ client.on('message', msg => {
         .then(() => {
             if (msg.author.bot) {
                 return;
-            } else if (/gm bot|no|bad|bot|didn\'t|don\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
+            } else if (/gm bot|\bno\b|bad|bot|didn\'t|don\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
                 return;
                 msg.channel.stopTyping();
             } else if (msg.content.toLowerCase().includes('help') && msg.content.includes('<@980457022971600936>')) {
