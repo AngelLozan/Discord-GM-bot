@@ -73,7 +73,8 @@ client.on('message', msg => {
         .then(() => {
             if (msg.author.bot) {
                 return;
-            } else if (/^gm bot$|^no$|bad|don\'t|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
+                msg.channel.stopTyping();
+            } else if (/gm bot|^no$|bad|don\'t|didn\'t|^not$|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
                 return;
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                 if (talkedRecentlyGM.has(msg.author.id)) {
