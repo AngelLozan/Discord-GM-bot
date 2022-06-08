@@ -79,7 +79,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('brb in 30 seconds')
+                        msg.channel.send('brb in 30 seconds for <@' + msg.author +'>')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -138,7 +138,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('brb in 30 seconds')
+                        msg.channel.send('brb in 30 seconds for <@' + msg.author +'>')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -161,7 +161,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('brb in 30 seconds')
+                        msg.channel.send('brb in 30 seconds for <@' + msg.author +'>')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -184,7 +184,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('brb in 30 seconds')
+                        msg.channel.send('brb in 30 seconds for <@' + msg.author +'>')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -207,7 +207,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('brb in 30 seconds')
+                        msg.channel.send('brb in 30 seconds for <@' + msg.author +'>')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
