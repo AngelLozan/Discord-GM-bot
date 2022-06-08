@@ -79,7 +79,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('I respond every 30 seconds. brb')
+                        msg.channel.send('brb in 30 seconds')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -138,7 +138,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('I respond every 30 seconds. brb')
+                        msg.channel.send('brb in 30 seconds')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -161,7 +161,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('I respond every 30 seconds. brb')
+                        msg.channel.send('brb in 30 seconds')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
