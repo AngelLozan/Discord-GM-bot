@@ -278,25 +278,6 @@ client.on('message', msg => {
             }
         })
 
-        .then(() => {
-            
-            const cryptos = ['🚀', '💙', '🦾'];
-
-            const string = msg.content;
-
-            const emojiToReactWith = cryptos.find(element =>{
-               if(element.includes(string)){
-                  msg.react('<:rocket:984445385483386931');
-                  console.log('Found the emoji!');
-               }
-            })
-
-           
-
-            // if (/<@841402856497610772>/i.test(msg.content)) {
-            //     msg.react('🚀');
-            // }
-        })
 
         // messages to the GM bot. You can add support messages for keywords too if the bot is directly mentioned with the keyword.
 
