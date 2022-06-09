@@ -47,6 +47,8 @@ const getRandomEmojiGN = () => {
 
 };
 
+const cryptos = ['🥱', '😴', '😪'];
+
 //Set below allows for a timed message that only permits users to use the particular phrase and receive a response from the bot after a set time period. 
 
 const talkedRecentlyGM = new Set();
@@ -276,11 +278,29 @@ client.on('message', msg => {
             }
         })
 
+        .then(() => {
+            
+            const cryptos = ['🚀', '💙', '🦾'];
+
+            const string = msg.content;
+
+            const emojiToReactWith = cryptos.find(element =>{
+               if(element.includes(string)){
+                  return true;
+               }
+            })
+
+            msg.react(emojiToReactWith);
+
+            // if (/<@841402856497610772>/i.test(msg.content)) {
+            //     msg.react('🚀');
+            // }
+        })
+
         // messages to the GM bot. You can add support messages for keywords too if the bot is directly mentioned with the keyword.
 
         .then(() => {
 
-         // let mod = "983780951043756042";
 
             if (msg.author.bot) {
                 return;
