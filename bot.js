@@ -290,7 +290,7 @@ client.on('message', msg => {
                }
             })
 
-            msg.react('emojiToReactWith');
+           console.log(emojiToReactWith);
 
             // if (/<@841402856497610772>/i.test(msg.content)) {
             //     msg.react('🚀');
