@@ -286,7 +286,7 @@ client.on('message', msg => {
 
             const emojiToReactWith = cryptos.find(element =>{
                if(element.includes(string)){
-                  msg.react('984445385483386931');
+                  msg.react('<:rocket:984445385483386931');
                }
             })
 
