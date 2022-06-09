@@ -287,10 +287,11 @@ client.on('message', msg => {
             const emojiToReactWith = cryptos.find(element =>{
                if(element.includes(string)){
                   msg.react('<:rocket:984445385483386931');
+                  console.log('Found the emoji!');
                }
             })
 
-           console.log('Found the emoji!');
+           
 
             // if (/<@841402856497610772>/i.test(msg.content)) {
             //     msg.react('🚀');
