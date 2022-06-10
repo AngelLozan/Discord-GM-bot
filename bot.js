@@ -105,7 +105,7 @@ client.on('message', msg => {
                         talkedRecentlyGM.delete(msg.author.id);
                         setTimeout(()=>{
                            botCoolDownSet.delete(msg.author.bot);
-                        }, 60000);
+                        }, 45000);
                     }, 30000);
                 }
             } else if (/\bgm\b/gi.test(msg.content)) {
@@ -227,7 +227,7 @@ client.on('message', msg => {
                         talkedRecentlyGM.delete(msg.author.id);
                         setTimeout(()=>{
                            botCoolDownSet.delete(msg.author.bot);
-                        }, 60000);
+                        }, 45000);
                     }, 30000);
                 }
             } else if (/\bgn\b/gi.test(msg.content)) {
