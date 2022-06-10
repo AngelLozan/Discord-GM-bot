@@ -69,7 +69,7 @@ client.on('message', msg => {
 
 
     return Promise.resolve()
-    
+
         .then(() => {
             if (msg.author.bot) {
                 return;
@@ -77,12 +77,12 @@ client.on('message', msg => {
             } else if (/gm bot|\bno\b|bad|bot|don\'t|didn\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
                 return;
             } else if (botCoolDownSet.has(msg.author.bot)) {
-               if (msg.content.includes('<@980467385398079488>')){
-                  return;
-               } else {
-                   msg.react(getRandomEmojiGM());
-                return;
-               }
+                if (msg.content.includes('<@980457022971600936>')) {
+                    return;
+                } else {
+                    msg.react(getRandomEmojiGM());
+                    return;
+                }
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -215,26 +215,59 @@ client.on('message', msg => {
         //GM bot and minor support messages
 
         .then(() => {
+
             if (msg.author.bot) {
                 return;
-            } else if (/gm bot|\bno\b|bad|bot|didn\'t|don\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
-                return;
                 msg.channel.stopTyping();
+            } else if (/gm bot|\bno\b|bad|bot|don\'t|didn\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
+                return;
             } else if (msg.content.toLowerCase().includes('help') && msg.content.includes('<@980457022971600936>')) {
                 msg.react('⛑');
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. Check out our knowledge base at https://support.exodus.com/ for helpful guides.');
-                }, 2000);
-                msg.channel.stopTyping();
+                if (talkedRecentlyGM.has(msg.author.id)) {
+                    msg.channel.startTyping();
+                    setTimeout(() => {
+                        msg.channel.send('Hang in there <@' + msg.author + '>')
+                            .then(msg => {
+                                msg.delete({ timeout: 3000 })
+                            })
+                    }, 2000)
+                    msg.channel.stopTyping();
+                } else {
+                    msg.channel.startTyping();
+                    setTimeout(() => {
+                        msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.');
+                    }, 2000);
+                    msg.channel.stopTyping();
+                    talkedRecentlyGM.add(msg.author.id);
+                    setTimeout(() => {
+                        // Removes the user from the set after 30 seconds
+                        talkedRecentlyGM.delete(msg.author.id);
+                    }, 30000);
+                }
             } else if (msg.content.toLowerCase().includes('question') && msg.content.includes('<@980457022971600936>')) {
                 msg.react('🤔');
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. Check out our knowledge base at https://support.exodus.com/ for helpful guides');
-                }, 2000);
-                msg.channel.stopTyping();
-            }  else if (msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980457022971600936>')) {
+                if (talkedRecentlyGM.has(msg.author.id)) {
+                    msg.channel.startTyping();
+                    setTimeout(() => {
+                        msg.channel.send('Hang in there <@' + msg.author + '>, and try to ping @Moderation')
+                            .then(msg => {
+                                msg.delete({ timeout: 3000 })
+                            })
+                    }, 2000)
+                    msg.channel.stopTyping();
+                } else {
+                    msg.channel.startTyping();
+                    setTimeout(() => {
+                        msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.');
+                    }, 2000);
+                    msg.channel.stopTyping();
+                    talkedRecentlyGM.add(msg.author.id);
+                    setTimeout(() => {
+                        // Removes the user from the set after 30 seconds
+                        talkedRecentlyGM.delete(msg.author.id);
+                    }, 30000);
+                }
+            } else if (msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980457022971600936>')) {
                 msg.react('💙');
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -248,13 +281,6 @@ client.on('message', msg => {
                     msg.channel.send('You\'re welcome');
                 }, 2000);
                 msg.channel.stopTyping();
-            } else if (msg.content.toLowerCase().includes('ban') && msg.content.includes('<@980457022971600936>')) {
-                msg.react('⛑');
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.reply('I can\'t ban users but you can ping @Moderation to make sure the human mods take a care of this. Got you\'re back fam 🦾');
-                }, 2000);
-                msg.channel.stopTyping();
             } else if (msg.content.toLowerCase().includes('i love you') && msg.content.includes('<@980457022971600936>')) {
                 msg.react('😉');
                 msg.channel.startTyping();
@@ -262,11 +288,36 @@ client.on('message', msg => {
                     msg.channel.send('I see us as just friends tbh.');
                 }, 2000);
                 msg.channel.stopTyping();
+            } else if (msg.content.toLowerCase().includes('ban') && msg.content.includes('<@980457022971600936>')) {
+                msg.react('⛑');
+                if (talkedRecentlyGM.has(msg.author.id)) {
+                    msg.channel.startTyping();
+                    setTimeout(() => {
+                        msg.channel.send('Hang in there, <@' + msg.author + '>, and try to ping @Moderation')
+                            .then(msg => {
+                                msg.delete({ timeout: 3000 })
+                            })
+                    }, 2000)
+                    msg.channel.stopTyping();
+                } else {
+                    msg.channel.startTyping();
+                    setTimeout(() => {
+                        msg.reply('I can\'t ban users but you can ping @Moderation to make sure the human mods take a care of this. Got you\'re back fam 🦾');
+                    }, 2000);
+                    msg.channel.stopTyping();
+                    talkedRecentlyGM.add(msg.author.id);
+                    setTimeout(() => {
+                        // Removes the user from the set after 30 seconds
+                        talkedRecentlyGM.delete(msg.author.id);
+                    }, 30000);
+                }
             } else if (/(?!\bhelp\b)<@980457022971600936>/gi.test(msg.content)) {
                 msg.react('845024722559303720');
             }
         })
 
+        // GM bot ID <@980457022971600936>
+        // Waving exodude emoji id: '845024722559303720';
 
         //cheez #2592
         .then(() => {
