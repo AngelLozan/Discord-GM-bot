@@ -80,8 +80,12 @@ client.on('message', msg => {
             } else if (/gm bot|\bno\b|bad|bot|don\'t|didn\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
                 return;
             } else if (botCoolDownSet.has(msg.author.bot)) {
-                msg.react(getRandomEmojiGM());
+               if (msg.content.includes('<@980467385398079488>')){
+                  return;
+               } else {
+                   msg.react(getRandomEmojiGM());
                 return;
+               }
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
