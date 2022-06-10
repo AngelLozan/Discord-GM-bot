@@ -51,6 +51,7 @@ const getRandomEmojiGN = () => {
 //Set below allows for a timed message that only permits users to use the particular phrase and receive a response from the bot after a set time period. 
 
 const talkedRecentlyGM = new Set();
+const botCoolDownSet = new Set();
 
 
 client.on('message', msg => {
@@ -75,10 +76,12 @@ client.on('message', msg => {
                 return;
                 msg.channel.stopTyping();
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
-                if (talkedRecentlyGM.has(msg.author.id)) {
+                if (botCoolDownSet.has(msg.author.bot)){
+                  return;
+                } else if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('brb in 30 seconds for <@' + msg.author + '>')
+                        msg.channel.send('brb in 30 seconds for <@' + msg.author +'>')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -92,9 +95,13 @@ client.on('message', msg => {
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
+                    botCoolDownSet.add(msg.author.bot);
                     setTimeout(() => {
-                        // Removes the user from the set after a minute
+                        // Removes the user from the set after 30 seconds
                         talkedRecentlyGM.delete(msg.author.id);
+                        setTimeout(()=>{
+                           botCoolDownSet.delete(msg.author.bot);
+                        }, 60000);
                     }, 30000);
                 }
             } else if (/\bgm\b/gi.test(msg.content)) {
@@ -191,10 +198,12 @@ client.on('message', msg => {
                     }, 30000);
                 }
             } else if (/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)) {
-                if (talkedRecentlyGM.has(msg.author.id)) {
+                if (botCoolDownSet.has(msg.author.bot)){
+                  return;
+                } else if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('brb in 30 seconds for <@' + msg.author + '>')
+                        msg.channel.send('brb in 30 seconds for <@' + msg.author +'>')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -204,13 +213,17 @@ client.on('message', msg => {
                     msg.channel.startTyping();
                     setTimeout(() => {
                         msg.channel.send('GN ' + getRandomEmojiGN());
-                        msg.react(getRandomEmojiGN());
+                        msg.react(getRandomEmojiGM());
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
+                    botCoolDownSet.add(msg.author.bot);
                     setTimeout(() => {
-                        // Removes the user from the set after a minute
+                        // Removes the user from the set after 30 seconds
                         talkedRecentlyGM.delete(msg.author.id);
+                        setTimeout(()=>{
+                           botCoolDownSet.delete(msg.author.bot);
+                        }, 60000);
                     }, 30000);
                 }
             } else if (/\bgn\b/gi.test(msg.content)) {
