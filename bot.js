@@ -82,7 +82,7 @@ client.on('message', msg => {
             } else if (botCoolDownSet.has(msg.author.bot)){
                msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('brb in 45 seconds, bot cool down')
+                        msg.react(getRandomEmojiGM());
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
