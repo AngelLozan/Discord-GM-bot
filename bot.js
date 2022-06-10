@@ -248,7 +248,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('Hang in there <@' + msg.author + '>')
+                        msg.channel.send('Hang in there <@' + msg.author + '>, and try to ping @Moderation')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -292,7 +292,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('Hang in there <@' + msg.author + '>')
+                        msg.channel.send('Hang in there, <@' + msg.author + '>, and try to ping @Moderation')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
