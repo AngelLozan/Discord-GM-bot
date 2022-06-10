@@ -47,11 +47,12 @@ const getRandomEmojiGN = () => {
 
 };
 
-const cryptos = ['🥱', '😴', '😪'];
+
 
 //Set below allows for a timed message that only permits users to use the particular phrase and receive a response from the bot after a set time period. 
 
 const talkedRecentlyGM = new Set();
+const botCoolDownSet = new Set();
 
 //Once connected, listen for messages
 
@@ -79,7 +80,10 @@ client.on('message', msg => {
             } else if (/gm bot|\bno\b|bad|bot|don\'t|didn\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
                 return;
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
-                if (talkedRecentlyGM.has(msg.author.id)) {
+                if (botCoolDownSet.has(msg.author.bot)){
+                  msg.channel.send('cooldown worked');
+                  return;
+                } else if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
                         msg.channel.send('brb in 30 seconds for <@' + msg.author +'>')
@@ -96,9 +100,13 @@ client.on('message', msg => {
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
+                    botCoolDownSet.add(msg.author.bot);
                     setTimeout(() => {
-                        // Removes the user from the set after a minute
+                        // Removes the user from the set after 30 seconds
                         talkedRecentlyGM.delete(msg.author.id);
+                        setTimeout(()=>{
+                           botCoolDownSet.delete(msg.author.bot);
+                        }, 60000);
                     }, 30000);
                 }
             } else if (/\bgm\b/gi.test(msg.content)) {
