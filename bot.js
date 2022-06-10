@@ -81,7 +81,6 @@ client.on('message', msg => {
                 return;
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                 if (botCoolDownSet.has(msg.author.bot)){
-                  msg.channel.send('cooldown worked');
                   return;
                 } else if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
