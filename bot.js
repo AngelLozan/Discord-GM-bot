@@ -233,6 +233,11 @@ client.on('message', msg => {
                         msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.');
                     }, 2000);
                     msg.channel.stopTyping();
+                    talkedRecentlyGM.add(msg.author.id);
+                    setTimeout(() => {
+                        // Removes the user from the set after 30 seconds
+                        talkedRecentlyGM.delete(msg.author.id);
+                    }, 30000);
                 }
             } else if (msg.content.toLowerCase().includes('question') && msg.content.includes('<@980467385398079488>')) {
                 msg.react('🤔');
@@ -251,6 +256,11 @@ client.on('message', msg => {
                         msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.');
                     }, 2000);
                     msg.channel.stopTyping();
+                    talkedRecentlyGM.add(msg.author.id);
+                    setTimeout(() => {
+                        // Removes the user from the set after 30 seconds
+                        talkedRecentlyGM.delete(msg.author.id);
+                    }, 30000);
                 }
             } else if (msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980467385398079488>')) {
                 msg.react('💙');
@@ -290,6 +300,11 @@ client.on('message', msg => {
                         msg.reply('I can\'t ban users but you can ping @Moderation to make sure the human mods take a care of this. Got you\'re back fam 🦾');
                     }, 2000);
                     msg.channel.stopTyping();
+                    talkedRecentlyGM.add(msg.author.id);
+                    setTimeout(() => {
+                        // Removes the user from the set after 30 seconds
+                        talkedRecentlyGM.delete(msg.author.id);
+                    }, 30000);
                 }
             } else if (/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)) {
                 msg.react('👾');
