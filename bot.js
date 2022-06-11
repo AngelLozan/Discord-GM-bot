@@ -91,16 +91,21 @@ client.on('message', msg => {
                 } else if (/\bgn\b/gi.test(msg.content)) {
                     msg.react(getRandomEmojiGN());
                     return;
-                }else if (/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)) {
+                } else if (/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)) {
                     msg.react(getRandomEmojiGN());
                     return;
                 } else if (/^\bnight\b.*$/gi.test(msg.content)) {
                     msg.react(getRandomEmojiGN());
                     return;
+                } else if (/^\bnite\b.*$/gi.test(msg.content)) {
+                    msg.react(getRandomEmojiGN());
+                    return;
                 } else if (/^ga$/gi.test(msg.content)) {
                     msg.react(getRandomEmojiGM());
+                    return;
                 } else if (/^.*\bgood afternoon\b.*$/gi.test(msg.content)) {
                     msg.react(getRandomEmojiGM());
+                    return;
                 } else { return; }
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                 msg.channel.startTyping();
