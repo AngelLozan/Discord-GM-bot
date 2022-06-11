@@ -245,7 +245,8 @@ client.on('message', msg => {
         }
 
         var result = containsAny(msg.content, ['✌🏼', '💯', '🦾']);
-        msg.react(result.toString());
+        var emoji = result.toString();
+        msg.react(emoji);
         console.log("String was found in substring " + result);
 
       })
