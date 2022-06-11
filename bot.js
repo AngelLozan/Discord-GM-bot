@@ -77,12 +77,28 @@ client.on('message', msg => {
             } else if (/gm bot|\bno\b|bad|bot|don\'t|didn\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
                 return;
             } else if (botCoolDownSet.has(msg.author.bot)) {
-                if (msg.content.includes('<@980457022971600936>')) {
+                if (msg.content.includes('<@980467385398079488>')) {
                     return;
-                } else {
+                } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                     msg.react(getRandomEmojiGM());
                     return;
-                }
+                } else if (/\bgm\b/gi.test(msg.content)){
+                    msg.react(getRandomEmojiGM());
+                    return;
+                } else if (/\bgn\b/gi.test(msg.content)) {
+                    msg.react(getRandomEmojiGN());
+                    return;
+                }else if (/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)) {
+                    msg.react(getRandomEmojiGN());
+                    return;
+                } else if (/^\bnight\b.*$/gi.test(msg.content)) {
+                    msg.react(getRandomEmojiGN());
+                    return;
+                } else if (/^ga$/gi.test(msg.content)) {
+                    msg.react(getRandomEmojiGM());
+                } else if (/^.*\bgood afternoon\b.*$/gi.test(msg.content)) {
+                    msg.react(getRandomEmojiGM());
+                } else { return; }
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
