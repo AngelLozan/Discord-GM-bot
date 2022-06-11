@@ -245,7 +245,7 @@ client.on('message', msg => {
         }
 
         var result = containsAny(msg.content, ['✌🏼', '💯', '🦾']);
-        msg.react('result');
+        msg.react(result);
         console.log("String was found in substring " + result);
 
       })
