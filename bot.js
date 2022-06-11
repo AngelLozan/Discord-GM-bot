@@ -232,6 +232,30 @@ client.on('message', msg => {
         })
 
 
+         .then(() => {
+
+        function containsAny(str, substrings) {
+            for (var i = 0; i != substrings.length; i++) {
+                var substring = substrings[i];
+                if (str.indexOf(substring) != -1) {
+                    return substring;
+                }
+            }
+            return null;
+        }
+
+        var result = containsAny(msg.content, ['✌🏼', '💯', '🦾']);
+        msg.react('result');
+        console.log("String was found in substring " + result);
+
+      })
+         
+      .catch(error => {
+            console.log("emoji content error");
+            console.log(error.name);
+            console.log(error.message);
+        })
+
         // messages to the GM bot. You can add support messages for keywords too if the bot is directly mentioned with the keyword.
 
         .then(() => {
