@@ -29,7 +29,7 @@ client.login(process.env.DISCORD_TOKEN);
 
 const getRandomEmojiGM = () => {
 
-    const emojis = ['😀', '😃', '😄', '😁', '✌🏼', '💯', '🦾', '🫡', '💙', '😎', '🚀', '😉', '☀️', '😊', '😇', '🤙', '🖖', '👆', '👋', '👾', '🌤', '🌈', '🌞', '✨', '💫', '🌅', '🌇', '🌄', '💎']
+    const emojis = ['😀', '😃', '😄', '😁', '✌🏼', '💯', '🦾', '💙', '😎', '🚀', '😉', '☀️', '😊', '😇', '🤙', '🖖', '👆', '👋', '👾', '🌤', '🌈', '🌞', '✨', '💫', '🌅', '🌇', '🌄', '💎']
 
     return emojis[~~(Math.random() * emojis.length)]
 
@@ -276,6 +276,7 @@ client.on('message', msg => {
                 if (msg.content.toLowerCase().includes(keys) || msg.content.toUpperCase().includes(coins[keys].split(':').shift())) {
                     let reaction = coins[keys].split(':')[1];
                     // Use to troubleshoot -> console.log(reaction);
+                    // Maybe include second if statement to find another emoji.
                     msg.react('' + reaction + '');
                     break
                 }
