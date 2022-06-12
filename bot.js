@@ -253,7 +253,8 @@ client.on('message', msg => {
             console.log(error.message);
         })
 
-// Keyword search to react with appropriate emojis
+// Keyword search to react with appropriate emojis. To augment, add to the keyword array and containsArray function list. 
+
        .then(() => {
 
         let keywordArray = ['litecoin','monero', 'bitcoin','ethereum','eth'];
@@ -262,15 +263,13 @@ client.on('message', msg => {
             for (var i = 0; i != substrings.length; i++) {
                 var substring = substrings[i];
                 if (str.indexOf(substring) != -1) {
-                    if(substring === 'litecoin'){
+                    if(substring === 'litecoin' || 'ltc'){
                      return '845004333846102036';
-                    } else if (substring === 'monero'){
+                    } else if (substring === 'monero' || 'xmr'){
                      return '845019578106642442';
-                    } else if (substring === 'bitcoin'){
+                    } else if (substring === 'bitcoin' || 'btc'){
                      return '844985243118075964';
-                    } else if (substring === 'ethereum'){
-                     return '844985406893588540';
-                    } else if (substring === 'eth'){
+                    } else if (substring === 'ethereum' || 'eth'){
                      return '844985406893588540';
                     } 
                 }
