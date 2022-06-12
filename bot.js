@@ -265,6 +265,43 @@ client.on('message', msg => {
             console.log(error.message);
         })
 
+
+      .then(() => {
+
+        let keywordArray = ['🚀','dog', 'frown','smile'];
+
+        function containsAny(str, substrings) {
+            for (var i = 0; i != substrings.length; i++) {
+                var substring = substrings[i];
+                if (str.indexOf(substring.toLowerCase()) != -1) {
+                    if(substring.toLowerCase() === 'smile'){
+                     return '😀';
+                    } else if (substring.toLowerCase() === 'frown'){
+                     return '🙁';
+                    }
+                }
+            }
+            return null;
+        }
+        
+
+       if (containsAny(msg.content, keywordArray)){
+           let result = containsAny(msg.content, keywordArray);
+           msg.react(''+ result +'');
+           console.log("keyword was found in the message " + result);
+        } else {
+           return;
+        }
+        
+        
+      })
+         
+      .catch(error => {
+            console.log("keyword emoji content error");
+            console.log(error.name);
+            console.log(error.message);
+        })
+
         // messages to the GM bot. You can add support messages for keywords too if the bot is directly mentioned with the keyword.
 
         .then(() => {
