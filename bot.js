@@ -244,7 +244,7 @@ client.on('message', msg => {
                     return substring;
                 }
             }
-            return null;
+            return;
         }
         
 
@@ -268,7 +268,7 @@ client.on('message', msg => {
 
       .then(() => {
 
-        let keywordArray = ['🚀','dog', 'frown','smile'];
+        let keywordArray = ['rocket','dog', 'frown','smile'];
 
         function containsAny(str, substrings) {
             for (var i = 0; i != substrings.length; i++) {
@@ -278,6 +278,10 @@ client.on('message', msg => {
                      return '😀';
                     } else if (substring === 'frown'){
                      return '🙁';
+                    } else if (substring === 'dog'){
+                     return ':dog:';
+                    } else if (substring === 'rocket'){
+                     return '🚀';
                     }
                 }
             }
