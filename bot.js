@@ -279,7 +279,7 @@ client.on('message', msg => {
                     } else if (substring === 'frown'){
                      return '🙁';
                     } else if (substring === 'dog'){
-                     return ':dog:';
+                     return '🐶';
                     } else if (substring === 'rocket'){
                      return '🚀';
                     }
