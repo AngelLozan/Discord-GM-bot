@@ -273,7 +273,7 @@ client.on('message', msg => {
         function containsAny(str, substrings) {
             for (var i = 0; i != substrings.length; i++) {
                 var substring = substrings[i];
-                if (str.indexOf(substring != -1) {
+                if (str.indexOf(substring) != -1) {
                     if(substring === 'smile'){
                      return '😀';
                     } else if (substring === 'frown'){
