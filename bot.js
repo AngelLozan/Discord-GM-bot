@@ -174,7 +174,7 @@ client.on('message', msg => {
                 msg.channel.startTyping();
                 setTimeout(() => {
                     msg.channel.send('GN ' + getRandomEmojiGN());
-                    msg.react(getRandomEmojiGM());
+                    msg.react(getRandomEmojiGN());
                 }, 2000);
                 msg.channel.stopTyping();
                 botCoolDownSet.add(msg.author.bot);
@@ -185,7 +185,7 @@ client.on('message', msg => {
                 msg.channel.startTyping();
                 setTimeout(() => {
                     msg.channel.send('GN ' + getRandomEmojiGN());
-                    msg.react(getRandomEmojiGM());
+                    msg.react(getRandomEmojiGN());
                 }, 2000);
                 msg.channel.stopTyping();
                 botCoolDownSet.add(msg.author.bot);
@@ -196,7 +196,7 @@ client.on('message', msg => {
                 msg.channel.startTyping();
                 setTimeout(() => {
                     msg.channel.send('GN ' + getRandomEmojiGN());
-                    msg.react(getRandomEmojiGM());
+                    msg.react(getRandomEmojiGN());
                 }, 2000);
                 msg.channel.stopTyping();
                 botCoolDownSet.add(msg.author.bot);
@@ -207,7 +207,7 @@ client.on('message', msg => {
                 msg.channel.startTyping();
                 setTimeout(() => {
                     msg.channel.send('GN ' + getRandomEmojiGN());
-                    msg.react(getRandomEmojiGM());
+                    msg.react(getRandomEmojiGN());
                 }, 2000);
                 msg.channel.stopTyping();
                 botCoolDownSet.add(msg.author.bot);
