@@ -263,13 +263,13 @@ client.on('message', msg => {
             for (var i = 0; i != substrings.length; i++) {
                 var substring = substrings[i];
                 if (str.indexOf(substring) != -1) {
-                    if(substring === 'litecoin' || 'ltc'){
+                    if((substring === 'litecoin' ) || (substring === 'ltc')){
                      return '845004333846102036';
-                    } else if (substring === 'monero' || 'xmr'){
+                    } else if ((substring === 'monero') || (substring === 'xmr')){
                      return '845019578106642442';
-                    } else if (substring === 'bitcoin' || 'btc'){
+                    } else if ((substring === 'bitcoin') || (substring === 'btc')){
                      return '844985243118075964';
-                    } else if (substring === 'ethereum' || 'eth'){
+                    } else if ((substring === 'ethereum') || (substring === 'eth')){
                      return '844985406893588540';
                     } 
                 }
