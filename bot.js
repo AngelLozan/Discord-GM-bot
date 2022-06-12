@@ -177,7 +177,7 @@ client.on('message', msg => {
                 msg.channel.startTyping();
                 setTimeout(() => {
                     msg.channel.send('GN ' + getRandomEmojiGN());
-                    msg.react(getRandomEmojiGM());
+                    msg.react(getRandomEmojiGN());
                 }, 2000);
                 msg.channel.stopTyping();
                 botCoolDownSet.add(msg.author.bot);
@@ -188,7 +188,7 @@ client.on('message', msg => {
                 msg.channel.startTyping();
                 setTimeout(() => {
                     msg.channel.send('GN ' + getRandomEmojiGN());
-                    msg.react(getRandomEmojiGM());
+                    msg.react(getRandomEmojiGN());
                 }, 2000);
                 msg.channel.stopTyping();
                 botCoolDownSet.add(msg.author.bot);
@@ -199,7 +199,7 @@ client.on('message', msg => {
                 msg.channel.startTyping();
                 setTimeout(() => {
                     msg.channel.send('GN ' + getRandomEmojiGN());
-                    msg.react(getRandomEmojiGM());
+                    msg.react(getRandomEmojiGN());
                 }, 2000);
                 msg.channel.stopTyping();
                 botCoolDownSet.add(msg.author.bot);
@@ -210,7 +210,7 @@ client.on('message', msg => {
                 msg.channel.startTyping();
                 setTimeout(() => {
                     msg.channel.send('GN ' + getRandomEmojiGN());
-                    msg.react(getRandomEmojiGM());
+                    msg.react(getRandomEmojiGN());
                 }, 2000);
                 msg.channel.stopTyping();
                 botCoolDownSet.add(msg.author.bot);
@@ -232,30 +232,29 @@ client.on('message', msg => {
         })
 
 
-      //    .then(() => {
+         .then(() => {
 
-      //   function containsAny(str, substrings) {
-      //       for (var i = 0; i != substrings.length; i++) {
-      //           var substring = substrings[i];
-      //           if (str.indexOf(substring) != -1) {
-      //               return substring;
-      //           }
-      //       }
-      //       return null;
-      //   }
+        function containsAny(str, substrings) {
+            for (var i = 0; i != substrings.length; i++) {
+                var substring = substrings[i];
+                if (str.indexOf(substring) != -1) {
+                    return substring;
+                }
+            }
+            return null;
+        }
 
-      //   var result = containsAny(msg.content, ['✌🏼', '💯', '🦾']);
-      //   var emoji = result.toString();
-      //   msg.react(emoji);
-      //   console.log("String was found in substring " + result);
+        var result = containsAny(msg.content, ['✌🏼', '💯', '🦾']);
+        msg.react('<'+ result +'>');
+        console.log("String was found in substring " + result);
 
-      // })
+      })
          
-      // .catch(error => {
-      //       console.log("emoji content error");
-      //       console.log(error.name);
-      //       console.log(error.message);
-      //   })
+      .catch(error => {
+            console.log("emoji content error");
+            console.log(error.name);
+            console.log(error.message);
+        })
 
         // messages to the GM bot. You can add support messages for keywords too if the bot is directly mentioned with the keyword.
 
