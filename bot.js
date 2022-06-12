@@ -281,7 +281,7 @@ client.on('message', msg => {
                     }
                 }
             }
-            return null;
+            return;
         }
         
 
