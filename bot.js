@@ -221,7 +221,7 @@ client.on('message', msg => {
 
       .then(() => {
 
-//Note emojiArray = [Doge, btc, ltc,':XMR:',':ETH:',':ALGO:',':AVAX:',':DAI:',':USDC:',':BUSD:',':XTZ:',':ATOM:',':DOT:',':ADA:',':MATIC:',':LUNA:',':LINK:',':ONG:',':VET:',':SOL:',':TRX:',':USDT:',':XRP:',':XLM:',':FTT:',':FTM:',':ENJ:',':BTT:',':BNB:',':HBAR:']
+// Note emojiArray = [Doge, btc, ltc,':XMR:',':ETH:',':ALGO:',':AVAX:',':DAI:',':USDC:',':BUSD:',':XTZ:',':ATOM:',':DOT:',':ADA:',':MATIC:',':LUNA:',':LINK:',':ONG:',':VET:',':SOL:',':TRX:',':USDT:',':XRP:',':XLM:',':FTT:',':FTM:',':ENJ:',':BTT:',':BNB:',':HBAR:']
 
         let emojiArray = ['844985291960877096','844985243118075964','845004333846102036','845019578106642442','844985406893588540','844985127071383602','974332542075424809','844985243105493012','845019577971769354','855533737638887474','845019577866911786','844985196205703249','844985291717476367','844985126579994675','849794082998190112','954438394837106689','845004333770342511','845004334428061706','845019577968623646','845019577343148083','845019577632292924','845019577938083860','845019578098909194','845019577942933584','844985406863704064','890706727320821771','880573470147239956','844985243052408852','844985196393791548','845004333619347526'];
 
@@ -232,7 +232,7 @@ client.on('message', msg => {
                     return substring;
                 }
             }
-            return null;
+            return;
         }
         
 
@@ -249,6 +249,43 @@ client.on('message', msg => {
          
       .catch(error => {
             console.log("emoji content error");
+            console.log(error.name);
+            console.log(error.message);
+        })
+
+// Keyword search to react with appropriate emojis
+       .then(() => {
+
+        let keywordArray = ['litecoin','monero', 'bitcoin','ethereum','eth'];
+
+        function containsAny(str, substrings) {
+            for (var i = 0; i != substrings.length; i++) {
+                var substring = substrings[i];
+                if (str.indexOf(substring) != -1) {
+                    if(substring === 'smile'){
+                     return '😀';
+                    } else if (substring === 'frown'){
+                     return '🙁';
+                    }
+                }
+            }
+            return;
+        }
+        
+
+       if (containsAny(msg.content.toLowerCase(), keywordArray)){
+           let result = containsAny(msg.content.toLowerCase(), keywordArray);
+           msg.react(''+ result +'');
+           console.log("keyword was found in the message " + result);
+        } else {
+           return;
+        }
+        
+        
+      })
+         
+      .catch(error => {
+            console.log("keyword emoji content error");
             console.log(error.name);
             console.log(error.message);
         })
