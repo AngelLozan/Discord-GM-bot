@@ -217,6 +217,40 @@ client.on('message', msg => {
             }
         })
 
+// Bot can react to an array of emojis with the same emoji as found in the string msg.content. Modify the array below to include what content you want, including strings.
+
+      .then(() => {
+
+        let emojiArray = [':DOGE:',':BTC:',':LTC:',':XMR:',':ETH:',':ALGO:',':AVAX:',':DAI:',':USDC:',':BUSD:',':XTZ:',':ATOM:',':DOT:',':ADA:',':MATIC:',':LUNA:',':LINK:',':ONG:',':VET:',':SOL:',':TRX:',':USDT:',':XRP:',':XRP:',':XLM:',':FTT:',':FTM:',':ENJ:',':BTT:',':BNB:',':VET:',':HBAR:'];
+
+        function containsAny(str, substrings) {
+            for (var i = 0; i != substrings.length; i++) {
+                var substring = substrings[i];
+                if (str.indexOf(substring) != -1) {
+                    return substring;
+                }
+            }
+            return null;
+        }
+        
+
+       if (containsAny(msg.content, emojiArray)){
+           let result = containsAny(msg.content, emojiArray);
+           msg.react(''+ result +'');
+           // add to troubleshoot: console.log("Emoji was found in the message " + result);
+        } else {
+           return;
+        }
+        
+        
+      })
+         
+      .catch(error => {
+            console.log("emoji content error");
+            console.log(error.name);
+            console.log(error.message);
+        })
+
         //Add specific use mention emojis down here based on criteria (ie. They are level 20 or they are nft contributers, ect.)
 
         //Exodus | SL
