@@ -82,7 +82,7 @@ client.on('message', msg => {
                 } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                     msg.react(getRandomEmojiGM());
                     return;
-                } else if (/\bgm\b/gi.test(msg.content)){
+                } else if (/\bgm\b/gi.test(msg.content)) {
                     msg.react(getRandomEmojiGM());
                     return;
                 } else if (/\bgn\b/gi.test(msg.content)) {
@@ -217,91 +217,158 @@ client.on('message', msg => {
             }
         })
 
-// Bot can react to an array of emojis with the same emoji as found in the string msg.content. Modify the array below to include what content you want, including strings.
+        // Bot can react to an array of emojis with the same emoji as found in the string msg.content. Modify the array below to include what content you want, including strings.
 
-      .then(() => {
+        // .then(() => {
 
-// Note emojiArray = [Doge, btc, ltc,':XMR:',':ETH:',':ALGO:',':AVAX:',':DAI:',':USDC:',':BUSD:',':XTZ:',':ATOM:',':DOT:',':ADA:',':MATIC:',':LUNA:',':LINK:',':ONG:',':VET:',':SOL:',':TRX:',':USDT:',':XRP:',':XLM:',':FTT:',':FTM:',':ENJ:',':BTT:',':BNB:',':HBAR:']
+        //     // Note emojiArray = [Doge, btc, ltc,':XMR:',':ETH:',':ALGO:',':AVAX:',':DAI:',':USDC:',':BUSD:',':XTZ:',':ATOM:',':DOT:',':ADA:',':MATIC:',':LUNA:',':LINK:',':ONG:',':VET:',':SOL:',':TRX:',':USDT:',':XRP:',':XLM:',':FTT:',':FTM:',':ENJ:',':BTT:',':BNB:',':HBAR:']
 
-        let emojiArray = ['844985291960877096','844985243118075964','845004333846102036','845019578106642442','844985406893588540','844985127071383602','974332542075424809','844985243105493012','845019577971769354','855533737638887474','845019577866911786','844985196205703249','844985291717476367','844985126579994675','849794082998190112','954438394837106689','845004333770342511','845004334428061706','845019577968623646','845019577343148083','845019577632292924','845019577938083860','845019578098909194','845019577942933584','844985406863704064','890706727320821771','880573470147239956','844985243052408852','844985196393791548','845004333619347526'];
+        //     let emojiArray = ['844985291960877096', '844985243118075964', '845004333846102036', '845019578106642442', '844985406893588540', '844985127071383602', '974332542075424809', '844985243105493012', '845019577971769354', '855533737638887474', '845019577866911786', '844985196205703249', '844985291717476367', '844985126579994675', '849794082998190112', '954438394837106689', '845004333770342511', '845004334428061706', '845019577968623646', '845019577343148083', '845019577632292924', '845019577938083860', '845019578098909194', '845019577942933584', '844985406863704064', '890706727320821771', '880573470147239956', '844985243052408852', '844985196393791548', '845004333619347526'];
 
-        function containsAny(str, substrings) {
-            for (var i = 0; i != substrings.length; i++) {
-                var substring = substrings[i];
-                if (str.indexOf(substring) != -1) {
-                    return substring;
+        //     function containsAny(str, substrings) {
+        //         for (var i = 0; i != substrings.length; i++) {
+        //             var substring = substrings[i];
+        //             if (str.indexOf(substring) != -1) {
+        //                 return substring;
+        //             }
+        //         }
+        //         return;
+        //     }
+
+
+        //     if (containsAny(msg.content, emojiArray)) {
+        //         let result = containsAny(msg.content, emojiArray);
+        //         msg.react('' + result + '');
+        //         // add to troubleshoot: console.log("Emoji was found in the message " + result);
+        //     } else {
+        //         return;
+        //     }
+
+
+        // })
+
+        // .catch(error => {
+        //     console.log("emoji content error");
+        //     console.log(error.name);
+        //     console.log(error.message);
+        // })
+
+        // Keyword search to react with appropriate emojis. To augment, add to the keyword array and containsArray function list. 
+
+        .then(() => {
+
+            var coins = {
+                "bitcoin": "BTC:844985243118075964",
+                "ethereum": "ETH:844985406893588540",
+                "tether": "USDT:845019577938083860",
+                "usd coin": "USDC:845019577971769354",
+                "bnb": "BNB:844985196393791548",
+                "binance usd": "BUSD:855533737638887474",
+                "cardano": "ADA:844985126579994675",
+                "ripple": "XRP:845019578098909194",
+                "solana": "SOL:845019577343148083",
+                "dogecoin": "DOGE:844985291960877096",
+                "polkadot": "DOT:844985291717476367",
+                "wrapped Bitcoin": "WBTC:845019578090389504",
+                "tron": "TRX:845019577632292924",
+                "dai": "DAI:844985243105493012",
+                "avalanche": "AVAX:974332542075424809",
+                "Shiba inu": "SHIB:864568404995997736",
+                "polygon": "MATIC:849794082998190112",
+                "ftx Token": "FTT:844985406863704064",
+                "litecoin": "LTC:845004333846102036",
+                "chainlink": "LINK:845004333770342511",
+                "uniswap": "UNI:845019577884999680",
+                "monero": "XMR:845019578106642442",
+                "bitcoin cash": "BCH:844985196197838888",
+                "ethereum classic": "ETC:844985406830149733",
+                "algorand": "ALGO:844985127071383602",
+                "cosmos": "ATOM:844985196205703249",
+                "vechain": "VET:845019577968623646",
+                "decentraland": "MANA:845004333955285002",
+                "filecoin": "FIL:851920593296556065",
+                "apecoin": "APE:956984979865366529",
+                "elrond": "EGLD:911036961224024136",
+                "aave": "AAVE:844985126748422164",
+                "eos": "EOS:844985406981406760",
+                "axie Infinity": "AXS:956983490623189084",
+                "waves": "WAVES:845019577921306714",
+                "pancakeswap": "CAKE:869618647629455430",
+                "basic attention token": "BAT:844985195966103633",
+                "hedera": "HBAR:845004333619347526",
+                "ravencoin": "RVN:845004334453620816",
+                "digibyte": "DGB:844985291868864582",
+                "tezos": "XTZ:845019577866911786",
+                "terra": "LUNA:954438394837106689",
+                "ontology": "ONG:845004334428061706",
+                "stellar": "XLM:845019577942933584",
+                "fantom": "FTM:890706727320821771",
+                "enjin": "ENJ:880573470147239956",
+                "bittorrent": "BTT:844985243052408852",
+                "graph protocol": "GRT:845004333169770536"
+            };
+
+            for (keys in coins) {
+                if (msg.content.toLowerCase().includes(keys) || msg.content.toUpperCase().includes(coins[keys].split(':').shift())) {
+                    let reaction = coins[keys].split(':')[1];
+                    // Use to troubleshoot -> console.log(reaction);
+                    msg.react('' + reaction + '');
+                    break
                 }
-            }
-            return;
-        }
-        
+            };
 
-       if (containsAny(msg.content, emojiArray)){
-           let result = containsAny(msg.content, emojiArray);
-           msg.react(''+ result +'');
-           // add to troubleshoot: console.log("Emoji was found in the message " + result);
-        } else {
-           return;
-        }
-        
-        
-      })
-         
-      .catch(error => {
-            console.log("emoji content error");
-            console.log(error.name);
-            console.log(error.message);
         })
 
-// Keyword search to react with appropriate emojis. To augment, add to the keyword array and containsArray function list. 
-
-       .then(() => {
-
-        let keywordArray = ['litecoin','monero', 'bitcoin','ethereum','eth','ltc','btc','xmr'];
-
-        function containsAny(str, substrings) {
-            for (var i = 0; i != substrings.length; i++) {
-                var substring = substrings[i];
-                if (str.indexOf(substring) != -1) {
-                    if(substring === 'litecoin' ){
-                     return '845004333846102036';
-                    } else if (substring === 'ltc'){
-                     return '845004333846102036';
-                    }else if (substring === 'monero') {
-                     return '845019578106642442';
-                    } else if (substring === 'xmr') {
-                     return '845019578106642442';
-                    } else if (substring === 'bitcoin'){
-                     return '844985243118075964';
-                    } else if (substring === 'btc'){
-                     return '844985243118075964';
-                    } else if (substring === 'ethereum') {
-                     return '844985406893588540';
-                    } else if (substring === 'eth') {
-                     return '844985406893588540';
-                    }
-                }
-            }
-            return;
-        }
-        
-
-       if (containsAny(msg.content.toLowerCase(), keywordArray)){
-           let result = containsAny(msg.content.toLowerCase(), keywordArray);
-           msg.react(''+ result +'');
-           console.log("keyword was found in the message " + result);
-        } else {
-           return;
-        }
-        
-        
-      })
-         
-      .catch(error => {
+        .catch(error => {
             console.log("keyword emoji content error");
             console.log(error.name);
             console.log(error.message);
         })
+
+
+        // .then(() => {
+
+        //     let keywordArray = ['litecoin', 'monero', 'bitcoin', 'ethereum', 'eth', 'ltc', 'btc', 'xmr'];
+
+        //     function containsAny(str, substrings) {
+        //         for (var i = 0; i != substrings.length; i++) {
+        //             var substring = substrings[i];
+        //             if (str.indexOf(substring) != -1) {
+        //                 if (substring === 'litecoin') {
+        //                     return '845004333846102036';
+        //                 } else if (substring === 'ltc') {
+        //                     return '845004333846102036';
+        //                 } else if (substring === 'monero') {
+        //                     return '845019578106642442';
+        //                 } else if (substring === 'xmr') {
+        //                     return '845019578106642442';
+        //                 } else if (substring === 'bitcoin') {
+        //                     return '844985243118075964';
+        //                 } else if (substring === 'btc') {
+        //                     return '844985243118075964';
+        //                 } else if (substring === 'ethereum') {
+        //                     return '844985406893588540';
+        //                 } else if (substring === 'eth') {
+        //                     return '844985406893588540';
+        //                 }
+        //             }
+        //         }
+        //         return;
+        //     }
+
+
+        //     if (containsAny(msg.content.toLowerCase(), keywordArray)) {
+        //         let result = containsAny(msg.content.toLowerCase(), keywordArray);
+        //         msg.react('' + result + '');
+        //         // Use to troubleshoot console.log("keyword was found in the message " + result);
+        //     } else {
+        //         return;
+        //     }
+
+
+        // })
+
+
 
         //Add specific use mention emojis down here based on criteria (ie. They are level 20 or they are nft contributers, ect.)
 
