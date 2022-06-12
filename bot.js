@@ -232,7 +232,10 @@ client.on('message', msg => {
         })
 
 
+// Bot can react to an array of emojis with the same emoji as found in the string msg.content. Modify the array below to include what content you want. 
       .then(() => {
+
+        let emojiArray = ['✌🏼', '💯', '🦾'];
 
         function containsAny(str, substrings) {
             for (var i = 0; i != substrings.length; i++) {
@@ -244,8 +247,9 @@ client.on('message', msg => {
             return null;
         }
         
-       if (containsAny(msg.content, ['✌🏼', '💯', '🦾'])){
-           let result = containsAny(msg.content, ['✌🏼', '💯', '🦾']);
+
+       if (containsAny(msg.content, emojiArray)){
+           let result = containsAny(msg.content, emojiArray);
            msg.react(''+ result +'');
            console.log("Emoji was found in the message " + result);
         } else {
