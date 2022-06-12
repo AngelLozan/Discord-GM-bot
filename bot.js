@@ -257,7 +257,7 @@ client.on('message', msg => {
 
        .then(() => {
 
-        let keywordArray = ['litecoin','monero', 'bitcoin','ethereum','eth'];
+        let keywordArray = ['litecoin','monero', 'bitcoin','ethereum','eth','ltc','btc','xmr'];
 
         function containsAny(str, substrings) {
             for (var i = 0; i != substrings.length; i++) {
