@@ -286,7 +286,7 @@ client.on('message', msg => {
         
 
        if (containsAny(msg.content.toLowerCase(), keywordArray)){
-           let result = containsAny(msg.content, keywordArray);
+           let result = containsAny(msg.content.toLowerCase(), keywordArray);
            msg.react(''+ result +'');
            console.log("keyword was found in the message " + result);
         } else {
