@@ -246,8 +246,8 @@ client.on('message', msg => {
         
        if (containsAny(msg.content, ['✌🏼', '💯', '🦾'])){
            let result = containsAny(msg.content, ['✌🏼', '💯', '🦾']);
-           msg.react('<'+ result +'>');
-           console.log("String was found in substring " + result);
+           msg.react(''+ result +'');
+           console.log("Emoji was found in the message " + result);
         } else {
            return;
         }
