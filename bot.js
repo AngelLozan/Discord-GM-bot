@@ -232,7 +232,7 @@ client.on('message', msg => {
         })
 
 
-         .then(() => {
+      .then(() => {
 
         function containsAny(str, substrings) {
             for (var i = 0; i != substrings.length; i++) {
@@ -243,11 +243,15 @@ client.on('message', msg => {
             }
             return null;
         }
-
-        var result = containsAny(msg.content, ['✌🏼', '💯', '🦾']);
-        msg.react('<'+ result +'>');
-        console.log("String was found in substring " + result);
-
+        
+       if (var result = containsAny(msg.content, ['✌🏼', '💯', '🦾'])){
+           msg.react('<'+ result +'>');
+           console.log("String was found in substring " + result);
+        } else {
+           return;
+        }
+        
+        
       })
          
       .catch(error => {
