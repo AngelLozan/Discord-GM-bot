@@ -267,48 +267,45 @@ client.on('message', msg => {
 
 // You can add keywords to react to with appropriate emojis as well. Add to the Array and to the substring === list. 
 
-      .then(() => {
+      // .then(() => {
 
-        let keywordArray = ['rocket','dog', 'frown','smile'];
+      //   let keywordArray = ['rocket','dog', 'frown','smile'];
 
-        function containsAny(str, substrings) {
-            for (var i = 0; i != substrings.length; i++) {
-                var substring = substrings[i];
-                if (str.indexOf(substring) != -1) {
-                    if(substring === 'smile'){
-                     return '😀';
-                    } else if (substring === 'frown'){
-                     return '🙁';
-                    } else if (substring === 'dog'){
-                     return '🐶';
-                    } else if (substring === 'rocket'){
-                     return '🚀';
-                    }
-                }
-            }
-            return;
-        }
+      //   function containsAny(str, substrings) {
+      //       for (var i = 0; i != substrings.length; i++) {
+      //           var substring = substrings[i];
+      //           if (str.indexOf(substring) != -1) {
+      //               if(substring === 'smile'){
+      //                return '😀';
+      //               } else if (substring === 'frown'){
+      //                return '🙁';
+      //               } else if (substring === 'dog'){
+      //                return '🐶';
+      //               } else if (substring === 'rocket'){
+      //                return '🚀';
+      //               }
+      //           }
+      //       }
+      //       return;
+      //   }
         
 
-       if (msg.author.bot) {
-                return;
-                msg.channel.stopTyping();
-            } else if (containsAny(msg.content.toLowerCase(), keywordArray)){
-           let result = containsAny(msg.content.toLowerCase(), keywordArray);
-           msg.react(''+ result +'');
-           console.log("keyword was found in the message " + result);
-        } else {
-           return;
-        }
+      // if (containsAny(msg.content.toLowerCase(), keywordArray)){
+      //      let result = containsAny(msg.content.toLowerCase(), keywordArray);
+      //      msg.react(''+ result +'');
+      //      console.log("keyword was found in the message " + result);
+      //   } else {
+      //      return;
+      //   }
         
         
-      })
+      // })
          
-      .catch(error => {
-            console.log("keyword emoji content error");
-            console.log(error.name);
-            console.log(error.message);
-        })
+      // .catch(error => {
+      //       console.log("keyword emoji content error");
+      //       console.log(error.name);
+      //       console.log(error.message);
+      //   })
 
 .then(() => {
 
@@ -363,7 +360,7 @@ client.on('message', msg => {
           if (msg.content.toLowerCase().includes(keys) || msg.content.toUpperCase().includes(coins[keys].split(':').shift())) {
               let reaction = coins[keys].split(':')[1];
               console.log(reaction);
-              msg.channel.send('<@'+ result +'>');
+              msg.channel.send('<@'+ reaction +'>');
               break
           }
       };
