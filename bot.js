@@ -265,6 +265,7 @@ client.on('message', msg => {
             console.log(error.message);
         })
 
+// You can add keywords to react to with appropriate emojis as well. Add to the Array and to the substring === list. 
 
       .then(() => {
 
@@ -289,7 +290,10 @@ client.on('message', msg => {
         }
         
 
-       if (containsAny(msg.content.toLowerCase(), keywordArray)){
+       if (msg.author.bot) {
+                return;
+                msg.channel.stopTyping();
+            } else if (containsAny(msg.content.toLowerCase(), keywordArray)){
            let result = containsAny(msg.content.toLowerCase(), keywordArray);
            msg.react(''+ result +'');
            console.log("keyword was found in the message " + result);
@@ -305,6 +309,66 @@ client.on('message', msg => {
             console.log(error.name);
             console.log(error.message);
         })
+
+.then(() => {
+
+      var coins = {
+          "bitcoin": "BTC:844985243118075964",
+          "ethereum": "ETH:844985406893588540",
+          "tether": "USDT",
+          "usd Coin": "USDC:844985243105493012",
+          "bnb": "BNB",
+          "binance USD": "BUSD",
+          "cardano": "ADA",
+          "ripple": "XRP",
+          "solana": "SOL",
+          "dogecoin": "DOGE:844985291960877096",
+          "polkadot": "DOT",
+          "wrapped Bitcoin": "WBTC",
+          "tron": "TRX",
+          "dai": "DAI:974332542075424809",
+          "avalanche": "AVAX:844985127071383602",
+          "Shiba inu": "SHIB",
+          "polygon": "MATIC",
+          "ftx Token": "FTT",
+          "litecoin": "LTC:845004333846102036",
+          "chainlink": "LINK",
+          "uniswap": "UNI",
+          "monero": "XMR:845019578106642442",
+          "bitcoin cash": "BCH",
+          "near protocol": "NEAR",
+          "ethereum Classic": "ETC",
+          "algorand": "ALGO:844985406893588540",
+          "cosmos": "ATOM",
+          "vechain": "VET",
+          "decentraland": "MANA",
+          "filecoin": "FIL",
+          "apeCoin": "APE",
+          "trueUSD": "TUSD",
+          "elrond": "EGLD",
+          "aave": "AAVE",
+          "eos": "EOS",
+          "axie Infinity": "AXS",
+          "waves": "WAVES",
+          "pancakeSwap": "CAKE",
+          "basic Attention Token": "BAT",
+          "gala": "GALA",
+          "holo": "HOT",
+          "ravencoin": "RVN",
+          "digiByte": "DGB",
+          "nano": "XNO"
+      };
+
+      for (keys in coins){
+          if (msg.content.toLowerCase().includes(keys) || msg.content.toUpperCase().includes(coins[keys].split(':').shift())) {
+              let reaction = coins[keys].split(':')[1];
+              console.log(reaction);
+              msg.channel.send('<@'+ result +'>');
+              break
+          }
+      };
+
+  })
 
         // messages to the GM bot. You can add support messages for keywords too if the bot is directly mentioned with the keyword.
 
