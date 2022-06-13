@@ -278,8 +278,9 @@ client.on('message', msg => {
                     // Use to troubleshoot -> console.log(reaction);
                     // Maybe include second if statement to find another emoji.
                     msg.react('' + reaction + '');
-                    break
+                    
                 }
+
             };
 
         })
