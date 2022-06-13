@@ -274,10 +274,13 @@ client.on('message', msg => {
 
             for (keys in coins) {
                 if (msg.content.toLowerCase().includes(keys) || msg.content.toUpperCase().includes(coins[keys].split(':').shift())) {
-                    let reaction = coins[keys].split(':')[1];
-                    // Use to troubleshoot -> console.log(reaction);
-                    msg.react('' + reaction + '');
-                    
+                    msg.channel.startTyping();
+                    setTimeout(() => {
+                        let reaction = coins[keys].split(':')[1];
+                        // Use to troubleshoot -> console.log(reaction);
+                        msg.react('' + reaction + '');
+                    }, 2500)
+                    msg.channel.stopTyping();
                 }
 
             };
@@ -290,21 +293,6 @@ client.on('message', msg => {
             console.log(error.message);
         })
 
-        //Add specific use mention emojis down here based on criteria (ie. They are level 20 or they are nft contributers, ect.)
-
-        //Exodus | SL
-        .then(() => {
-            if (/<@971435234061090876>/i.test(msg.content)) {
-                msg.react('🚀');
-            }
-        })
-
-        //Hero
-        .then(() => {
-            if (/<@822555592795095051>/i.test(msg.content)) {
-                msg.react('🙏');
-            }
-        })
 
         //GM bot and minor support messages
 
@@ -412,6 +400,22 @@ client.on('message', msg => {
 
         // GM bot ID <@980457022971600936>
         // Waving exodude emoji id: '845024722559303720';
+
+        //Add specific use mention emojis down here based on criteria. Current criteria == Lvl 20 users only. (Other ideas could be included ie. They are level 10 or they are nft contributers, ect.)
+
+        //Exodus | SL
+        .then(() => {
+            if (/<@971435234061090876>/i.test(msg.content)) {
+                msg.react('🚀');
+            }
+        })
+
+        //Hero
+        .then(() => {
+            if (/<@822555592795095051>/i.test(msg.content)) {
+                msg.react('🙏');
+            }
+        })
 
         //cheez #2592
         .then(() => {
