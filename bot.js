@@ -360,15 +360,19 @@ client.on('message', msg => {
           "graph protocol": "GRT:845004333169770536"
       };
 
+function reactionEmojis(msg) {
       for (keys in coins){
-          if (msg.content.toLowerCase().includes(keys) || msg.content.toUpperCase().includes(coins[keys].split(':').shift())) {
+          if (msg.toLowerCase().includes(keys) || msg.toUpperCase().includes(coins[keys].split(':').shift())) {
               let reaction = coins[keys].split(':')[1];
               // Use to troubleshoot -> console.log(reaction);
               msg.channel.send(''+ reaction +'');
           }
 
-         return;
-      };
+      }
+      return;
+   }
+
+   reactionEmojis(msg.content);
 
   })
 
