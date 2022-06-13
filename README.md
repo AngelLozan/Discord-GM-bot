@@ -10,6 +10,14 @@ Silly project to boost server enjoyment and engagement.
 
 A bot that serves up pure Alpha in your Discord. We only have Good Mornings here, so of course, the bot will pass along the positive vibes and tell you GM if you say GM! The bot is important because no one should have to go without being wished a GM. The bot is there to ensure the whole community has positive vibes and all deserving persons receive a GM in return. 
 
+
+## Reasons to update:
+
+- Users who reach Level 20 get their own emoji whenever they are mentioned. In `bot.js`
+- Adding new coins and bot emoji reactions to those coins being mentioned by keyword can be added to dictionary in `bot.js`
+- 
+
+
 `Some notes`
 
 

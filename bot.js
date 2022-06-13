@@ -239,7 +239,7 @@ client.on('message', msg => {
                 "avalanche": "AVAX:974332542075424809",
                 "Shiba inu": "SHIB:864568404995997736",
                 "polygon": "MATIC:849794082998190112",
-                "ftx Token": "FTT:844985406863704064",
+                "ftx token": "FTT:844985406863704064",
                 "litecoin": "LTC:845004333846102036",
                 "chainlink": "LINK:845004333770342511",
                 "uniswap": "UNI:845019577884999680",
