@@ -15,14 +15,15 @@ A bot that serves up pure Alpha in your Discord. We only have Good Mornings here
 
 - Users who reach Level 20 get their own emoji whenever they are mentioned. In `bot.js`
 - Adding new coins and bot emoji reactions to those coins being mentioned by keyword can be added to dictionary in `bot.js`
-- 
+- Adding support related messages for the bot to respond to can be found in `bot.js`
 
 
-`Some notes`
+### Other notes:
 
 
 - Current .env is for personal test server. You can create your own. You will need a .env file to hold the DISCORD_TOKEN= `your token`
 
 - Dependency discord.js is lower version to ensure full functionality of bot.js file. Threw errors related to intents on higher versions. Intents listed on Developer API portal. 
+
 - Intents in Discord API may need to be set. Different Discord.js Version also may be neccessary. 
 
