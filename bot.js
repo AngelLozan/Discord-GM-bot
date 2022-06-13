@@ -307,73 +307,72 @@ client.on('message', msg => {
       //       console.log(error.message);
       //   })
 
-.then(() => {
 
-      var coins = {
-          "bitcoin": "BTC:844985243118075964",
-          "ethereum": "ETH:844985406893588540",
-          "tether": "USDT:845019577938083860",
-          "usd coin": "USDC:845019577971769354",
-          "bnb": "BNB:844985196393791548",
-          "binance usd": "BUSD:855533737638887474",
-          "cardano": "ADA:844985126579994675",
-          "ripple": "XRP:845019578098909194",
-          "solana": "SOL:845019577343148083",
-          "dogecoin": "DOGE:844985291960877096",
-          "polkadot": "DOT:844985291717476367",
-          "wrapped Bitcoin": "WBTC:845019578090389504",
-          "tron": "TRX:845019577632292924",
-          "dai": "DAI:844985243105493012",
-          "avalanche": "AVAX:974332542075424809",
-          "Shiba inu": "SHIB:864568404995997736",
-          "polygon": "MATIC:849794082998190112",
-          "ftx Token": "FTT:844985406863704064",
-          "litecoin": "LTC:845004333846102036",
-          "chainlink": "LINK:845004333770342511",
-          "uniswap": "UNI:845019577884999680",
-          "monero": "XMR:845019578106642442",
-          "bitcoin cash": "BCH:844985196197838888",
-          "ethereum classic": "ETC:844985406830149733",
-          "algorand": "ALGO:844985127071383602",
-          "cosmos": "ATOM:844985196205703249",
-          "vechain": "VET:845019577968623646",
-          "decentraland": "MANA:845004333955285002",
-          "filecoin": "FIL:851920593296556065",
-          "apecoin": "APE:956984979865366529",
-          "elrond": "EGLD:911036961224024136",
-          "aave": "AAVE:844985126748422164",
-          "eos": "EOS:844985406981406760",
-          "axie Infinity": "AXS:956983490623189084",
-          "waves": "WAVES:845019577921306714",
-          "pancakeswap": "CAKE:869618647629455430",
-          "basic attention token": "BAT:844985195966103633",
-          "hedera": "HBAR:845004333619347526",
-          "ravencoin": "RVN:845004334453620816",
-          "digibyte": "DGB:844985291868864582",
-          "tezos": "XTZ:845019577866911786",
-          "terra": "LUNA:954438394837106689",
-          "ontology": "ONG:845004334428061706",
-          "stellar": "XLM:845019577942933584",
-          "fantom": "FTM:890706727320821771",
-          "enjin": "ENJ:880573470147239956",
-          "bittorrent": "BTT:844985243052408852",
-          "graph protocol": "GRT:845004333169770536"
-      };
+// You can also add a dictionary of custom emojis to react to based on keywords. Custom emoji code goes at the end. Codes and words are an example.
 
-      for (keys in coins){
-          if (msg.content.toLowerCase().includes(keys) || msg.content.toUpperCase().includes(coins[keys].split(':').shift())) {
-              msg.channel.startTyping();
-              setTimeout(() => {
-              let reaction = coins[keys].split(':')[1];
-              // Use to troubleshoot -> console.log(reaction);
-              msg.channel.send(''+ reaction +'');
-              }, 2500)
-                    msg.channel.stopTyping();
-          }
-      }
+// .then(() => {
+
+//       var coins = {
+//           "bitcoin": "BTC:844985243118075964",
+//           "ethereum": "ETH:844985406893588540",
+//           "tether": "USDT:845019577938083860",
+//           "usd coin": "USDC:845019577971769354",
+//           "bnb": "BNB:844985196393791548",
+//           "binance usd": "BUSD:855533737638887474",
+//           "cardano": "ADA:844985126579994675",
+//           "ripple": "XRP:845019578098909194",
+//           "solana": "SOL:845019577343148083",
+//           "dogecoin": "DOGE:844985291960877096",
+//           "polkadot": "DOT:844985291717476367",
+//           "wrapped Bitcoin": "WBTC:845019578090389504",
+//           "tron": "TRX:845019577632292924",
+//           "dai": "DAI:844985243105493012",
+//           "avalanche": "AVAX:974332542075424809",
+//           "Shiba inu": "SHIB:864568404995997736",
+//           "polygon": "MATIC:849794082998190112",
+//           "ftx token": "FTT:844985406863704064",
+//           "litecoin": "LTC:845004333846102036",
+//           "chainlink": "LINK:845004333770342511",
+//           "uniswap": "UNI:845019577884999680",
+//           "monero": "XMR:845019578106642442",
+//           "bitcoin cash": "BCH:844985196197838888",
+//           "ethereum classic": "ETC:844985406830149733",
+//           "algorand": "ALGO:844985127071383602",
+//           "cosmos": "ATOM:844985196205703249",
+//           "vechain": "VET:845019577968623646",
+//           "decentraland": "MANA:845004333955285002",
+//           "filecoin": "FIL:851920593296556065",
+//           "apecoin": "APE:956984979865366529",
+//           "elrond": "EGLD:911036961224024136",
+//           "aave": "AAVE:844985126748422164",
+//           "eos": "EOS:844985406981406760",
+//           "axie Infinity": "AXS:956983490623189084",
+//           "waves": "WAVES:845019577921306714",
+//           "pancakeswap": "CAKE:869618647629455430",
+//           "basic attention token": "BAT:844985195966103633",
+//           "hedera": "HBAR:845004333619347526",
+//           "ravencoin": "RVN:845004334453620816",
+//           "digibyte": "DGB:844985291868864582",
+//           "tezos": "XTZ:845019577866911786",
+//           "terra": "LUNA:954438394837106689",
+//           "ontology": "ONG:845004334428061706",
+//           "stellar": "XLM:845019577942933584",
+//           "fantom": "FTM:890706727320821771",
+//           "enjin": "ENJ:880573470147239956",
+//           "bittorrent": "BTT:844985243052408852",
+//           "graph protocol": "GRT:845004333169770536"
+//       };
+
+//       for (keys in coins){
+//           if (msg.content.toLowerCase().includes(keys) || msg.content.toUpperCase().includes(coins[keys].split(':').shift())) {
+//               let reaction = coins[keys].split(':')[1];
+//               // Use to troubleshoot -> console.log(reaction);
+//               msg.react(''+ reaction +'');
+//           }
+//       }
 
 
-  })
+//   })
 
         // messages to the GM bot. You can add support messages for keywords too if the bot is directly mentioned with the keyword.
 
