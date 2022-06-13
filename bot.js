@@ -273,7 +273,9 @@ client.on('message', msg => {
             };
 
             for (keys in coins) {
-                if (msg.content.toLowerCase().includes(keys) || msg.content.toUpperCase().includes(coins[keys].split(':').shift())) {
+                if (msg.content.includes('http')){
+                  return;
+                } else if (msg.content.toLowerCase().includes(keys) || msg.content.toUpperCase().includes(coins[keys].split(':').shift())) {
                         let reaction = coins[keys].split(':')[1];
                         // Use to troubleshoot -> console.log(reaction);
                         msg.react('' + reaction + '');
