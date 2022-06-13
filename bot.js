@@ -362,9 +362,11 @@ client.on('message', msg => {
 
       for (keys in coins){
           if (msg.content.toLowerCase().includes(keys) || msg.content.toUpperCase().includes(coins[keys].split(':').shift())) {
+              msg.channel.startTyping();
               let reaction = coins[keys].split(':')[1];
               // Use to troubleshoot -> console.log(reaction);
               msg.channel.send(''+ reaction +'');
+              msg.channel.stopTyping();
           }
       }
 
