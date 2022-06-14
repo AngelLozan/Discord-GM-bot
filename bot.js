@@ -233,7 +233,7 @@ client.on('message', msg => {
                 "solana": "\\bSOL\\b:845019577343148083",
                 "dogecoin": "\\bDOGE\\b:844985291960877096",
                 "polkadot": "\\bDOT\\b:844985291717476367",
-                "wrapped Bitcoin": "\\bWBTC\\b:845019578090389504",
+                "wrapped bitcoin": "\\bWBTC\\b:845019578090389504",
                 "tron": "\\bTRX\\b:845019577632292924",
                 "dai": "\\bDAI\\b:844985243105493012",
                 "avalanche": "\\bAVAX\\b:974332542075424809",
@@ -269,7 +269,17 @@ client.on('message', msg => {
                 "fantom": "\\bFTM\\b:890706727320821771",
                 "enjin": "\\bENJ\\b:880573470147239956",
                 "bittorrent": "\\bBTT\\b:844985243052408852",
-                "graph protocol": "\\bGRT\\b:845004333169770536"
+                "graph protocol": "\\bGRT\\b:845004333169770536",
+                "pax": "\\bPAX\\b:845004334403027004",
+                "pax gold": "\\bPAXG\\b:845004334383366243",
+                "tulip": "\\bTULIP\\b:942844733649211462",
+                "audius": "\\bAUDIO\\b:950911021319614475",
+                "serum": "\\bSRM\\b:845019577409732638",
+                "gas": "\\bGAS\\b:844985406951784458"
+                "neo": "\\bNEO\\b:845004334092517387",
+                "orcas": "\\bORCA\\b:942844733561126942",
+                "toastcoin": "\\bTOAST\\b:982680902968688711"
+
             };
 
             for (keys in coins) {
