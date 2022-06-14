@@ -117,7 +117,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/\bgm\b/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -128,7 +128,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/^\bmorning\b.*$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -139,7 +139,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/^\bmornin\b.*$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -150,7 +150,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/^.*\bgood afternoon\b.*$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -161,7 +161,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/^ga$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -172,7 +172,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -183,7 +183,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/\bgn\b/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -194,7 +194,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/^\bnight\b.*$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -205,7 +205,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/^\bnite\b.*$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -216,7 +216,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             }
         })
 
@@ -313,8 +313,8 @@ client.on('message', msg => {
   .then(() => {
 
             var coins = {
-                "bitcoin": "/\bBTC\b/:844985243118075964",
-                "ethereum": "ETH:844985406893588540",
+                "bitcoin": "\\bBTC\\b:844985243118075964",
+                "ethereum": "\\bETH\\b:844985406893588540",
                 "tether": "USDT:845019577938083860",
                 "usd coin": "USDC:845019577971769354",
                 "bnb": "BNB:844985196393791548",
