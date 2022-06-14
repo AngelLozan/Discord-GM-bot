@@ -367,9 +367,11 @@ client.on('message', msg => {
 
                let coinKeys = coins[keys].split(':').shift();
 
+               let regex = new RegExp(coinKeys, 'gi');
+
                 if (msg.content.toLowerCase().includes('http')){
                   return;
-                } else if (msg.content.toLowerCase().includes(keys) || msg.content.toUpperCase().includes(coinKeys)) {
+                } else if (msg.content.toLowerCase().includes(keys) || msg.content.match(regex)) {
                         let reaction = coins[keys].split(':')[1];
                         // Use to troubleshoot -> console.log(reaction);
                         msg.channel.send('' + reaction + '');
