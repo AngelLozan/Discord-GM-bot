@@ -325,8 +325,8 @@ client.on('message', msg => {
                 "dogecoin": "\\bDOGE\\b:844985291960877096",
                 "polkadot": "\\bDOT\\b:844985291717476367",
                 "wrapped Bitcoin": "\\bWBTC\\b:845019578090389504",
-                "\btron\b": "\\bTRX\\b:845019577632292924",
-                "\bdai\b": "\\bDAI\\b:844985243105493012",
+                "trx": "\\bTRON\\b:845019577632292924",
+                "dai": "\\bDAI\\b:844985243105493012",
                 "avalanche": "\\bAVAX\\b:974332542075424809",
                 "Shiba inu": "\\bSHIB\\b:864568404995997736",
                 "polygon": "\\bMATIC\\b:849794082998190112",
@@ -360,7 +360,8 @@ client.on('message', msg => {
                 "fantom": "\\bFTM\\b:890706727320821771",
                 "enjin": "\\bENJ\\b:880573470147239956",
                 "bittorrent": "\\bBTT\\b:844985243052408852",
-                "graph protocol": "\\bGRT\\b:845004333169770536"
+                "graph protocol": "\\bGRT\\b:845004333169770536",
+                "toastcoin": "\\bTOAST\\b:🍞"
             };
 
             for (keys in coins) {
