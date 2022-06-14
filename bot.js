@@ -278,8 +278,7 @@ client.on('message', msg => {
                 "serum": "\\bSRM\\b:845019577409732638",
                 "gas": "\\bGAS\\b:844985406951784458",
                 "neo": "\\bNEO\\b:845004334092517387",
-                "orcas": "\\bORCA\\b:942844733561126942",
-                "toastcoin": "\\bTOAST\\b:982680902968688711"
+                "orcas": "\\bORCA\\b:942844733561126942"
             };
 
             for (keys in coins) {
