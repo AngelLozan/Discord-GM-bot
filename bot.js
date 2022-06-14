@@ -363,11 +363,16 @@ client.on('message', msg => {
                 "graph protocol": "GRT:845004333169770536"
             };
 
-            let regex = new RegExp(key, "gi");
-
-            let regexTwo = new RegExp(coins[keys].split(':').shift(), "gi");
+            
 
             for (keys in coins) {
+
+            let regex = new RegExp(key, "gi");
+
+            let coinKeys = coins[keys].split(':').shift();
+
+            let regexTwo = new RegExp(coinKeys, "gi");
+
                 if (msg.content.toLowerCase().includes('http')){
                   return;
                 } else if (msg.content.toLowerCase().match(regex) || msg.content.toUpperCase().match(regexTwo)) {
