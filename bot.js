@@ -227,7 +227,7 @@ client.on('message', msg => {
                 "ethereum": "\\bETH\\b:844985406893588540",
                 "tether": "\\bUSDT\\b:845019577938083860",
                 "usd coin": "\\bUSDC\\b:845019577971769354",
-                "bnb": "\\bBNB\\b:844985196393791548",
+                "\\bbnb\\b": "\\bBNB\\b:844985196393791548",
                 "binance usd": "\\bBUSD\\b:855533737638887474",
                 "cardano": "\\bADA\\b:844985126579994675",
                 "ripple": "\\bXRP\\b:845019578098909194",
@@ -235,7 +235,7 @@ client.on('message', msg => {
                 "dogecoin": "\\bDOGE\\b:844985291960877096",
                 "polkadot": "\\bDOT\\b:844985291717476367",
                 "wrapped bitcoin": "\\bWBTC\\b:845019578090389504",
-                "tron": "\\bTRX\\b:845019577632292924",
+                "trx": "\\bTRON\\b:845019577632292924",
                 "dai": "\\bDAI\\b:844985243105493012",
                 "avalanche": "\\bAVAX\\b:974332542075424809",
                 "Shiba inu": "\\bSHIB\\b:864568404995997736",
@@ -255,7 +255,7 @@ client.on('message', msg => {
                 "apecoin": "\\bAPE\\b:956984979865366529",
                 "elrond": "\\bEGLD\\b:911036961224024136",
                 "aave": "\\bAAVE\\b:844985126748422164",
-                "eos": "\\bEOS\\b:844985406981406760",
+                "\\beos\\b": "\\bEOS\\b:844985406981406760",
                 "axie Infinity": "\\bAXS\\b:956983490623189084",
                 "waves": "\\bWAVES\\b:845019577921306714",
                 "pancakeswap": "\\bCAKE\\b:869618647629455430",
@@ -278,7 +278,8 @@ client.on('message', msg => {
                 "serum": "\\bSRM\\b:845019577409732638",
                 "gas token": "\\bGAS\\b:844985406951784458",
                 "neo token": "\\bNEO\\b:845004334092517387",
-                "orcas": "\\bORCA\\b:942844733561126942"
+                "orcas": "\\bORCA\\b:942844733561126942",
+                "toastcoin": "\\bTOAST\\b:🍞"
             };
 
             for (keys in coins) {
