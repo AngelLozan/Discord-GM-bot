@@ -310,82 +310,82 @@ client.on('message', msg => {
 
 // You can also add a dictionary of custom emojis to react to based on keywords. Custom emoji code goes at the end. Codes and words are an example.
 
-  // .then(() => {
+  .then(() => {
 
-  //           var coins = {
-  //               "bitcoin": "\\bBTC\\b:844985243118075964",
-  //               "ethereum": "\\bETH\\b:844985406893588540",
-  //               "tether": "\\bUSDT\\b:845019577938083860",
-  //               "usd coin": "\\bUSDC\\b:845019577971769354",
-  //               "bnb": "\\bBNB\\b:844985196393791548",
-  //               "binance usd": "\\bBUSD\\b:855533737638887474",
-  //               "cardano": "\\bADA\\b:844985126579994675",
-  //               "ripple": "\\bXRP\\b:845019578098909194",
-  //               "solana": "\\bSOL\\b:845019577343148083",
-  //               "dogecoin": "\\bDOGE\\b:844985291960877096",
-  //               "polkadot": "\\bDOT\\b:844985291717476367",
-  //               "wrapped Bitcoin": "\\bWBTC\\b:845019578090389504",
-  //               "tron": "\\bTRX\\b:845019577632292924",
-  //               "dai": "\\bDAI\\b:844985243105493012",
-  //               "avalanche": "\\bAVAX\\b:974332542075424809",
-  //               "Shiba inu": "\\bSHIB\\b:864568404995997736",
-  //               "polygon": "\\bMATIC\\b:849794082998190112",
-  //               "ftx token": "\\bFTT\\b:844985406863704064",
-  //               "litecoin": "\\bLTC\\b:845004333846102036",
-  //               "chainlink": "\\bLINK\\b:845004333770342511",
-  //               "uniswap": "\\bUNI\\b:845019577884999680",
-  //               "monero": "\\bXMR\\b:845019578106642442",
-  //               "bitcoin cash": "\\bBCH\\b:844985196197838888",
-  //               "ethereum classic": "\\bETC\\b:844985406830149733",
-  //               "algorand": "\\bALGO\\b:844985127071383602",
-  //               "cosmos": "\\bATOM\\b:844985196205703249",
-  //               "vechain": "\\bVET\\b:845019577968623646",
-  //               "decentraland": "\\bMANA\\b:845004333955285002",
-  //               "filecoin": "\\bFIL\\b:851920593296556065",
-  //               "apecoin": "\\bAPE\\b:956984979865366529",
-  //               "elrond": "\\bEGLD\\b:911036961224024136",
-  //               "aave": "\\bAAVE\\b:844985126748422164",
-  //               "eos": "\\bEOS\\b:844985406981406760",
-  //               "axie Infinity": "\\bAXS\\b:956983490623189084",
-  //               "waves": "\\bWAVES\\b:845019577921306714",
-  //               "pancakeswap": "\\bCAKE\\b:869618647629455430",
-  //               "basic attention token": "\\bBAT\\b:844985195966103633",
-  //               "hedera": "\\bHBAR\\b:845004333619347526",
-  //               "ravencoin": "\\bRVN\\b:845004334453620816",
-  //               "digibyte": "\\bDGB\\b:844985291868864582",
-  //               "tezos": "\\bXTZ\\b:845019577866911786",
-  //               "terra": "\\bLUNA\\b:954438394837106689",
-  //               "ontology": "\\bONG\\b:845004334428061706",
-  //               "stellar": "\\bXLM\\b:845019577942933584",
-  //               "fantom": "\\bFTM\\b:890706727320821771",
-  //               "enjin": "\\bENJ\\b:880573470147239956",
-  //               "bittorrent": "\\bBTT\\b:844985243052408852",
-  //               "graph protocol": "\\bGRT\\b:845004333169770536"
-  //           };
+            var coins = {
+                "bitcoin": "\\bBTC\\b:844985243118075964",
+                "ethereum": "\\bETH\\b:844985406893588540",
+                "tether": "\\bUSDT\\b:845019577938083860",
+                "usd coin": "\\bUSDC\\b:845019577971769354",
+                "bnb": "\\bBNB\\b:844985196393791548",
+                "binance usd": "\\bBUSD\\b:855533737638887474",
+                "cardano": "\\bADA\\b:844985126579994675",
+                "ripple": "\\bXRP\\b:845019578098909194",
+                "solana": "\\bSOL\\b:845019577343148083",
+                "dogecoin": "\\bDOGE\\b:844985291960877096",
+                "polkadot": "\\bDOT\\b:844985291717476367",
+                "wrapped Bitcoin": "\\bWBTC\\b:845019578090389504",
+                "\\btron\\b": "\\bTRX\\b:845019577632292924",
+                "\\bdai\\b": "\\bDAI\\b:844985243105493012",
+                "avalanche": "\\bAVAX\\b:974332542075424809",
+                "Shiba inu": "\\bSHIB\\b:864568404995997736",
+                "polygon": "\\bMATIC\\b:849794082998190112",
+                "ftx token": "\\bFTT\\b:844985406863704064",
+                "litecoin": "\\bLTC\\b:845004333846102036",
+                "chainlink": "\\bLINK\\b:845004333770342511",
+                "uniswap": "\\bUNI\\b:845019577884999680",
+                "monero": "\\bXMR\\b:845019578106642442",
+                "bitcoin cash": "\\bBCH\\b:844985196197838888",
+                "ethereum classic": "\\bETC\\b:844985406830149733",
+                "algorand": "\\bALGO\\b:844985127071383602",
+                "cosmos": "\\bATOM\\b:844985196205703249",
+                "vechain": "\\bVET\\b:845019577968623646",
+                "decentraland": "\\bMANA\\b:845004333955285002",
+                "filecoin": "\\bFIL\\b:851920593296556065",
+                "apecoin": "\\bAPE\\b:956984979865366529",
+                "elrond": "\\bEGLD\\b:911036961224024136",
+                "aave": "\\bAAVE\\b:844985126748422164",
+                "eos": "\\bEOS\\b:844985406981406760",
+                "axie Infinity": "\\bAXS\\b:956983490623189084",
+                "waves": "\\bWAVES\\b:845019577921306714",
+                "pancakeswap": "\\bCAKE\\b:869618647629455430",
+                "basic attention token": "\\bBAT\\b:844985195966103633",
+                "hedera": "\\bHBAR\\b:845004333619347526",
+                "ravencoin": "\\bRVN\\b:845004334453620816",
+                "digibyte": "\\bDGB\\b:844985291868864582",
+                "tezos": "\\bXTZ\\b:845019577866911786",
+                "terra": "\\bLUNA\\b:954438394837106689",
+                "ontology": "\\bONG\\b:845004334428061706",
+                "stellar": "\\bXLM\\b:845019577942933584",
+                "fantom": "\\bFTM\\b:890706727320821771",
+                "enjin": "\\bENJ\\b:880573470147239956",
+                "bittorrent": "\\bBTT\\b:844985243052408852",
+                "graph protocol": "\\bGRT\\b:845004333169770536"
+            };
 
-  //           for (keys in coins) {
+            for (keys in coins) {
 
-  //              let coinKeys = coins[keys].split(':').shift();
+               let coinKeys = coins[keys].split(':').shift();
 
-  //              let regex = new RegExp(coinKeys, 'gi');
+               let regex = new RegExp(coinKeys, 'gi');
 
-  //               if (msg.content.toLowerCase().includes('http')){
-  //                 return;
-  //               } else if (msg.content.toLowerCase().includes(keys) || msg.content.match(regex)) {
-  //                       let reaction = coins[keys].split(':')[1];
-  //                       // Use to troubleshoot -> console.log(reaction);
-  //                       msg.channel.send('' + reaction + '');
-  //               }
+                if (msg.content.toLowerCase().includes('http')){
+                  return;
+                } else if (msg.content.toLowerCase().includes(keys) || msg.content.match(regex)) {
+                        let reaction = coins[keys].split(':')[1];
+                        // Use to troubleshoot -> console.log(reaction);
+                        msg.channel.send('' + reaction + '');
+                }
 
-  //           };
+            };
 
-  //       })
+        })
 
-  //       .catch(error => {
-  //           console.log("keyword emoji content error");
-  //           console.log(error.name);
-  //           console.log(error.message);
-  //       })
+        .catch(error => {
+            console.log("keyword emoji content error");
+            console.log(error.name);
+            console.log(error.message);
+        })
 
 
         // messages to the GM bot. You can add support messages for keywords too if the bot is directly mentioned with the keyword.
