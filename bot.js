@@ -313,7 +313,7 @@ client.on('message', msg => {
   .then(() => {
 
             var coins = {
-                "bitcoin": "^BTC$:844985243118075964",
+                "bitcoin": "\bBTC\b:844985243118075964",
                 "ethereum": "ETH:844985406893588540",
                 "tether": "USDT:845019577938083860",
                 "usd coin": "USDC:845019577971769354",
