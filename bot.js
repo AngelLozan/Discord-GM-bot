@@ -279,7 +279,9 @@ client.on('message', msg => {
                 "gas token": "\\bGAS\\b:844985406951784458",
                 "neo token": "\\bNEO\\b:845004334092517387",
                 "orcas": "\\bORCA\\b:942844733561126942",
-                "toastcoin": "\\bTOAST\\b:🍞"
+                "toastcoin": "\\bTOAST\\b:🍞",
+                "exodus shares": "\\bEXIT\\b:989080346622586900",
+                "exodus coin": "\\bEXOD\\b:989080346622586900"
             };
 
             for (keys in coins) {
