@@ -224,6 +224,7 @@ client.on('message', msg => {
 
             var coins = {
                 "bitcoin": "\\bBTC\\b:844985243118075964",
+                "lightning network": "\\bLN\\b:844985243118075964",
                 "ethereum": "\\bETH\\b:844985406893588540",
                 "tether": "\\bUSDT\\b:845019577938083860",
                 "usd coin": "\\bUSDC\\b:845019577971769354",
