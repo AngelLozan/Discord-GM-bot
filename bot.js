@@ -422,7 +422,7 @@ client.on('message', msg => {
         //Exodus | SL
         .then(() => {
             if (/<@971435234061090876>/i.test(msg.content)) {
-                msg.react('🚀');
+                msg.react('989408289282490388');
             }
         })
 
@@ -434,6 +434,13 @@ client.on('message', msg => {
         })
 
         //cheez #2592
+        .then(() => {
+            if (/<@676203286046572593>/i.test(msg.content)) {
+                msg.react('🧀');
+            }
+        })
+
+        //panic #2592
         .then(() => {
             if (/<@676203286046572593>/i.test(msg.content)) {
                 msg.react('🧀');
