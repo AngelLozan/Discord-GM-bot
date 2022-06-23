@@ -440,13 +440,6 @@ client.on('message', msg => {
             }
         })
 
-        //panic #2592
-        .then(() => {
-            if (/<@676203286046572593>/i.test(msg.content)) {
-                msg.react('🧀');
-            }
-        })
-
         //toast #0001
         .then(() => {
             if (/<@431241025856602116>/i.test(msg.content)) {
