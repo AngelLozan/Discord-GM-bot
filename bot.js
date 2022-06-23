@@ -422,7 +422,7 @@ client.on('message', msg => {
         //Exodus | SL
         .then(() => {
             if (/<@971435234061090876>/i.test(msg.content)) {
-                msg.react('989408289282490388');
+                msg.react('845105345872527395');
             }
         })
 
@@ -496,10 +496,10 @@ client.on('message', msg => {
             }
         })
 
-        //@{BB}#2022
+        //@panichodlr#2022
         .then(() => {
             if (/<@216068201698557962>/i.test(msg.content)) {
-                msg.react('🦾');
+                msg.react('989408289282490388');
             }
         })
 
