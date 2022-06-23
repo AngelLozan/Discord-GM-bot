@@ -422,7 +422,7 @@ client.on('message', msg => {
         //Exodus | SL
         .then(() => {
             if (/<@971435234061090876>/i.test(msg.content)) {
-                msg.react('845105345872527395');
+                msg.react('🚀');
             }
         })
 
@@ -432,6 +432,28 @@ client.on('message', msg => {
                 msg.react('🙏');
             }
         })
+
+        //Exodus | CC
+        .then(() => {
+            if (/<@674834564564123689>/i.test(msg.content)) {
+                msg.react('🍋');
+            }
+        })
+
+        //O'brein
+        .then(() => {
+            if (/<@826479747714121730>/i.test(msg.content)) {
+                msg.react('845105345872527395');
+            }
+        })
+
+        //Kris M.
+        .then(() => {
+            if (/<@861740867948642334>/i.test(msg.content)) {
+                msg.react('🎬');
+            }
+        })
+        
 
         //cheez #2592
         .then(() => {
