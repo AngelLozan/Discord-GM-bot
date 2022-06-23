@@ -333,7 +333,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.');
+                        msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at support@exodus.com if you don\'t hear from someone here. Ping the @Moderation Team team too or find us on Twitter. You can also check out our knowledge base at https://www.exodus.com/ for helpful tutorials.');
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
@@ -356,7 +356,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.');
+                        msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at support@exodus.com if you don\'t hear from someone here. Ping the @Moderation Team too or find us on Twitter. You can also check out our knowledge base at https://www.exodus.com/ for helpful tutorials.');
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
@@ -440,7 +440,7 @@ client.on('message', msg => {
             }
         })
 
-        //O'brein
+        //O'brein (reacts crypto rocket)
         .then(() => {
             if (/<@826479747714121730>/i.test(msg.content)) {
                 msg.react('845105345872527395');
@@ -490,7 +490,7 @@ client.on('message', msg => {
             }
         })
 
-        //Darkness#8489
+        //Darkness#8489 (litecoin reaction)
         .then(() => {
             if (/<@496780002902147072>/i.test(msg.content)) {
                 msg.react('845004333846102036');
@@ -518,7 +518,7 @@ client.on('message', msg => {
             }
         })
 
-        //@panichodlr#2022
+        //@panic hodlr #2022 (birdredbird gif)
         .then(() => {
             if (/<@216068201698557962>/i.test(msg.content)) {
                 msg.react('989408289282490388');
