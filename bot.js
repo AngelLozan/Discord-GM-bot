@@ -347,7 +347,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('Hang in there <@' + msg.author + '>, and try to ping @Moderation')
+                        msg.channel.send('Hang in there <@' + msg.author + '>, and try to ping @Moderation Team')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -391,7 +391,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('Hang in there, <@' + msg.author + '>, and try to ping @Moderation')
+                        msg.channel.send('Hang in there, <@' + msg.author + '>, and try to ping @Moderation Team')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -400,7 +400,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.reply('I can\'t ban users but you can ping @Moderation to make sure the human mods take a care of this. Got you\'re back fam 🦾');
+                        msg.reply('I can\'t ban users but you can ping @Moderation Team to make sure the human mods take a care of this. Got you\'re back fam 🦾');
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
