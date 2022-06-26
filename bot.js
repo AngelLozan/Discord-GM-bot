@@ -272,7 +272,7 @@ client.on('message', msg => {
                 "enjin": "\\bENJ\\b:880573470147239956",
                 "bittorrent": "\\bBTT\\b:844985243052408852",
                 "graph protocol": "\\bGRT\\b:845004333169770536",
-                "pax": "\\bPAX\\b:845004334403027004",
+                "paxos": "\\bPAX\\b:845004334403027004",
                 "pax gold": "\\bPAXG\\b:845004334383366243",
                 "tulip": "\\bTULIP\\b:942844733649211462",
                 "audius": "\\bAUDIO\\b:950911021319614475",
