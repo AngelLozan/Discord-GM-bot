@@ -104,6 +104,8 @@ client.on('message', msg => {
                     msg.react(getRandomEmojiGM());
                     return;
                 } else { return; }
+            } else if (/good evening|good evenin/yi.test(msg.content)) {
+               msg.react(getRandomEmojiGN());
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
