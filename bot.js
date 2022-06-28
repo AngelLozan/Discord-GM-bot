@@ -82,6 +82,9 @@ client.on('message', msg => {
                 } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                     msg.react(getRandomEmojiGM());
                     return;
+                } else if (/good evening|good evenin/yi.test(msg.content)) {
+                    msg.react(getRandomEmojiGN());
+                    return;
                 } else if (/\bgm\b/gi.test(msg.content)) {
                     msg.react(getRandomEmojiGM());
                     return;
