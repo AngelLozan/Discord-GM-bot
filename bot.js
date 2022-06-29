@@ -405,7 +405,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.reply('I can\'t ban users but you can ping @Moderation Team to make sure the human mods take a care of this. Got you\'re back fam 🦾');
+                        msg.reply('I can\'t ban users but you can ping @Moderation Team to make sure the human mods take care of this. Got you\'re back fam 🦾');
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
