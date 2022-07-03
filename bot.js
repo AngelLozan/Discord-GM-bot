@@ -287,7 +287,10 @@ client.on('message', msg => {
                 "orcas": "\\bORCA\\b:942844733561126942",
                 "toastcoin": "\\bTOAST\\b:🍞",
                 "exodus shares": "\\bEXIT\\b:976111708315742308",
-                "exodus coin": "\\bEXOD\\b:976111708315742308"
+                "exodus coin": "\\bEXOD\\b:976111708315742308",
+                "raydium": "\\bRAY\\b:900794462731640912",
+                "nano":"\\bXNO\\b:845004334327791646",
+                "unus sed leo":"\\bLEO\\b:845004333825523763"
             };
 
             for (keys in coins) {
