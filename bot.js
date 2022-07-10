@@ -223,7 +223,7 @@ client.on('message', msg => {
         })
 
         // Keyword search to react with appropriate emojis. To augment, add to the keyword array and containsArray function list. 
-        // "toastcoin": "\\bTOAST\\b:982680902968688711" Private server emoji. Crashes bot. 
+
 
         .then(() => {
 
@@ -245,6 +245,7 @@ client.on('message', msg => {
                 "dai": "\\bDAI\\b:844985243105493012",
                 "avalanche": "\\bAVAX\\b:974332542075424809",
                 "Shiba inu": "\\bSHIB\\b:864568404995997736",
+                "Shibtoshi": "\\bSHIBA\\b:864568404995997736",
                 "polygon": "\\bMATIC\\b:849794082998190112",
                 "ftx token": "\\bFTT\\b:844985406863704064",
                 "litecoin": "\\bLTC\\b:845004333846102036",
@@ -318,7 +319,7 @@ client.on('message', msg => {
         })
 
 
-        //GM bot and minor support messages
+        //GM bot reaction and minor support messages
 
         .then(() => {
 
