@@ -244,8 +244,8 @@ client.on('message', msg => {
                 "trx": "\\bTRON\\b:845019577632292924",
                 "dai": "\\bDAI\\b:844985243105493012",
                 "avalanche": "\\bAVAX\\b:974332542075424809",
-                "Shiba inu": "\\bSHIB\\b:864568404995997736",
-                "Shibtoshi": "\\bSHIBA\\b:864568404995997736",
+                "shiba inu": "\\bSHIB\\b:864568404995997736",
+                "shibtoshi": "\\bSHIBA\\b:864568404995997736",
                 "polygon": "\\bMATIC\\b:849794082998190112",
                 "ftx token": "\\bFTT\\b:844985406863704064",
                 "litecoin": "\\bLTC\\b:845004333846102036",
@@ -342,7 +342,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at support@exodus.com if you don\'t hear from someone here. Ping the @Moderation Team team too or find us on Twitter. You can also check out our knowledge base at https://www.exodus.com/ for helpful tutorials.');
+                        msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at support@exodus.com if you don\'t hear from someone here. Ping the @Moderation team team too or find us on Twitter. You can also check out our knowledge base at https://www.exodus.com/ for helpful tutorials.');
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
@@ -356,7 +356,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('Hang in there <@' + msg.author + '>, and try to ping @Moderation Team')
+                        msg.channel.send('Hang in there <@' + msg.author + '>, and try to ping @Moderation team')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -365,7 +365,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at support@exodus.com if you don\'t hear from someone here. Ping the @Moderation Team too or find us on Twitter. You can also check out our knowledge base at https://www.exodus.com/ for helpful tutorials.');
+                        msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at support@exodus.com if you don\'t hear from someone here. Ping the @Moderation team too or find us on Twitter. You can also check out our knowledge base at https://www.exodus.com/ for helpful tutorials.');
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
@@ -400,7 +400,7 @@ client.on('message', msg => {
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.channel.send('Hang in there, <@' + msg.author + '>, and try to ping @Moderation Team')
+                        msg.channel.send('Hang in there, <@' + msg.author + '>, and try to ping @Moderation team')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -409,7 +409,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-                        msg.reply('I can\'t ban users but you can ping @Moderation Team to make sure the human mods take care of this. Got you\'re back fam 🦾');
+                        msg.reply('I can\'t ban users but you can ping @Moderation team to make sure the human mods take care of this. Got you\'re back fam 🦾');
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
