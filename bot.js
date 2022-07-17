@@ -242,7 +242,7 @@ client.on('message', msg => {
                 "polkadot": "\\bDOT\\b:844985291717476367",
                 "wrapped bitcoin": "\\bWBTC\\b:845019578090389504",
                 "trx": "\\bTRON\\b:845019577632292924",
-                "dai": "\\bDAI\\b:844985243105493012",
+                "MakerDao": "\\bDAI\\b:844985243105493012",
                 "avalanche": "\\bAVAX\\b:974332542075424809",
                 "shiba inu": "\\bSHIB\\b:864568404995997736",
                 "shibtoshi": "\\bSHIBA\\b:864568404995997736",
