@@ -119,7 +119,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/\bgm\b/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -130,7 +130,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/^\bmorning\b.*$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -141,7 +141,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/^\bmornin\b.*$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -152,7 +152,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/^.*\bgood afternoon\b.*$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -163,7 +163,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/^ga$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -174,7 +174,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -185,7 +185,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/\bgn\b/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -196,7 +196,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/^\bnight\b.*$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -207,7 +207,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             } else if (/^\bnite\b.*$/gi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
@@ -218,7 +218,7 @@ client.on('message', msg => {
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
-                }, 45000);
+                }, 60000);
             }
         })
 
