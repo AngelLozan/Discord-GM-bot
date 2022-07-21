@@ -290,7 +290,7 @@ client.on('message', msg => {
                 "exodus shares": "\\bEXIT\\b:976111708315742308",
                 "exodus coin": "\\bEXOD\\b:976111708315742308",
                 "raydium": "\\bRAY\\b:900794462731640912",
-                "nano":"\\bXNO\\b:845004334327791646",
+                "xno":"\\bNANO\\b:845004334327791646",
                 "unus sed leo":"\\bLEO\\b:845004333825523763"
             };
 
