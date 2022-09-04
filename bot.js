@@ -283,7 +283,6 @@ client.on('message', msg => {
                 "tulip": "\\bTULIP\\b:942844733649211462",
                 "audius": "\\bAUDIO\\b:950911021319614475",
                 "serum": "\\bSRM\\b:845019577409732638",
-                "gas token": "\\bGAS\\b:844985406951784458",
                 "neo token": "\\bNEO\\b:845004334092517387",
                 "orcas": "\\bORCA\\b:942844733561126942",
                 "toastcoin": "\\bTOAST\\b:🍞",
