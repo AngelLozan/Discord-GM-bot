@@ -253,7 +253,7 @@ client.on('message', msg => {
                 "uniswap": "\\bUNI\\b:845019577884999680",
                 "monero": "\\bXMR\\b:845019578106642442",
                 "bitcoin cash": "\\bBCH\\b:844985196197838888",
-                "ethereum classic": "\\bETC\\b:844985406830149733",
+                "ethereum classic": "\\bETC\\b$:844985406830149733",
                 "algorand": "\\bALGO\\b:844985127071383602",
                 "cosmos": "\\bATOM\\b:844985196205703249",
                 "vechain": "\\bVET\\b:845019577968623646",
