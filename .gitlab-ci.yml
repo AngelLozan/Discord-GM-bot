@@ -20,3 +20,4 @@ variables:
   DISABLE_CREATE_ECR: "true"
   HELM_V3: "true"
   DOCKER_BUILD_ARCH: "multi-arch"
+  DOCKER_BUILD_NPM_TOKEN: "true"
