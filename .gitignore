@@ -3,3 +3,8 @@
 .DS_Store
 deployment/.DS_Store
 node_modules/
+.gitlab-ci.yml
+Dockerfile/
+/Exodude.jpeg
+deployment/
+package-lock.json
