@@ -12,13 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "@exodus/secrets-manager": "^2.0.2",
-    "discord.js": "^12.2.0",
-    "dotenv": "^16.0.1",
-    "humanize-duration": "^3.27.2",
-    "node-fetch": "^3.2.5"
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1",
+    "humanize-duration": "^3.30.0",
+    "node-fetch": "^3.3.2"
   },
   "engines": {
-    "node": "16.9.1",
-    "npm": "8.4.0"
+    "node": "20.9.0",
+    "npm": "10.1.0"
   }
 }

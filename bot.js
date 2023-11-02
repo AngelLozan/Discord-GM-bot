@@ -1,10 +1,6 @@
 // Run dotenv
 
 require('dotenv').config();
-const fetch = import("node-fetch");
-const humanizeDuration = require('humanize-duration');
-
-
 
 //Method for connecting using discord.js api
 
@@ -17,15 +13,9 @@ client.on('ready', () => {
     client.user.setPresence({
         status: 'online',
         activity: {
-<<<<<<< HEAD
-            name: 'with good vibes',
-            type: 'WATCHING',
-            url: 'https://www.bytebuilder.org/'
-=======
             name: 'at www.exodus.com',
             type: 'WATCHING',
             url: 'https://www.exodus.com/'
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
         }
     })
     console.log(`Logged in as ${client.user.tag}!`);
@@ -54,266 +44,8 @@ const getRandomEmojiGN = () => {
 };
 
 
-
-//Set below allows for a timed message that only permits users to use the particular phrase and receive a response from the bot after a set time period. 
-
-const talkedRecentlyGM = new Set();
-const botCoolDownSet = new Set();
-
 //Once connected, listen for messages
 
-<<<<<<< HEAD
-//Uses promise to ensure multiple mention/regex matches populate all possible scenarios with appropirate message and emoji reaction from bot. 
-
-client.on('message', msg => {
-
-
-    //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
-    let channel = client.channels.cache.get('CHANNEL ID');
-
-    //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
-
-    // Ensure the message issuer is not a bot. ie. The bot does not reply to itself.
-
-    // Use a regex and .test method to find keywords in the message from users. Exclude leters and numbers behind gm/gn as stand alone phrases. Symbols except @ OK (may be an email). i = ignore case
-    // Don't forget the "y" sticky flag on regex or different words trigger gn or gm.
-
-    return Promise.resolve()
-
-        .then(() => {
-            if (msg.author.bot) {
-                return;
-                msg.channel.stopTyping();
-            } else if (/gm bot|\bno\b|bad|bot|don\'t|didn\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
-                return;
-            } else if (botCoolDownSet.has(msg.author.bot)) {
-                if (msg.content.includes('<@980467385398079488>')) {
-                    return;
-                } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
-                    msg.react(getRandomEmojiGM());
-                    return;
-                } else if (/\bgm\b/gi.test(msg.content)){
-                    msg.react(getRandomEmojiGM());
-                    return;
-                } else if (/\bgn\b/gi.test(msg.content)) {
-                    msg.react(getRandomEmojiGN());
-                    return;
-                } else if (/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)) {
-                    msg.react(getRandomEmojiGN());
-                    return;
-                } else if (/^\bnight\b.*$/gi.test(msg.content)) {
-                    msg.react(getRandomEmojiGN());
-                    return;
-                } else if (/^\bnite\b.*$/gi.test(msg.content)) {
-                    msg.react(getRandomEmojiGN());
-                    return;
-                } else if (/^ga$/gi.test(msg.content)) {
-                    msg.react(getRandomEmojiGM());
-                    return;
-                } else if (/^.*\bgood afternoon\b.*$/gi.test(msg.content)) {
-                    msg.react(getRandomEmojiGM());
-                    return;
-                } else { return; }
-            } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('GM ' + getRandomEmojiGM());
-                    msg.react(getRandomEmojiGM());
-                }, 2000);
-                msg.channel.stopTyping();
-                botCoolDownSet.add(msg.author.bot);
-                setTimeout(() => {
-                    botCoolDownSet.delete(msg.author.bot);
-                }, 60000);
-            } else if (/\bgm\b/gi.test(msg.content)) {
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('GM ' + getRandomEmojiGM());
-                    msg.react(getRandomEmojiGM());
-                }, 2000);
-                msg.channel.stopTyping();
-                botCoolDownSet.add(msg.author.bot);
-                setTimeout(() => {
-                    botCoolDownSet.delete(msg.author.bot);
-                }, 60000);
-            } else if (/^\bmorning\b.*$/gi.test(msg.content)) {
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('GM ' + getRandomEmojiGM());
-                    msg.react(getRandomEmojiGM());
-                }, 2000);
-                msg.channel.stopTyping();
-                botCoolDownSet.add(msg.author.bot);
-                setTimeout(() => {
-                    botCoolDownSet.delete(msg.author.bot);
-                }, 60000);
-            } else if (/^\bmornin\b.*$/gi.test(msg.content)) {
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('GM ' + getRandomEmojiGM());
-                    msg.react(getRandomEmojiGM());
-                }, 2000);
-                msg.channel.stopTyping();
-                botCoolDownSet.add(msg.author.bot);
-                setTimeout(() => {
-                    botCoolDownSet.delete(msg.author.bot);
-                }, 60000);
-            } else if (/^.*\bgood afternoon\b.*$/gi.test(msg.content)) {
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('GA ' + getRandomEmojiGM());
-                    msg.react(getRandomEmojiGM());
-                }, 2000);
-                msg.channel.stopTyping();
-                botCoolDownSet.add(msg.author.bot);
-                setTimeout(() => {
-                    botCoolDownSet.delete(msg.author.bot);
-                }, 60000);
-            } else if (/^ga$/gi.test(msg.content)) {
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('GA ' + getRandomEmojiGM());
-                    msg.react(getRandomEmojiGM());
-                }, 2000);
-                msg.channel.stopTyping();
-                botCoolDownSet.add(msg.author.bot);
-                setTimeout(() => {
-                    botCoolDownSet.delete(msg.author.bot);
-                }, 60000);
-            } else if (/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)) {
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('GN ' + getRandomEmojiGN());
-                    msg.react(getRandomEmojiGN());
-                }, 2000);
-                msg.channel.stopTyping();
-                botCoolDownSet.add(msg.author.bot);
-                setTimeout(() => {
-                    botCoolDownSet.delete(msg.author.bot);
-                }, 60000);
-            } else if (/\bgn\b/gi.test(msg.content)) {
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('GN ' + getRandomEmojiGN());
-                    msg.react(getRandomEmojiGN());
-                }, 2000);
-                msg.channel.stopTyping();
-                botCoolDownSet.add(msg.author.bot);
-                setTimeout(() => {
-                    botCoolDownSet.delete(msg.author.bot);
-                }, 60000);
-            } else if (/^\bnight\b.*$/gi.test(msg.content)) {
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('GN ' + getRandomEmojiGN());
-                    msg.react(getRandomEmojiGN());
-                }, 2000);
-                msg.channel.stopTyping();
-                botCoolDownSet.add(msg.author.bot);
-                setTimeout(() => {
-                    botCoolDownSet.delete(msg.author.bot);
-                }, 60000);
-            } else if (/^\bnite\b.*$/gi.test(msg.content)) {
-                msg.channel.startTyping();
-                setTimeout(() => {
-                    msg.channel.send('GN ' + getRandomEmojiGN());
-                    msg.react(getRandomEmojiGN());
-                }, 2000);
-                msg.channel.stopTyping();
-                botCoolDownSet.add(msg.author.bot);
-                setTimeout(() => {
-                    botCoolDownSet.delete(msg.author.bot);
-                }, 60000);
-            }
-        })
-
-
-        //Add specific use mention emojis down here based on criteria (ie. They are level 20 or they are nft contributers, ect.)
-
-        //User needs to be formatted as ID. so copy id and put between <@ > in regex test. 
-
-        .then(() => {
-            if (/<@841402856497610772>/i.test(msg.content)) {
-                msg.react('🚀');
-            }
-        })
-
-
-// Bot can react to an array of emojis with the same emoji as found in the string msg.content. Modify the array below to include what content you want. 
-      .then(() => {
-
-        let emojiArray = ['🚀', '💯', '🦾'];
-
-        function containsAny(str, substrings) {
-            for (var i = 0; i != substrings.length; i++) {
-                var substring = substrings[i];
-                if (str.indexOf(substring) != -1) {
-                    return substring;
-                }
-            }
-            return;
-        }
-        
-
-       if (containsAny(msg.content, emojiArray)){
-           let result = containsAny(msg.content, emojiArray);
-           msg.react(''+ result +'');
-           console.log("Emoji was found in the message " + result);
-        } else {
-           return;
-        }
-        
-        
-      })
-         
-      .catch(error => {
-            console.log("emoji content error");
-            console.log(error.name);
-            console.log(error.message);
-        })
-
-// You can add keywords to react to with appropriate emojis as well. Add to the Array and to the substring === list. 
-
-      // .then(() => {
-
-      //   let keywordArray = ['rocket','dog', 'frown','smile'];
-
-      //   function containsAny(str, substrings) {
-      //       for (var i = 0; i != substrings.length; i++) {
-      //           var substring = substrings[i];
-      //           if (str.indexOf(substring) != -1) {
-      //               if(substring === 'smile'){
-      //                return '😀';
-      //               } else if (substring === 'frown'){
-      //                return '🙁';
-      //               } else if (substring === 'dog'){
-      //                return '🐶';
-      //               } else if (substring === 'rocket'){
-      //                return '🚀';
-      //               }
-      //           }
-      //       }
-      //       return;
-      //   }
-        
-
-      // if (containsAny(msg.content.toLowerCase(), keywordArray)){
-      //      let result = containsAny(msg.content.toLowerCase(), keywordArray);
-      //      msg.react(''+ result +'');
-      //      console.log("keyword was found in the message " + result);
-      //   } else {
-      //      return;
-      //   }
-        
-        
-      // })
-         
-      // .catch(error => {
-      //       console.log("keyword emoji content error");
-      //       console.log(error.name);
-      //       console.log(error.message);
-      //   })
-=======
 //check first is mention of user. Can do for each user
 
 //Set below allows for a timed message that only permits users to use the particular phrase and receive a response from the bot after a set time period. 
@@ -587,108 +319,15 @@ client.on('message', msg => {
 
 
         //GM bot reaction and minor support messages
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
 
         .then(() => {
 
-<<<<<<< HEAD
-// You can also add a dictionary of custom emojis to react to based on keywords. Custom emoji code goes at the end. Codes and words are an example.
-
-  .then(() => {
-
-            var coins = {
-                "bitcoin": "\\bBTC\\b:844985243118075964",
-                "ethereum": "\\bETH\\b:844985406893588540",
-                "tether": "\\bUSDT\\b:845019577938083860",
-                "usd coin": "\\bUSDC\\b:845019577971769354",
-                "bnb": "\\bBNB\\b:844985196393791548",
-                "binance usd": "\\bBUSD\\b:855533737638887474",
-                "cardano": "\\bADA\\b:844985126579994675",
-                "ripple": "\\bXRP\\b:845019578098909194",
-                "solana": "\\bSOL\\b:845019577343148083",
-                "dogecoin": "\\bDOGE\\b:844985291960877096",
-                "polkadot": "\\bDOT\\b:844985291717476367",
-                "wrapped Bitcoin": "\\bWBTC\\b:845019578090389504",
-                "trx": "\\bTRON\\b:845019577632292924",
-                "dai": "\\bDAI\\b:844985243105493012",
-                "avalanche": "\\bAVAX\\b:974332542075424809",
-                "Shiba inu": "\\bSHIB\\b:864568404995997736",
-                "polygon": "\\bMATIC\\b:849794082998190112",
-                "ftx token": "\\bFTT\\b:844985406863704064",
-                "litecoin": "\\bLTC\\b:845004333846102036",
-                "chainlink": "\\bLINK\\b:845004333770342511",
-                "uniswap": "\\bUNI\\b:845019577884999680",
-                "monero": "\\bXMR\\b:845019578106642442",
-                "bitcoin cash": "\\bBCH\\b:844985196197838888",
-                "ethereum classic": "\\bETC\\b:844985406830149733",
-                "algorand": "\\bALGO\\b:844985127071383602",
-                "cosmos": "\\bATOM\\b:844985196205703249",
-                "vechain": "\\bVET\\b:845019577968623646",
-                "decentraland": "\\bMANA\\b:845004333955285002",
-                "filecoin": "\\bFIL\\b:851920593296556065",
-                "apecoin": "\\bAPE\\b:956984979865366529",
-                "elrond": "\\bEGLD\\b:911036961224024136",
-                "aave": "\\bAAVE\\b:844985126748422164",
-                "eos": "\\bEOS\\b:844985406981406760",
-                "axie Infinity": "\\bAXS\\b:956983490623189084",
-                "waves": "\\bWAVES\\b:845019577921306714",
-                "pancakeswap": "\\bCAKE\\b:869618647629455430",
-                "basic attention token": "\\bBAT\\b:844985195966103633",
-                "hedera": "\\bHBAR\\b:845004333619347526",
-                "ravencoin": "\\bRVN\\b:845004334453620816",
-                "digibyte": "\\bDGB\\b:844985291868864582",
-                "tezos": "\\bXTZ\\b:845019577866911786",
-                "terra": "\\bLUNA\\b:954438394837106689",
-                "ontology": "\\bONG\\b:845004334428061706",
-                "stellar": "\\bXLM\\b:845019577942933584",
-                "fantom": "\\bFTM\\b:890706727320821771",
-                "enjin": "\\bENJ\\b:880573470147239956",
-                "bittorrent": "\\bBTT\\b:844985243052408852",
-                "graph protocol": "\\bGRT\\b:845004333169770536",
-                "toastcoin": "\\bTOAST\\b:🍞"
-            };
-
-            for (keys in coins) {
-
-               let coinKeys = coins[keys].split(':').shift();
-
-               let regex = new RegExp(coinKeys, 'gi');
-
-                if (msg.content.toLowerCase().includes('http')){
-                  return;
-                } else if (msg.content.toLowerCase().includes(keys) || msg.content.match(regex)) {
-                        let reaction = coins[keys].split(':')[1];
-                        // Use to troubleshoot -> console.log(reaction);
-                        msg.channel.send('' + reaction + '');
-                }
-
-            };
-
-        })
-
-        .catch(error => {
-            console.log("keyword emoji content error");
-            console.log(error.name);
-            console.log(error.message);
-        })
-
-
-        // messages to the GM bot. You can add support messages for keywords too if the bot is directly mentioned with the keyword.
-
-        .then(() => {
-
-=======
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
             if (msg.author.bot) {
                 return;
                 msg.channel.stopTyping();
             } else if (/gm bot|\bno\b|bad|bot|don\'t|didn\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
                 return;
-<<<<<<< HEAD
-            } else if (msg.content.toLowerCase().includes('help') && msg.content.includes('<@980467385398079488>')) {
-=======
             } else if (msg.content.toLowerCase().includes('help') && msg.content.includes('<@980457022971600936>')) {
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
                 msg.react('⛑');
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
@@ -702,11 +341,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-<<<<<<< HEAD
-                        msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at example@email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.');
-=======
                         msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at support@exodus.com if you don\'t hear from someone here. Ping the @Moderation team team too or find us on Twitter. You can also check out our knowledge base at https://www.exodus.com/ for helpful tutorials.');
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
@@ -715,20 +350,12 @@ client.on('message', msg => {
                         talkedRecentlyGM.delete(msg.author.id);
                     }, 30000);
                 }
-<<<<<<< HEAD
-            } else if (msg.content.toLowerCase().includes('question') && msg.content.includes('<@980467385398079488>')) {
-=======
             } else if (msg.content.toLowerCase().includes('question') && msg.content.includes('<@980457022971600936>')) {
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
                 msg.react('🤔');
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-<<<<<<< HEAD
-                        msg.channel.send('Hang in there <@' + msg.author + '>, and try to ping @Moderation')
-=======
                         msg.channel.send('Hang in there <@' + msg.author + '>, and try to ping @Moderation team')
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -737,11 +364,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-<<<<<<< HEAD
-                        msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at example.email.com if you don\'t hear from someone here. Ping the @moderation team too or find us on Twitter. You can also check out our knowledge base at https://example.com/ for helpful tutorials.');
-=======
                         msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at support@exodus.com if you don\'t hear from someone here. Ping the @Moderation team too or find us on Twitter. You can also check out our knowledge base at https://www.exodus.com/ for helpful tutorials.');
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
@@ -750,53 +373,33 @@ client.on('message', msg => {
                         talkedRecentlyGM.delete(msg.author.id);
                     }, 30000);
                 }
-<<<<<<< HEAD
-            } else if (msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980467385398079488>')) {
-=======
             } else if (msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980457022971600936>')) {
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
                 msg.react('💙');
                 msg.channel.startTyping();
                 setTimeout(() => {
                     msg.channel.send('You\'re welcome');
                 }, 2000);
                 msg.channel.stopTyping();
-<<<<<<< HEAD
-            } else if (msg.content.toLowerCase().includes('thank you') && msg.content.includes('<@980467385398079488>')) {
-=======
             } else if (msg.content.toLowerCase().includes('thank you') && msg.content.includes('<@980457022971600936>')) {
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
                 msg.react('💙');
                 msg.channel.startTyping();
                 setTimeout(() => {
                     msg.channel.send('You\'re welcome');
                 }, 2000);
                 msg.channel.stopTyping();
-<<<<<<< HEAD
-            } else if (msg.content.toLowerCase().includes('i love you') && msg.content.includes('<@980467385398079488>')) {
-=======
             } else if (msg.content.toLowerCase().includes('i love you') && msg.content.includes('<@980457022971600936>')) {
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
                 msg.react('😉');
                 msg.channel.startTyping();
                 setTimeout(() => {
                     msg.channel.send('I see us as just friends tbh.');
                 }, 2000);
                 msg.channel.stopTyping();
-<<<<<<< HEAD
-            } else if (msg.content.toLowerCase().includes('ban') && msg.content.includes('<@980467385398079488>')) {
-=======
             } else if (msg.content.toLowerCase().includes('ban') && msg.content.includes('<@980457022971600936>')) {
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
                 msg.react('⛑');
                 if (talkedRecentlyGM.has(msg.author.id)) {
                     msg.channel.startTyping();
                     setTimeout(() => {
-<<<<<<< HEAD
-                        msg.channel.send('Hang in there, <@' + msg.author + '>, and try to ping @Moderation')
-=======
                         msg.channel.send('Hang in there, <@' + msg.author + '>, and try to ping @Moderation team')
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
@@ -805,11 +408,7 @@ client.on('message', msg => {
                 } else {
                     msg.channel.startTyping();
                     setTimeout(() => {
-<<<<<<< HEAD
-                        msg.reply('I can\'t ban users but you can ping @Moderation to make sure the human mods take a care of this. Got you\'re back fam 🦾');
-=======
                         msg.reply('I can\'t ban users but you can ping @Moderation team to make sure the human mods take care of this. Got you\'re back fam 🦾');
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
                     }, 2000);
                     msg.channel.stopTyping();
                     talkedRecentlyGM.add(msg.author.id);
@@ -818,10 +417,6 @@ client.on('message', msg => {
                         talkedRecentlyGM.delete(msg.author.id);
                     }, 30000);
                 }
-<<<<<<< HEAD
-            } else if (/(?!\bhelp\b)<@980467385398079488>/gi.test(msg.content)) {
-                msg.react('👾');
-=======
             } else if (/(?!\bhelp\b)<@980457022971600936>/gi.test(msg.content)) {
                 msg.react('845024722559303720');
             }
@@ -949,7 +544,6 @@ client.on('message', msg => {
         .then(() => {
             if (/<@135096550773751808>/i.test(msg.content)) {
                 msg.react('💎');
->>>>>>> bfb9243b6fe2c966120e8d7eed0042b1bc01ee69
             }
         })
 
