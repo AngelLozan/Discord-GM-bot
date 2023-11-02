@@ -7,3 +7,4 @@ node_modules/
 Dockerfile/
 /Exodude.jpeg
 deployment/
+package-lock.json
