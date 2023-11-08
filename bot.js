@@ -7,7 +7,7 @@ require('dotenv').config();
 // const Discord = require('discord.js');
 // const client = new Discord.Client();
 
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, Intents } = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -15,20 +15,34 @@ const client = new Client({
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
         GatewayIntentBits.GuildMembers,
+        Intents.FLAGS.GUILDS,
+        Intents.FLAGS.GUILD_MESSAGES,
     ],
 });
 
 // Connect to server and set status to display under bot
 
-client.on('ready', () => {
+// client.on('ready', () => {
+//     client.user.setPresence({
+//         status: 'online',
+//         activity: {
+//             name: 'at www.exodus.com',
+//             type: 'WATCHING',
+//             url: 'https://www.exodus.com/'
+//         }
+//     })
+//     console.log(`Logged in as ${client.user.tag}!`);
+// });
+
+client.once('ready', () => {
     client.user.setPresence({
         status: 'online',
-        activity: {
+        activities: [{
             name: 'at www.exodus.com',
             type: 'WATCHING',
-            url: 'https://www.exodus.com/'
-        }
-    })
+            url: 'https://www.exodus.com/',
+        }],
+    });
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
@@ -65,11 +79,12 @@ const talkedRecentlyGM = new Set();
 const botCoolDownSet = new Set();
 
 
-client.on('message', msg => {
+client.on('messageCreate', (msg) => {
 
     //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
 
-    let channel = client.channels.cache.get('CHANNEL ID');
+    // let channel = client.channels.cache.get('CHANNEL ID');
+    let channel = client.channels.fetch('CHANNEL ID');
 
     //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
 
@@ -316,6 +331,7 @@ client.on('message', msg => {
                         let reaction = coins[keys].split(':')[1];
                         // Use to troubleshoot -> console.log(reaction);
                         msg.react('' + reaction + '');
+                        // msg.react( emoji: reaction );
                 }
 
             };
