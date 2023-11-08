@@ -4,8 +4,19 @@ require('dotenv').config();
 
 //Method for connecting using discord.js api
 
-const Discord = require('discord.js');
-const client = new Discord.Client();
+// const Discord = require('discord.js');
+// const client = new Discord.Client();
+
+const { Client, GatewayIntentBits } = require('discord.js');
+
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMembers,
+    ],
+});
 
 // Connect to server and set status to display under bot
 
