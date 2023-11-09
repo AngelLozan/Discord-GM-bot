@@ -2,8 +2,12 @@
 .idea/
 .DS_Store
 deployment/.DS_Store
+deployment/values.yaml
+deployment/values-prod.yaml
 node_modules/
 .gitlab-ci.yml
 Dockerfile/
 /Exodude.jpeg
-
+/deployment/
+/node_modules/
+package-lock.json

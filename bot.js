@@ -79,24 +79,17 @@ const talkedRecentlyGM = new Set();
 const botCoolDownSet = new Set();
 
 
-// client.on('messageCreate', (msg) => {
-// client.on(Events.InteractionCreate, (msg) => {
-client.on(Events.MessageCreate, (msg) => {
+client.on('messageCreate', (msg) => {
+    //needs the channel ID to define channel to append to sendTyping method below. Cache for each channel connected. 
 
-    //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
-
-    try {
-        let id = msg.options.getString('destination');
-        let channel = client.channels.cache.get(id);
-        // let channel = client.channels.cache.get('CHANNEL ID');
-        // let channel = client.channels.fetch('CHANNEL ID');
-    } catch(e) {
-        console.log(" >>>>>>> Error with channel: ", e);
-    }
+    const id = msg.channelId;
+    console.log(">>>>> Id is: ", id);
+    const channel = client.channels.cache.get(id);
+    
+       
 
 
-
-    //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
+    //start typing using msg from parameter, channel id and method.  
 
     // Ensure the message issuer is not a bot. ie. The bot does not reply to itself.
 
@@ -109,7 +102,7 @@ client.on(Events.MessageCreate, (msg) => {
         .then(() => {
             if (msg.author.bot) {
                 return;
-                msg.channel.stopTyping();
+                
             } else if (/gm bot|\bno\b|bad|bot|don\'t|didn\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
                 return;
             } else if (botCoolDownSet.has(msg.author.bot)) {
@@ -117,7 +110,7 @@ client.on(Events.MessageCreate, (msg) => {
                     return;
                 } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                     const emote = getRandomEmojiGM();
-                    msg.react(emoji: emote);
+                    msg.react(emote);
                     return;
                 } else if (/good evening|good evenin/yi.test(msg.content)) {
                     msg.react(getRandomEmojiGN());
@@ -147,112 +140,110 @@ client.on(Events.MessageCreate, (msg) => {
             } else if (/good evening|good evenin/yi.test(msg.content)) {
                msg.react(getRandomEmojiGN());
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     const emote = getRandomEmojiGM();
                     msg.channel.send('GM ' + emote);
-                    // msg.react(getRandomEmojiGM());
                 }, 2000);
-                msg.channel.stopTyping();
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
                 }, 60000);
             } else if (/\bgm\b/gi.test(msg.content)) {
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     msg.channel.send('GM ' + getRandomEmojiGM());
                     msg.react(getRandomEmojiGM());
                 }, 2000);
-                msg.channel.stopTyping();
+                
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
                 }, 60000);
             } else if (/^\bmorning\b.*$/gi.test(msg.content)) {
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     msg.channel.send('GM ' + getRandomEmojiGM());
                     msg.react(getRandomEmojiGM());
                 }, 2000);
-                msg.channel.stopTyping();
+                
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
                 }, 60000);
             } else if (/^\bmornin\b.*$/gi.test(msg.content)) {
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     msg.channel.send('GM ' + getRandomEmojiGM());
                     msg.react(getRandomEmojiGM());
                 }, 2000);
-                msg.channel.stopTyping();
+                
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
                 }, 60000);
             } else if (/^.*\bgood afternoon\b.*$/gi.test(msg.content)) {
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     msg.channel.send('GA ' + getRandomEmojiGM());
                     msg.react(getRandomEmojiGM());
                 }, 2000);
-                msg.channel.stopTyping();
+                
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
                 }, 60000);
             } else if (/^ga$/gi.test(msg.content)) {
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     msg.channel.send('GA ' + getRandomEmojiGM());
                     msg.react(getRandomEmojiGM());
                 }, 2000);
-                msg.channel.stopTyping();
+                
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
                 }, 60000);
             } else if (/good night|goodnight|nite nite|night night|^nite$|^gn$|^gn[^A-Za-z0-9@].*$|^night$/gi.test(msg.content)) {
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     msg.channel.send('GN ' + getRandomEmojiGN());
                     msg.react(getRandomEmojiGN());
                 }, 2000);
-                msg.channel.stopTyping();
+                
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
                 }, 60000);
             } else if (/\bgn\b/gi.test(msg.content)) {
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     msg.channel.send('GN ' + getRandomEmojiGN());
                     msg.react(getRandomEmojiGN());
                 }, 2000);
-                msg.channel.stopTyping();
+                
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
                 }, 60000);
             } else if (/^\bnight\b.*$/gi.test(msg.content)) {
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     msg.channel.send('GN ' + getRandomEmojiGN());
                     msg.react(getRandomEmojiGN());
                 }, 2000);
-                msg.channel.stopTyping();
+                
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
                 }, 60000);
             } else if (/^\bnite\b.*$/gi.test(msg.content)) {
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     msg.channel.send('GN ' + getRandomEmojiGN());
                     msg.react(getRandomEmojiGN());
                 }, 2000);
-                msg.channel.stopTyping();
+                
                 botCoolDownSet.add(msg.author.bot);
                 setTimeout(() => {
                     botCoolDownSet.delete(msg.author.bot);
@@ -351,9 +342,10 @@ client.on(Events.MessageCreate, (msg) => {
         })
 
         .catch(error => {
-            console.log("keyword emoji content error");
+            console.log("Keyword emoji content error");
             console.log(error.name);
             console.log(error.message);
+            console.log(error)
         })
 
 
@@ -363,26 +355,26 @@ client.on(Events.MessageCreate, (msg) => {
 
             if (msg.author.bot) {
                 return;
-                msg.channel.stopTyping();
+                
             } else if (/gm bot|\bno\b|bad|bot|don\'t|didn\'t|not|couldn\'t|wouldn\'t|horrible|awful|terrible/gi.test(msg.content)) {
                 return;
             } else if (msg.content.toLowerCase().includes('help') && msg.content.includes('<@980457022971600936>')) {
                 msg.react('⛑');
                 if (talkedRecentlyGM.has(msg.author.id)) {
-                    msg.channel.startTyping();
+                    msg.channel.sendTyping();
                     setTimeout(() => {
                         msg.channel.send('Hang in there <@' + msg.author + '>')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
                     }, 2000)
-                    msg.channel.stopTyping();
+                    
                 } else {
-                    msg.channel.startTyping();
+                    msg.channel.sendTyping();
                     setTimeout(() => {
                         msg.channel.send('I\'m not programmed to assist here, but the support team is always available and will respond quickly. You can email them at support@exodus.com if you don\'t hear from someone here. Ping the @Moderation team team too or find us on Twitter. You can also check out our knowledge base at https://www.exodus.com/ for helpful tutorials.');
                     }, 2000);
-                    msg.channel.stopTyping();
+                    
                     talkedRecentlyGM.add(msg.author.id);
                     setTimeout(() => {
                         // Removes the user from the set after 30 seconds
@@ -392,20 +384,20 @@ client.on(Events.MessageCreate, (msg) => {
             } else if (msg.content.toLowerCase().includes('question') && msg.content.includes('<@980457022971600936>')) {
                 msg.react('🤔');
                 if (talkedRecentlyGM.has(msg.author.id)) {
-                    msg.channel.startTyping();
+                    msg.channel.sendTyping();
                     setTimeout(() => {
                         msg.channel.send('Hang in there <@' + msg.author + '>, and try to ping @Moderation team')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
                     }, 2000)
-                    msg.channel.stopTyping();
+                    
                 } else {
-                    msg.channel.startTyping();
+                    msg.channel.sendTyping();
                     setTimeout(() => {
                         msg.channel.send('I\'m not programmed to answer questions here, but the support team is always available and will respond quickly. You can email them at support@exodus.com if you don\'t hear from someone here. Ping the @Moderation team too or find us on Twitter. You can also check out our knowledge base at https://www.exodus.com/ for helpful tutorials.');
                     }, 2000);
-                    msg.channel.stopTyping();
+                   
                     talkedRecentlyGM.add(msg.author.id);
                     setTimeout(() => {
                         // Removes the user from the set after 30 seconds
@@ -414,42 +406,42 @@ client.on(Events.MessageCreate, (msg) => {
                 }
             } else if (msg.content.toLowerCase().includes('thanks') && msg.content.includes('<@980457022971600936>')) {
                 msg.react('💙');
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     msg.channel.send('You\'re welcome');
                 }, 2000);
-                msg.channel.stopTyping();
+                
             } else if (msg.content.toLowerCase().includes('thank you') && msg.content.includes('<@980457022971600936>')) {
                 msg.react('💙');
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     msg.channel.send('You\'re welcome');
                 }, 2000);
-                msg.channel.stopTyping();
+                
             } else if (msg.content.toLowerCase().includes('i love you') && msg.content.includes('<@980457022971600936>')) {
                 msg.react('😉');
-                msg.channel.startTyping();
+                msg.channel.sendTyping();
                 setTimeout(() => {
                     msg.channel.send('I see us as just friends tbh.');
                 }, 2000);
-                msg.channel.stopTyping();
+                
             } else if (msg.content.toLowerCase().includes('ban') && msg.content.includes('<@980457022971600936>')) {
                 msg.react('⛑');
                 if (talkedRecentlyGM.has(msg.author.id)) {
-                    msg.channel.startTyping();
+                    msg.channel.sendTyping();
                     setTimeout(() => {
                         msg.channel.send('Hang in there, <@' + msg.author + '>, and try to ping @Moderation team')
                             .then(msg => {
                                 msg.delete({ timeout: 3000 })
                             })
                     }, 2000)
-                    msg.channel.stopTyping();
+                    
                 } else {
-                    msg.channel.startTyping();
+                    msg.channel.sendTyping();
                     setTimeout(() => {
                         msg.reply('I can\'t ban users but you can ping @Moderation team to make sure the human mods take care of this. Got you\'re back fam 🦾');
                     }, 2000);
-                    msg.channel.stopTyping();
+                    
                     talkedRecentlyGM.add(msg.author.id);
                     setTimeout(() => {
                         // Removes the user from the set after 30 seconds
