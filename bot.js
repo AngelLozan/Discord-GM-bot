@@ -81,6 +81,7 @@ client.on('messageCreate', (msg) => {
 
     //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
 
+<<<<<<< HEAD
     try {
         let channel = client.channels.cache.get('CHANNEL ID');
         // let channel = client.channels.fetch('CHANNEL ID');
@@ -88,6 +89,10 @@ client.on('messageCreate', (msg) => {
         console.log("Error with channel: ", e);
     }
 
+=======
+    // let channel = client.channels.cache.get('CHANNEL ID');
+    let channel = client.channels.fetch('CHANNEL ID');
+>>>>>>> d56fd3dd73d52c018c2bf35a1c729937d3e94a83
 
     //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
 
