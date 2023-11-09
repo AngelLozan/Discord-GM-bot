@@ -7,7 +7,7 @@ require('dotenv').config();
 // const Discord = require('discord.js');
 // const client = new Discord.Client();
 
-const { Client, GatewayIntentBits, Intents } = require('discord.js');
+const { Client, GatewayIntentBits, Events } = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -15,6 +15,7 @@ const client = new Client({
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
         GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessageReactions,
     ],
 });
 
@@ -32,8 +33,9 @@ const client = new Client({
 //     console.log(`Logged in as ${client.user.tag}!`);
 // });
 
-client.once('ready', () => {
-    client.user.setPresence({
+
+client.once(Events.ClientReady, c => {
+    c.user.setPresence({
         status: 'online',
         activities: [{
             name: 'at www.exodus.com',
@@ -41,7 +43,7 @@ client.once('ready', () => {
             url: 'https://www.exodus.com/',
         }],
     });
-    console.log(`Logged in as ${client.user.tag}!`);
+    console.log(`Logged in as ${c.user.tag}!`);
 });
 
 //initialize bot connect to servers and activate
@@ -77,22 +79,22 @@ const talkedRecentlyGM = new Set();
 const botCoolDownSet = new Set();
 
 
-client.on('messageCreate', (msg) => {
+// client.on('messageCreate', (msg) => {
+// client.on(Events.InteractionCreate, (msg) => {
+client.on(Events.MessageCreate, (msg) => {
 
     //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
 
-<<<<<<< HEAD
     try {
-        let channel = client.channels.cache.get('CHANNEL ID');
+        let id = msg.options.getString('destination');
+        let channel = client.channels.cache.get(id);
+        // let channel = client.channels.cache.get('CHANNEL ID');
         // let channel = client.channels.fetch('CHANNEL ID');
     } catch(e) {
-        console.log("Error with channel: ", e);
+        console.log(" >>>>>>> Error with channel: ", e);
     }
 
-=======
-    // let channel = client.channels.cache.get('CHANNEL ID');
-    let channel = client.channels.fetch('CHANNEL ID');
->>>>>>> d56fd3dd73d52c018c2bf35a1c729937d3e94a83
+
 
     //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
 
@@ -147,8 +149,9 @@ client.on('messageCreate', (msg) => {
             } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
                 msg.channel.startTyping();
                 setTimeout(() => {
-                    msg.channel.send('GM ' + getRandomEmojiGM());
-                    msg.react(getRandomEmojiGM());
+                    const emote = getRandomEmojiGM();
+                    msg.channel.send('GM ' + emote);
+                    // msg.react(getRandomEmojiGM());
                 }, 2000);
                 msg.channel.stopTyping();
                 botCoolDownSet.add(msg.author.bot);
