@@ -4,20 +4,43 @@ require('dotenv').config();
 
 //Method for connecting using discord.js api
 
-const Discord = require('discord.js');
-const client = new Discord.Client();
+// const Discord = require('discord.js');
+// const client = new Discord.Client();
+
+const { Client, GatewayIntentBits, Intents } = require('discord.js');
+
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMembers,
+    ],
+});
 
 // Connect to server and set status to display under bot
 
-client.on('ready', () => {
+// client.on('ready', () => {
+//     client.user.setPresence({
+//         status: 'online',
+//         activity: {
+//             name: 'at www.exodus.com',
+//             type: 'WATCHING',
+//             url: 'https://www.exodus.com/'
+//         }
+//     })
+//     console.log(`Logged in as ${client.user.tag}!`);
+// });
+
+client.once('ready', () => {
     client.user.setPresence({
         status: 'online',
-        activity: {
+        activities: [{
             name: 'at www.exodus.com',
             type: 'WATCHING',
-            url: 'https://www.exodus.com/'
-        }
-    })
+            url: 'https://www.exodus.com/',
+        }],
+    });
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
@@ -54,11 +77,17 @@ const talkedRecentlyGM = new Set();
 const botCoolDownSet = new Set();
 
 
-client.on('message', msg => {
+client.on('messageCreate', (msg) => {
 
     //needs the channel ID to define channel to append to startTyping method below. Cache for each channel connected. 
 
-    let channel = client.channels.cache.get('CHANNEL ID');
+    try {
+        let channel = client.channels.cache.get('CHANNEL ID');
+        // let channel = client.channels.fetch('CHANNEL ID');
+    } catch(e) {
+        console.log("Error with channel: ", e);
+    }
+
 
     //start typing using msg from parameter, channel id and method. msg.channel.stopTyping()stops the bot from always typing and has timeout for visual effect. 
 
@@ -80,7 +109,8 @@ client.on('message', msg => {
                 if (msg.content.includes('<@980457022971600936>')) {
                     return;
                 } else if (/good morning|good mornin|^gm$|^gm[^A-Za-z0-9@].*$|^mornin$|^morning$/yi.test(msg.content)) {
-                    msg.react(getRandomEmojiGM());
+                    const emote = getRandomEmojiGM();
+                    msg.react(emoji: emote);
                     return;
                 } else if (/good evening|good evenin/yi.test(msg.content)) {
                     msg.react(getRandomEmojiGN());
@@ -253,7 +283,7 @@ client.on('message', msg => {
                 "uniswap": "\\bUNI\\b:845019577884999680",
                 "monero": "\\bXMR\\b:845019578106642442",
                 "bitcoin cash": "\\bBCH\\b:844985196197838888",
-                "ethereum classic": "\\bETC\\b$:844985406830149733",
+                "ethereum classic": "\\bETC\\b:844985406830149733",
                 "algorand": "\\bALGO\\b:844985127071383602",
                 "cosmos": "\\bATOM\\b:844985196205703249",
                 "vechain": "\\bVET\\b:845019577968623646",
@@ -305,6 +335,7 @@ client.on('message', msg => {
                         let reaction = coins[keys].split(':')[1];
                         // Use to troubleshoot -> console.log(reaction);
                         msg.react('' + reaction + '');
+                        // msg.react( emoji: reaction );
                 }
 
             };
@@ -554,3 +585,8 @@ client.on('message', msg => {
         })
 
 });
+
+process.on('unhandledRejection', error => {
+    console.error('Unhandled promise rejection:', error);
+});
+
