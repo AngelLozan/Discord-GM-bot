@@ -11,7 +11,6 @@
   "author": "Scott L.",
   "license": "ISC",
   "dependencies": {
-    "@exodus/secrets-manager": "^2.0.2",
     "discord.js": "^14.13.0",
     "dotenv": "^16.3.1",
     "humanize-duration": "^3.30.0",
